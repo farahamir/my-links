@@ -4,7 +4,7 @@ const {By, Browser, Builder} = require("selenium-webdriver");
 const assert = require('assert');
 
 // Constants
-const EXTENSION_URL = 'chrome-extension://kjdlecnngadegjeefikgofkfhbjnkaej/index.html';
+const EXTENSION_URL = 'chrome-extension://fifanmghgnpjmkopnhnohejffglfcpci/index.html';
 const DEFAULT_SLEEP = 1000;
 
 // Helper functions
@@ -1359,7 +1359,9 @@ describe('Should be able to Test the Extension Functionalities', function () {
     it('Use favicon toggle switch in Item links dialog and validate changes in html and storage', async function () {});
     it('Try adding new icon for link in item popup few times, remove also and validate in html and storage', async function () {
         let driver = await buildDriver();
-        await navigateToExtension(driver); await loadTestingDataToChromeStorage(driver);
+        await navigateToExtension(driver);
+        await loadTestingDataToChromeStorage(driver);
+        await driver.sleep(DEFAULT_SLEEP);
         //open context menu
         const background = await driver.findElement(By.id('background'));
         // Trigger the contextmenu event
@@ -1370,7 +1372,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         const openGifsPopup = await driver.findElement(By.id('gifs-popup'));
         assert(await openGifsPopup.isDisplayed(), 'Gifs popup should be displayed');
         await driver.sleep(DEFAULT_SLEEP);
-        //add new image to gifs
+        //add new image to GIFs
         const addGifBtn = await driver.findElement(By.id('add-new-link-btn'));
         const gifUrlInput = await driver.findElement(By.id('new-link-inp'));
         await gifUrlInput.sendKeys('https://media2.giphy.com/media/QxdbjzetcgDImLeeSO/giphy.gif?cid=6c09b9529fexph9gmkq1i1etgfvxrv5xxq7hswdkkiol8tbu&ep=v1_internal_gif_by_id&rid=giphy.gi');
@@ -1393,11 +1395,20 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await removeLink.click();
         await driver.switchTo().alert().accept();
         await driver.sleep(DEFAULT_SLEEP);
-        //add again a new image to gifs
+        //add again a new image to GIFs
         await gifUrlInput.sendKeys('https://media2.giphy.com/media/QxdbjzetcgDImLeeSO/giphy.gif?cid=6c09b9529fexph9gmkq1i1etgfvxrv5xxq7hswdkkiol8tbu&ep=v1_internal_gif_by_id&rid=giphy.gi');
         await addGifBtn.click();
         const gif3 = await driver.findElement(By.id('gifs,64'));
         assert(gif3, 'Gif with id gifs,64 should exist in the html');
+        //close the GIFs popup
+        const overlay1 = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: 0, y: -320, origin: overlay1}).click().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //open again GIFs popup
+        await driver.actions().contextClick(background).perform();
+        const openGifs2 = await driver.findElement(By.id('shGifs'));
+        await openGifs2.click();
+
         //validate in local storage
         const result = await driver.executeScript(() => {
             return new Promise((resolve) => {
@@ -1409,8 +1420,8 @@ describe('Should be able to Test the Extension Functionalities', function () {
         const map = new Map(Object.entries(result));
         assert(map.has('gifs,64'), 'Gif with id gifs,64 should be present in storage');
         assert(map.get('gifs').links.includes(64), 'Gif with id gifs,64 should be present in gifs.links array');
-        const overlay = await driver.findElement(By.id('overlay'));
-        await driver.actions().move({x: 0, y: -320, origin: overlay}).click().perform();
+        const overlay2 = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: 0, y: -320, origin: overlay2}).click().perform();
         await checkNoConsoleErrors(driver);
         await driver.quit();
 

@@ -1,7 +1,7 @@
 {
-  "name": "My Things",
-  "version": "1.0",
-  "description": "My Things",
+  "name": "MyLinks",
+  "version": "0.1",
+  "description": "Organize and visualize your links using Images as shapes—fully local, no sign-in, with search, drag-and-drop, and image support.",
   "permissions": [
     "storage",
     "contextMenus",
@@ -35,9 +35,10 @@
     "*://*/*"
   ],
   "icons": {
-    "16": "img/Mythings.png",
-    "48": "img/Mythings.png",
-    "128": "img/Mythings.png"
+    "16": "img/Mythings16.png",
+    "32": "img/Mythings32.png",
+    "48": "img/Mythings48.png",
+    "128": "img/Mythings128.png"
   },
   "action": {
     "default_icon": "img/Mythings.png"
