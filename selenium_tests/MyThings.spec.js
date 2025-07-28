@@ -2558,4 +2558,102 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await checkNoConsoleErrors(driver);
         await driver.quit();
     });
+    it('Add and browse different websites to bookmarks,readinglist from fresh start. validate all changes in different dialogs', async function () {
+        let driver = await buildDriver();
+        await navigateToExtension(driver);
+        await driver.sleep(DEFAULT_SLEEP);
+        //get a list of all divs with class 'pane' and open the context menu on each pane
+        await driver.executeScript('window.open("https://www.amazon.com")');
+        await driver.executeScript('window.open("https://www.ebay.com")');
+        await driver.executeScript('window.open("https://www.aliexpress.com/")');
+        //add 3 links to bookmarks
+        await driver.executeScript(() => {
+            chrome.bookmarks.create({title: 'Amazon', url: 'https://www.amazon.com'});
+            chrome.bookmarks.create({title: 'eBay', url: 'https://www.ebay.com'});
+            chrome.bookmarks.create({title: 'AliExpress', url: 'https://www.aliexpress.com/'});
+        });
+        //add 3 links to reading list
+        await driver.executeScript(() => {
+            chrome.readingList.addEntry({title: 'Amazon', url: 'https://www.amazon.com',hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'eBay', url: 'https://www.ebay.com',hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'AliExpress', url: 'https://www.aliexpress.com/',hasBeenRead: false});
+        });
+        //focus on the first opened tab
+        await driver.sleep(DEFAULT_SLEEP);
+        const handles = await driver.getAllWindowHandles();
+        await driver.switchTo().window(handles[0]);
+        await driver.sleep(DEFAULT_SLEEP);
+        //open history dialog
+        const background = await driver.findElement(By.id('background'));
+        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shHist
+        const shHist = await driver.findElement(By.id('shHist'));
+        await shHist.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the history dialog is opened
+        const historyDialog = await driver.findElement(By.id('history-popup'));
+        const historyDialogContent = await driver.findElement(By.id('history,popup-content'));
+        assert(await historyDialog.isDisplayed(), 'History dialog should be displayed');
+        //check that the history dialog has 3 items
+        const historyItems = await historyDialogContent.findElements(By.xpath('./*'));
+        assert.strictEqual(historyItems.length, 3, 'History dialog should have 3 items');
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the overlay
+        const overlay = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlay}).click().perform();
+        //open open-tabs dialog
+        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shTabs
+        const shTabs = await driver.findElement(By.id('shTab'));
+        await shTabs.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the open-tabs dialog is opened
+        const openTabsDialog = await driver.findElement(By.id('open-tabs-popup'));
+        const openTabsDialogContent = await driver.findElement(By.id('open-tabs,popup-content'));
+        assert(await openTabsDialog.isDisplayed(), 'Open tabs dialog should be displayed');
+        //check that the open-tabs dialog has 3 items
+        const openTabsItems = await openTabsDialogContent.findElements(By.xpath('./*'));
+        assert.strictEqual(openTabsItems.length, 3, 'Open tabs dialog should have 3 items');
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the overlay
+        const overlay2 = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlay2}).click().perform();
+        //open bookmarks dialog
+        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shBkm
+        const shBkm = await driver.findElement(By.id('shBok'));
+        await shBkm.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the bookmark dialog is opened
+        const bookmarksDialog = await driver.findElement(By.id('bookmarks-popup'));
+        const bookmarksDialogContent = await driver.findElement(By.id('bookmarks,popup-content'));
+        assert(await bookmarksDialog.isDisplayed(), 'Bookmarks dialog should be displayed');
+        //check that the bookmark dialog has 3 items
+        const bookmarksItems = await bookmarksDialogContent.findElements(By.xpath('./*'));
+        assert.strictEqual(bookmarksItems.length, 3, 'Bookmarks dialog should have 3 items');
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the overlay
+        const overlay3 = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlay3}).click().perform();
+        //open the reading list dialog
+        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shRList
+        const shRList = await driver.findElement(By.id('shRdngLst'));
+        await shRList.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the readingList dialog is opened
+        const readingListDialog = await driver.findElement(By.id('reading-list-popup'));
+        const readingListDialogContent = await driver.findElement(By.id('reading-list,popup-content'));
+        assert(await readingListDialog.isDisplayed(), 'Reading list dialog should be displayed');
+        //check that the readingList dialog has 3 items
+        const readingListItems = await readingListDialogContent.findElements(By.xpath('./*'));
+        assert.strictEqual(readingListItems.length, 3, 'Reading list dialog should have 3 items');
+        await driver.sleep(DEFAULT_SLEEP);
+        await driver.quit();
+    });
+
 });

@@ -691,7 +691,7 @@ function adjustDialogInWindow(dialog) {
 function populateHistoryDialogBox(uniqueHistoryItemsByTitle, popup_content,faviconChrome) {
     for (const historyItem of Object.values(uniqueHistoryItemsByTitle)) {
         const link = historyItem.url;
-        if (!link.includes("chrome-extension://")) {
+        if (!link.includes("chrome-extension://") && !link.includes("data:,") && !link.includes("about:")) {
             const newLink = document.createElement("a");
             const newImg = document.createElement("img");
             newImg.src = faviconChrome?faviconURLChrome(historyItem.url):faviconURL(historyItem.url);
