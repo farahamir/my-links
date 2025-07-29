@@ -34,7 +34,7 @@ function addToSearchResults(value, searchResults, resultsArray) {
     result.tabIndex = 0; // Make the element focusable
     result.addEventListener('contextmenu', () => {});
     searchResults.appendChild(result);
-    resultsArray.push(result); // Add to result array
+    resultsArray.push(result); // Add to a result array
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -105,9 +105,11 @@ document.addEventListener('DOMContentLoaded', async function () {
             startTime: oneWeekAgo,
             maxResults:1000
         }, function callback(historyItemsResult) {
-            historyItemsResult.forEach(value => {
-                addToSearchResults(value, searchResults, resultsArray);
-            });
+            historyItemsResult
+                .filter(value => !(value.url && value.url.startsWith("chrome-extension://")))
+                .forEach(value => {
+                    addToSearchResults(value, searchResults, resultsArray);
+                });
         });
         chrome.readingList.query({}, function callback(items) {
             const filteredItems = items.filter(item =>
@@ -130,14 +132,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
 
         chrome.tabs.query({}, async function (tabs) {
-            chrome.tabs.query({}, async function (tabs) {
-                const matchingTabs = tabs.filter(tab =>
-                    (tab.url && tab.url.includes(searchInput.value)) ||
-                    (tab.title && tab.title.includes(searchInput.value))
-                );
-                matchingTabs.forEach(value => {
-                    addToSearchResults(value, searchResults, resultsArray);
-                });
+            const matchingTabs = tabs.filter(tab =>
+                !(tab.url && tab.url.startsWith("chrome-extension://")) &&
+                ((tab.url && tab.url.includes(searchInput.value)) ||
+                (tab.title && tab.title.includes(searchInput.value)))
+            );
+            matchingTabs.forEach(value => {
+                addToSearchResults(value, searchResults, resultsArray);
             });
         });
 
@@ -183,7 +184,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 })
 
 const keyUpListener = (event) => {
-    if (event.which <= 90 && event.which >= 48) {//only letters and numbers
+    if (event.which <= 90 && event.which >= 48) {//Allow only letters and numbers
         document.getElementById("overlay").style.display = "block";
         const keyValue = event.key;
         const searchInputDiv = document.getElementById("searchInputDiv");
@@ -414,37 +415,36 @@ async function backgroundDrop(ev) {
 }
 
 function addLinksToHistory(results, popup_content) {
-    $.each(results, async function (indexInArray, historyItem) {
-        const link = historyItem.url;
-        if (!link.includes("chrome-extension://")) {
-            const newLink = document.createElement("a");
-            const newImg = document.createElement("img");
-            newImg.src = faviconURL(historyItem.url);
-            newImg.onerror = () => {
-                newImg.src = faviconURLChrome(historyItem.url);
-            }
-            newImg.alt = link;
-            newImg.width = 32;
-            newImg.height = 32;
-            newImg.loading = "lazy";
-            newLink.href = link;
-            newLink.title = historyItem.title;
-            newLink.target = "_blank";
-            newLink.link = historyItem.url;
-            newLink.appendChild(newImg);
-            newImg.addEventListener('dragstart', function (dragEvent) {
-                dragStart(dragEvent)
-            }, false);
-            newImg.addEventListener("dragend", function (dragEvent) {
-                dragEnd(dragEvent)
-            }, false);
-            newLink.addEventListener("contextmenu", function (event) {
-                handleLinkCtMe(newLink, event);
-            }, false);
-            popup_content.appendChild(newLink);
+for (const historyItem of results) {
+    const link = historyItem.url;
+    if (!link.includes("chrome-extension://")) {
+        const newLink = document.createElement("a");
+        const newImg = document.createElement("img");
+        newImg.src = faviconURL(historyItem.url);
+        newImg.onerror = () => {
+            newImg.src = faviconURLChrome(historyItem.url);
         }
-    });
-}
+        newImg.alt = link;
+        newImg.width = 32;
+        newImg.height = 32;
+        newImg.loading = "lazy";
+        newLink.href = link;
+        newLink.title = historyItem.title;
+        newLink.target = "_blank";
+        newLink.link = historyItem.url;
+        newLink.appendChild(newImg);
+        newImg.addEventListener('dragstart', function (dragEvent) {
+            dragStart(dragEvent)
+        }, false);
+        newImg.addEventListener("dragend", function (dragEvent) {
+            dragEnd(dragEvent)
+        }, false);
+        newLink.addEventListener("contextmenu", function (event) {
+            handleLinkCtMe(newLink, event);
+        }, false);
+        popup_content.appendChild(newLink);
+    }
+}}
 
 //image to change
 let imageToChange;
@@ -1088,10 +1088,6 @@ async function populateBackgroundsDialogBox(backgroundLinks, result, popup_conte
 async function createBackgroundsDialogBox(event, result, backgroundLinks,viewId) {
     createDialogBox(event, "Backgrounds", "backgrounds",  (dialog, dialog_content) => {
         populateBackgroundsDialogBox(backgroundLinks, result, dialog_content,viewId);
-        const closeBtn = document.createElement("span");
-        closeBtn.id = "close-btn";
-        closeBtn.innerHTML = "X";
-        closeBtn.className = "close-btn";
         const addNewLinkBtn = document.createElement("button");
         addNewLinkBtn.id = "add-new-link-btn";
         addNewLinkBtn.innerHTML = "Add New Link";
@@ -1109,7 +1105,6 @@ async function createBackgroundsDialogBox(event, result, backgroundLinks,viewId)
         dialog.appendChild(newUrlInput);
         dialog.appendChild(newUrlTitleLabel);
         dialog.appendChild(newUrlTitleInput);
-        dialog.appendChild(closeBtn);
         newUrlInput.focus();
         addNewLinkBtn.addEventListener("click", function () {
             addNewGifListener(newUrlTitleInput, dialog_content);
@@ -1368,13 +1363,13 @@ async function removeReadingLinkClickListener(newLink) {
 }
 
 function populateOpenTabsDialogBox(tabs, popup_content,faviconChrome) {
-    $.each(tabs, async function (key, tab) {
+    for (const tab of tabs) {
         //adding links
         const link = tab.url;
         if (!link.includes("chrome-extension://")) {
             const newLink = document.createElement("a");
             const newImg = document.createElement("img");
-            newImg.src = faviconChrome?faviconURLChrome(tab.url):faviconURL(tab.url);
+            newImg.src = faviconChrome ? faviconURLChrome(tab.url) : faviconURL(tab.url);
             newImg.onerror = () => {
                 newImg.src = faviconURLChrome(tab.url);
             }
@@ -1403,7 +1398,7 @@ function populateOpenTabsDialogBox(tabs, popup_content,faviconChrome) {
             }, false);
             popup_content.appendChild(newLink);
         }
-    });
+    }
 }
 
 function handleOpenTabsLinkCtMe(tab, event) {
@@ -1442,8 +1437,6 @@ function buildCtxMenu(ctxData, newLink, event,additionalFunctionality) {
     }
     buildCtxMenuDiv(contextMenuDiv, event);
 }
-
-
 
 async function populatingLinksInDialog(item, popup_content,faviconChrome) {
     if (item.links) {
@@ -1537,14 +1530,10 @@ async function showGifsClickListener(event) {
 function createGifsDialogBox(event, result, gifLinks) {
     createDialogBox(event, "Gifs", "gifs", (dialog, dialog_content) => {
         populateGifsDialogBox(gifLinks, result, dialog_content);
-        const closeBtn = document.createElement("span");
         const addNewLinkBtn = document.createElement("button");
         const newUrlTitleInput = document.createElement("input");
         const newUrlInput = document.createElement("input");
         const newUrlTitleLabel = document.createElement("label");
-        closeBtn.id = "close-btn";
-        closeBtn.innerHTML = "X";
-        closeBtn.className = "close-btn";
         addNewLinkBtn.id = "add-new-link-btn";
         addNewLinkBtn.innerHTML = "Add New Link";
         newUrlTitleInput.type = "text";
@@ -1558,7 +1547,6 @@ function createGifsDialogBox(event, result, gifLinks) {
         dialog.appendChild(newUrlInput);
         dialog.appendChild(newUrlTitleLabel);
         dialog.appendChild(newUrlTitleInput);
-        dialog.appendChild(closeBtn);
         newUrlInput.focus();
         addNewLinkBtn.addEventListener("click", function () {
             addNewGifListener(newUrlTitleInput, dialog_content)
@@ -1600,12 +1588,9 @@ async function changeIconLinkClickListener(linkId) {
 
     })
     dialog.appendChild(dialog_title);
-    const closeBtn = document.createElement("span");
-    closeBtn.id = "close-btn";
     const resetBtn = document.createElement("button");
     resetBtn.id = "reset-btn";
     resetBtn.innerHTML = "Reset";
-    closeBtn.className = "close-btn";
     const addNewLinkBtn = document.createElement("button");
     addNewLinkBtn.id = "add-new-link-btn";
     addNewLinkBtn.innerHTML = "Add New Link";
@@ -1629,7 +1614,6 @@ async function changeIconLinkClickListener(linkId) {
     dialog.appendChild(newUrlTitleLabel);
     dialog.appendChild(newUrlTitleInput);
     dialog.appendChild(resetBtn);
-    dialog.appendChild(closeBtn);
     dialog.appendChild(popup_content);
     document.body.appendChild(dialog);
     addNewLinkBtn.addEventListener("click", function () {
@@ -1717,10 +1701,6 @@ function recreateChBgDialog(currentTargetId) {
     })
     popup.appendChild(popup_title);
     document.getElementById('overlay').style.display = 'block';
-    const closeBtn = document.createElement("span");
-    closeBtn.id = "close-btn";
-    closeBtn.innerHTML = "X";
-    closeBtn.className = "close-btn";
     const saveBtn = document.createElement("button");
     saveBtn.id = "save-btn";
     const label = document.createElement("label");
@@ -1733,7 +1713,6 @@ function recreateChBgDialog(currentTargetId) {
     newBckInput.minLength = 8;
     newBckInput.maxLength = 500;
     newBckInput.size = 30;
-    popup.appendChild(closeBtn);
     popup.appendChild(saveBtn);
     popup.appendChild(label);
     popup.appendChild(newBckInput);
@@ -1879,12 +1858,9 @@ async function changeObjectClickListener(object, event) {
 
     })
     popup.appendChild(popup_title);
-    const closeBtn = document.createElement("span");
-    closeBtn.id = "close-btn";
     const resetBtn = document.createElement("button");
     resetBtn.id = "reset-btn";
     resetBtn.innerHTML = "Reset";
-    closeBtn.className = "close-btn";
     const addNewLinkBtn = document.createElement("button");
     addNewLinkBtn.id = "add-new-link-btn";
     addNewLinkBtn.innerHTML = "Add New Link";
@@ -1910,7 +1886,6 @@ async function changeObjectClickListener(object, event) {
     popup.appendChild(newUrlTitleLabel);
     popup.appendChild(newUrlTitleInput);
     popup.appendChild(resetBtn);
-    popup.appendChild(closeBtn);
     popup.appendChild(popup_content);
     document.body.appendChild(popup);
     addNewLinkBtn.addEventListener("click", function () {
@@ -2291,16 +2266,12 @@ async function createItemDialogBox(object,faviconChrome) {
     createDialogBox(event, object.id, object.id, async (dialog, dialog_content) => {
         populatingLinksInDialog(object, dialog_content, faviconChrome);
         document.removeEventListener('keyup', keyUpListener);
-        const closeBtn = document.createElement("span");
         const addNewLinkBtn = document.createElement("button");
         const changeTitleBtn = document.createElement("button");
         const itemTitleInput = document.createElement("input");
         const newUrlInput = document.createElement("input");
         const newUrlTitleLabel = document.createElement("label");
         const newUrlTitleInput = document.createElement("input");
-        closeBtn.id = "close-btn";
-        closeBtn.innerHTML = "X";
-        closeBtn.className = "close-btn";
         addNewLinkBtn.id = "add-new-link-btn";
         addNewLinkBtn.innerHTML = "Add New Link";
         changeTitleBtn.id = "chg-title-btn";
@@ -2325,7 +2296,6 @@ async function createItemDialogBox(object,faviconChrome) {
             await populatingLinksInDialog(object, dialog_content, newFaviconChrome);
             await populatingLinksInDialog(object, popup_content, newFaviconChrome);
         });
-        dialog.appendChild(closeBtn);
         dialog.appendChild(addNewLinkBtn);
         dialog.appendChild(newUrlInput);
         dialog.appendChild(newUrlTitleLabel);

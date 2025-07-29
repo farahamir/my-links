@@ -55,7 +55,7 @@
     "view": 0
   },
   "bookmarks": {
-    "faviconChrome": "false",
+    "faviconChrome": "true",
     "id": "bookmarks"
   },
   "gifs": {
@@ -70,24 +70,14 @@
       6,
       7,
       8,
-      9,
       17,
-      18,
-      20,
       21,
-      23,
       24,
       29,
       32,
       36,
       38,
-      40,
       42,
-      44,
-      45,
-      46,
-      48,
-      49,
       50,
       56,
       58
@@ -109,25 +99,10 @@
     "link": "https://media.baamboozle.com/uploads/images/923517/1664247078_225854_gif-url.gif",
     "title": "https://media.baamboozle.com/uploads/images/923517/1664247078_225854_gif-url.gif"
   },
-  "gifs,18": {
-    "id": "gifs,18",
-    "link": "https://media.giphy.com/media/JQ4FdVjltZEtUswKuA/giphy.gif",
-    "title": "https://media.giphy.com/media/JQ4FdVjltZEtUswKuA/giphy.gif"
-  },
-  "gifs,20": {
-    "id": "gifs,20",
-    "link": "https://miro.medium.com/v2/resize:fit:960/0*lZMvCjlrC91ToEUr.gif",
-    "title": "https://miro.medium.com/v2/resize:fit:960/0*lZMvCjlrC91ToEUr.gif"
-  },
   "gifs,21": {
     "id": "gifs,21",
     "link": "https://i.gifer.com/4jJz.gif",
     "title": "https://i.gifer.com/4jJz.gif"
-  },
-  "gifs,23": {
-    "id": "gifs,23",
-    "link": "https://i.pinimg.com/originals/95/e7/f3/95e7f3bba07ebdcfd842a1434f4b87ea.gif",
-    "title": "https://i.pinimg.com/originals/95/e7/f3/95e7f3bba07ebdcfd842a1434f4b87ea.gif"
   },
   "gifs,24": {
     "id": "gifs,24",
@@ -165,40 +140,10 @@
     "title": "cat surprise",
     "view": 0
   },
-  "gifs,40": {
-    "id": "gifs,40",
-    "link": "https://cdn-icons-png.flaticon.com/512/1058/1058626.png",
-    "title": "https://cdn-icons-png.flaticon.com/512/1058/1058626.png"
-  },
   "gifs,42": {
     "id": "gifs,42",
     "link": "https://media4.giphy.com/media/2fLY8y1bgxWXheH3eX/giphy.gif?cid=6c09b952pvlnp9ye8po4tqx7g1y75y9rzensef9htdlpm5zl&ep=v1_internal_gif_by_id&rid=giphy.gi",
     "title": "https://media4.giphy.com/media/2fLY8y1bgxWXheH3eX/giphy.gif?cid=6c09b952pvlnp9ye8po4tqx7g1y75y9rzensef9htdlpm5zl&ep=v1_internal_gif_by_id&rid=giphy.gi"
-  },
-  "gifs,44": {
-    "id": "gifs,44",
-    "link": "https://media0.giphy.com/media/Lgn0nk4XVRJVp75hfq/giphy.gif?cid=6c09b952uk5729qalm3aexj6x4kkv7hx5qqqkcile4gq4t2j&ep=v1_internal_gif_by_id&rid=giphy.gi",
-    "title": "https://media0.giphy.com/media/Lgn0nk4XVRJVp75hfq/giphy.gif?cid=6c09b952uk5729qalm3aexj6x4kkv7hx5qqqkcile4gq4t2j&ep=v1_internal_gif_by_id&rid=giphy.gi"
-  },
-  "gifs,45": {
-    "id": "gifs,45",
-    "link": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif",
-    "title": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif"
-  },
-  "gifs,46": {
-    "id": "gifs,46",
-    "link": "https://upload.wikimedia.org/wikipedia/commons/9/92/Orange_animated_right_arrow.gif",
-    "title": "https://upload.wikimedia.org/wikipedia/commons/9/92/Orange_animated_right_arrow.gif"
-  },
-  "gifs,48": {
-    "id": "gifs,48",
-    "link": "https://media0.giphy.com/media/QULarnVzg2Tlf0w0cE/giphy.gif?cid=6c09b952r5cr0ha3sipfqja88czyfudezsezlc07b77kbxod&ep=v1_internal_gif_by_id&rid=giphy.gi",
-    "title": "https://media0.giphy.com/media/QULarnVzg2Tlf0w0cE/giphy.gif?cid=6c09b952r5cr0ha3sipfqja88czyfudezsezlc07b77kbxod&ep=v1_internal_gif_by_id&rid=giphy.gi"
-  },
-  "gifs,49": {
-    "id": "gifs,49",
-    "link": "https://media4.giphy.com/media/PlEODO69ty9QCSgftc/giphy.gif?cid=6c09b952y4loqk96mhjyifyio5xj14jlbfizk016ip9ytqv3&ep=v1_stickers_search&rid=giphy.gif&c",
-    "title": "https://media4.giphy.com/media/PlEODO69ty9QCSgftc/giphy.gif?cid=6c09b952y4loqk96mhjyifyio5xj14jlbfizk016ip9ytqv3&ep=v1_stickers_search&rid=giphy.gif&c"
   },
   "gifs,5": {
     "id": "gifs,5",
@@ -237,11 +182,6 @@
     "link": "https://i.pinimg.com/originals/df/36/dc/df36dc2dc6ec1ce14dcae2754d5e4524.gif",
     "title": "https://i.pinimg.com/originals/df/36/dc/df36dc2dc6ec1ce14dcae2754d5e4524.gif"
   },
-  "gifs,9": {
-    "id": "gifs,9",
-    "link": "https://simonscat.com/assets/images/_AUTOxAUTO_crop_center-center_85_none_ns/simons-cat-quiz-banner-1.png?v=1704987989",
-    "title": "https://simonscat.com/assets/images/_AUTOxAUTO_crop_center-center_85_none_ns/simons-cat-quiz-banner-1.png?v=1704987989"
-  },
   "history": {
     "faviconChrome": "false",
     "id": "history"
@@ -259,69 +199,6 @@
   },
   "trash": {
     "id": "trash",
-    "links": [
-      0,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-    ]
-  },
-  "trash,0": {
-    "id": "trash,0",
-    "link": "https://www.freepik.com/premium-ai-image/village-map-game-map-strategy_91904002.htm",
-    "title": "https://www.freepik.com/premium-ai-image/village-map-game-map-strategy_91904002.htm",
-    "view": 0
-  },
-  "trash,10": {
-    "id": "trash,10",
-    "link": "https://static.vecteezy.com/system/resources/thumbnails/024/090/509/small_2x/folder-file-documents-free-png.png",
-    "title": "https://static.vecteezy.com/system/resources/thumbnails/024/090/509/small_2x/folder-file-documents-free-png.png"
-  },
-  "trash,2": {
-    "id": "trash,2",
-    "link": "https://i.pinimg.com/originals/80/5d/92/805d9290bf80860153c6804cc0ed2d3a.gif",
-    "title": "https://i.pinimg.com/originals/80/5d/92/805d9290bf80860153c6804cc0ed2d3a.gif",
-    "view": 0
-  },
-  "trash,3": {
-    "id": "trash,3",
-    "link": "https://i.pinimg.com/originals/7f/85/c6/7f85c6370059bcafaf56d1527036a485.gif",
-    "title": "https://i.pinimg.com/originals/7f/85/c6/7f85c6370059bcafaf56d1527036a485.gif"
-  },
-  "trash,4": {
-    "id": "trash,4",
-    "link": "https://img1.picmix.com/output/stamp/normal/7/5/7/3/2453757_a3b79.gif",
-    "title": "https://img1.picmix.com/output/stamp/normal/7/5/7/3/2453757_a3b79.gif"
-  },
-  "trash,5": {
-    "id": "trash,5",
-    "link": "https://media1.giphy.com/media/KCf404MB5xs43PCic5/giphy.gif",
-    "title": "https://media1.giphy.com/media/KCf404MB5xs43PCic5/giphy.gif"
-  },
-  "trash,6": {
-    "id": "trash,6",
-    "link": "https://cdn.pixabay.com/animation/2023/06/01/08/53/08-53-15-862_512.gif",
-    "title": "https://cdn.pixabay.com/animation/2023/06/01/08/53/08-53-15-862_512.gif"
-  },
-  "trash,7": {
-    "id": "trash,7",
-    "link": "https://i.pinimg.com/originals/0f/bb/77/0fbb775d6e5964c3f03457411afcab61.gif",
-    "title": "https://i.pinimg.com/originals/0f/bb/77/0fbb775d6e5964c3f03457411afcab61.gif"
-  },
-  "trash,8": {
-    "id": "trash,8",
-    "link": "https://user-images.githubusercontent.com/33208090/157293804-c9851207-87d4-4c3f-be20-6aa80fcbd021.gif",
-    "title": "https://user-images.githubusercontent.com/33208090/157293804-c9851207-87d4-4c3f-be20-6aa80fcbd021.gif"
-  },
-  "trash,9": {
-    "id": "trash,9",
-    "link": "https://png.pngtree.com/png-vector/20221013/ourmid/pngtree-calendar-icon-logo-2023-date-time-png-image_6310337.png",
-    "title": "https://png.pngtree.com/png-vector/20221013/ourmid/pngtree-calendar-icon-logo-2023-date-time-png-image_6310337.png"
+    "links": []
   }
 }

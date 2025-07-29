@@ -2565,18 +2565,18 @@ describe('Should be able to Test the Extension Functionalities', function () {
         //get a list of all divs with class 'pane' and open the context menu on each pane
         await driver.executeScript('window.open("https://www.amazon.com")');
         await driver.executeScript('window.open("https://www.ebay.com")');
-        await driver.executeScript('window.open("https://www.aliexpress.com/")');
+        await driver.executeScript('window.open("https://www.gmail.com/")');
         //add 3 links to bookmarks
         await driver.executeScript(() => {
             chrome.bookmarks.create({title: 'Amazon', url: 'https://www.amazon.com'});
             chrome.bookmarks.create({title: 'eBay', url: 'https://www.ebay.com'});
-            chrome.bookmarks.create({title: 'AliExpress', url: 'https://www.aliexpress.com/'});
+            chrome.bookmarks.create({title: 'Gmail', url: 'https://www.gmail.com/'});
         });
         //add 3 links to reading list
         await driver.executeScript(() => {
             chrome.readingList.addEntry({title: 'Amazon', url: 'https://www.amazon.com',hasBeenRead: false});
             chrome.readingList.addEntry({title: 'eBay', url: 'https://www.ebay.com',hasBeenRead: false});
-            chrome.readingList.addEntry({title: 'AliExpress', url: 'https://www.aliexpress.com/',hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Gmail', url: 'https://www.gmail.com/',hasBeenRead: false});
         });
         //focus on the first opened tab
         await driver.sleep(DEFAULT_SLEEP);

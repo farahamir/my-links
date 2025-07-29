@@ -128,11 +128,6 @@
     background-color: rgb(136, 136, 136); /* Darker gray on hover */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
 }
-.close-btn {
-    float: right;
-    cursor: pointer;
-    padding: 5px;
-}
 
 .add-new-link-btn {
     background-color: #04AA6D;
