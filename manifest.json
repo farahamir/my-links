@@ -1,7 +1,7 @@
 {
   "name": "MyLinks",
   "version": "0.1",
-  "description": "Organize and visualize your links using Images as shapes—fully local, no sign-in, with search, drag-and-drop, and image support.",
+  "description": "Keep your links tidy by grouping them under customizable, easy-to-remember images sourced from the internet.",
   "permissions": [
     "storage",
     "contextMenus",
