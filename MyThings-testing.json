@@ -1,6 +1,6 @@
 {
   "0": {
-    "background": "images/Cartoon Landscapes Vector Background [Converted].jpg",
+    "background": "images/Cartoon Landscape.jpg",
     "dummies": [
       1,
       2,
@@ -1551,7 +1551,7 @@
   },
   "backgrounds,0": {
     "id": "backgrounds,0",
-    "link": "/images/Cartoon Landscapes Vector Background [Converted].jpg",
+    "link": "/images/Cartoon Landscape.jpg",
     "title": "Cartoon Landscapes Vector Background",
     "view": 0
   },

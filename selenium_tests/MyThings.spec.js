@@ -2571,12 +2571,73 @@ describe('Should be able to Test the Extension Functionalities', function () {
             chrome.bookmarks.create({title: 'Amazon', url: 'https://www.amazon.com'});
             chrome.bookmarks.create({title: 'eBay', url: 'https://www.ebay.com'});
             chrome.bookmarks.create({title: 'Gmail', url: 'https://www.gmail.com/'});
+            chrome.bookmarks.create({title: 'Google', url: 'https://www.google.com'});
+            chrome.bookmarks.create({title: 'YouTube', url: 'https://www.youtube.com'});
+            chrome.bookmarks.create({title: 'Facebook', url: 'https://www.facebook.com'});
+            chrome.bookmarks.create({title: 'Wikipedia', url: 'https://www.wikipedia.org'});
+            chrome.bookmarks.create({title: 'Instagram', url: 'https://www.instagram.com'});
+            chrome.bookmarks.create({title: 'Baidu', url: 'https://www.baidu.com'});
+            chrome.bookmarks.create({title: 'Yahoo', url: 'https://www.yahoo.com'});
+            chrome.bookmarks.create({title: 'WhatsApp', url: 'https://www.whatsapp.com'});
+            chrome.bookmarks.create({title: 'Twitter', url: 'https://www.twitter.com'});
+            chrome.bookmarks.create({title: 'TikTok', url: 'https://www.tiktok.com'});
+            chrome.bookmarks.create({title: 'Reddit', url: 'https://www.reddit.com'});
+            chrome.bookmarks.create({title: 'Bing', url: 'https://www.bing.com'});
+            chrome.bookmarks.create({title: 'LinkedIn', url: 'https://www.linkedin.com'});
+            chrome.bookmarks.create({title: 'Office', url: 'https://www.office.com'});
+            chrome.bookmarks.create({title: 'Netflix', url: 'https://www.netflix.com'});
+            chrome.bookmarks.create({title: 'DuckDuckGo', url: 'https://www.duckduckgo.com'});
+            chrome.bookmarks.create({title: 'Pinterest', url: 'https://www.pinterest.com'});
+            chrome.bookmarks.create({title: 'Live', url: 'https://www.live.com'});
         });
-        //add 3 links to reading list
+        //add 3 links to a reading list
         await driver.executeScript(() => {
             chrome.readingList.addEntry({title: 'Amazon', url: 'https://www.amazon.com',hasBeenRead: false});
             chrome.readingList.addEntry({title: 'eBay', url: 'https://www.ebay.com',hasBeenRead: false});
             chrome.readingList.addEntry({title: 'Gmail', url: 'https://www.gmail.com/',hasBeenRead: false});
+        });
+        //add 3 links to a history
+        await driver.executeScript(() => {
+            chrome.history.addUrl({url: 'https://www.google.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.youtube.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.facebook.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.wikipedia.org'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.instagram.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.baidu.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.yahoo.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.whatsapp.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.twitter.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.amazon.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.tiktok.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.reddit.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.bing.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.linkedin.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.office.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.netflix.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.duckduckgo.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.pinterest.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.live.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.ebay.com'}, () => {
+            });
         });
         //focus on the first opened tab
         await driver.sleep(DEFAULT_SLEEP);
@@ -2597,7 +2658,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         assert(await historyDialog.isDisplayed(), 'History dialog should be displayed');
         //check that the history dialog has 3 items
         const historyItems = await historyDialogContent.findElements(By.xpath('./*'));
-        assert.strictEqual(historyItems.length, 3, 'History dialog should have 3 items');
+        assert.strictEqual(historyItems.length, 21, 'History dialog should have 3 items');
         await driver.sleep(DEFAULT_SLEEP);
         //click on the overlay
         const overlay = await driver.findElement(By.id('overlay'));
@@ -2633,7 +2694,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         assert(await bookmarksDialog.isDisplayed(), 'Bookmarks dialog should be displayed');
         //check that the bookmark dialog has 3 items
         const bookmarksItems = await bookmarksDialogContent.findElements(By.xpath('./*'));
-        assert.strictEqual(bookmarksItems.length, 3, 'Bookmarks dialog should have 3 items');
+        assert.strictEqual(bookmarksItems.length, 21, 'Bookmarks dialog should have 21 items');
         await driver.sleep(DEFAULT_SLEEP);
         //click on the overlay
         const overlay3 = await driver.findElement(By.id('overlay'));

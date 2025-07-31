@@ -171,7 +171,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     const result = await chrome.storage.local.get(["0"]);
     if (JSON.stringify(result) !== "{}") {
         await init(result["0"]);
-    } else {
+    }
+    else {
         const response = await fetch("MyThings.json");
         const json = await response.json();
         initialUserData = new Map(Object.entries(json));
@@ -730,20 +731,21 @@ function handleHistoryLinkCtMe(historyItem, event) {
 function createHistoryDialogBox(event, uniqueHistoryItemsByTitle, faviconChrome) {
     createDialogBox(event, "History", "history", (dialog, dialog_content) => {
         populateHistoryDialogBox(uniqueHistoryItemsByTitle, dialog_content, faviconChrome);
-        const search_input = document.createElement("input");
+        const dialog_search_input = document.createElement("input");
+        dialog_search_input.id = "dialog-search-input";
         const switchToggle = createToggleSwitch("history", faviconChrome, async (newFaviconChrome) => {
             dialog_content.innerHTML = "";
             populateHistoryDialogBox(uniqueHistoryItemsByTitle, dialog_content, newFaviconChrome);
         });
-        dialog.appendChild(search_input);
+        dialog.appendChild(dialog_search_input);
         dialog.appendChild(switchToggle);
-        search_input.focus();
-        search_input.addEventListener("input", function () {
+        dialog_search_input.focus();
+        dialog_search_input.addEventListener("input", function () {
             document.removeEventListener('keyup', keyUpListener);
             dialog_content.innerHTML = "";
-            if (search_input.value) {
+            if (dialog_search_input.value) {
                 chrome.history.search({
-                    text: search_input.value,
+                    text: dialog_search_input.value,
                     startTime: oneWeekAgo,
                     maxResults:1000
                 }, function callback(historyItemsResult) {
@@ -888,7 +890,12 @@ async function showHistClickListener(event) {
         const uniqueHistoryItemsByTitle = {};
         for (const historyItem of historyItemResults) {
             if (!uniqueHistoryItemsByTitle.hasOwnProperty(historyItem.title)) {
-                uniqueHistoryItemsByTitle[historyItem.title] = historyItem;
+                if (historyItem.title!==""){
+                    uniqueHistoryItemsByTitle[historyItem.title] = historyItem;
+                }
+                else {
+                    uniqueHistoryItemsByTitle[historyItem.url] = historyItem;
+                }
             }
         }
         createHistoryDialogBox(event, uniqueHistoryItemsByTitle, faviconChrome);
