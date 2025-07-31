@@ -2566,6 +2566,11 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await driver.executeScript('window.open("https://www.amazon.com")');
         await driver.executeScript('window.open("https://www.ebay.com")');
         await driver.executeScript('window.open("https://www.gmail.com/")');
+        await driver.executeScript('window.open("https://www.chatgpt.com/")');
+        await driver.executeScript('window.open("https://www.google.com/search?q=tesla+model+s+model+x")');
+        await driver.executeScript('window.open("https://www.google.com/search?q=tesla+model+s+model+x")');
+        await driver.executeScript('window.open("https://www.youtube.com/results?search_query=techno+remix")');
+        await driver.executeScript('window.open("https://chromewebstore.google.com/category/extensions")');
         //add 3 links to bookmarks
         await driver.executeScript(() => {
             chrome.bookmarks.create({title: 'Amazon', url: 'https://www.amazon.com'});
@@ -2644,8 +2649,189 @@ describe('Should be able to Test the Extension Functionalities', function () {
         const handles = await driver.getAllWindowHandles();
         await driver.switchTo().window(handles[0]);
         await driver.sleep(DEFAULT_SLEEP);
-        //open history dialog
+
+
+        //add the first item to the background
         const background = await driver.findElement(By.id('background'));
+        await driver.actions().move({x: 1, y: -150, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //create item
+        const adItemBtn = await driver.findElement(By.id('adItBtn'));
+        const adItemInp = await driver.findElement(By.id('adItInp'));
+        await adItemInp.clear();
+        await adItemInp.sendKeys('Most used');
+        await adItemBtn.click();
+        const item = await driver.findElement(By.id('0,0,i'));
+        const itemElement = await driver.findElement(By.id('0,0,i,title'));
+        const itemTitle = await itemElement.getAttribute('innerHTML');
+        assert.strictEqual(itemTitle, 'Most used', 'Item title should be Most used');
+        //check that the item is placed at the correct position
+        const itemLocation = await itemElement.getRect();
+        assert.strictEqual(itemLocation.x, 1102, 'Item should be placed at 1101px left');
+        assert.strictEqual(itemLocation.y, 346, 'Item should be placed at 346px top');
+        //open the context menu on the item
+        await driver.actions().move({origin: item}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on chgObjIc
+        const chgObjIc = await driver.findElement(By.id('chgObjIc'));
+        await chgObjIc.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //Get new-link-inp
+        const new_link_inp = await driver.findElement(By.id('new-link-inp'));
+        await new_link_inp.sendKeys('https://i.pinimg.com/originals/04/c4/a8/04c4a8baf0068b244bed7b7df509898f.gif');
+        //click on add-new-link-btn
+        const add_new_link_btn = await driver.findElement(By.id('add-new-link-btn'));
+        await add_new_link_btn.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the new GIF gifs,2
+        const newGif = await driver.findElement(By.id('gifs,2'));
+
+        await newGif.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        const overlayFirst = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlayFirst}).click().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the item has the new GIF
+        const itemImg = await driver.findElement(By.id('0,0,i,img'));
+
+        //open Open-tabs dialog
+        await driver.actions().move({origin: background}).contextClick().perform();
+        //click on shTabs
+        const shTabsFirst = await driver.findElement(By.id('shTab'));
+        await shTabsFirst.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //drag and drop the fourth tab from the open-tabs dialog to the item
+        const fourthElement = await driver.findElement(By.css('[title="ChatGPT"]'));
+        //drag and drop the fourth tab from the open-tabs dialog to the item
+        const itemElementFirst = await driver.findElement(By.id('0,0,i'));
+        await driver.actions().dragAndDrop(fourthElement, itemElementFirst).perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //open bookmarks dialog
+        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shBkm
+        const shBkmFirst = await driver.findElement(By.id('shBok'));
+        await shBkmFirst.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        const fifthElement = await driver.findElement(By.css('[title="YouTube"]'));
+        //drag and drop the fifth bookmark from the bookmarks dialog to the item
+        await driver.actions().dragAndDrop(fifthElement, itemElementFirst).perform();
+        await driver.sleep(DEFAULT_SLEEP);
+
+
+        //add a second item to the background top: 406px; left: 1221px;
+        await driver.actions().move({x: 70, y: 110, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //create item
+        const adItemBtn2 = await driver.findElement(By.id('adItBtn'));
+        const adItemInp2 = await driver.findElement(By.id('adItInp'));
+        await adItemInp2.clear();
+        await adItemInp2.sendKeys('Shopping');
+        await adItemBtn2.click();
+        const item2 = await driver.findElement(By.id('0,1,i'));
+        const itemElement2 = await driver.findElement(By.id('0,1,i,title'));
+        const itemTitle2 = await itemElement2.getAttribute('innerHTML');
+        assert.strictEqual(itemTitle2, 'Shopping', 'Item title should be Shopping');
+        //check that the item is placed at the correct position
+        const itemLocation2 = await itemElement2.getRect();
+        assert.strictEqual(itemLocation2.x, 1171, 'Item should be placed at 1171px left');
+        assert.strictEqual(itemLocation2.y, 606, 'Item should be placed at 606px top');
+        //open the context menu on the item
+        await driver.actions().move({origin: item2}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on chgObjIc
+        const chgObjIc2 = await driver.findElement(By.id('chgObjIc'));
+        await chgObjIc2.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //Get new-link-inp
+        const new_link_inp2 = await driver.findElement(By.id('new-link-inp'));
+        await new_link_inp2.sendKeys('https://media.baamboozle.com/uploads/images/323666/1624532385_171205_gif-url.gif');
+        //click on add-new-link-btn
+        const add_new_link_btn2 = await driver.findElement(By.id('add-new-link-btn'));
+        await add_new_link_btn2.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the new GIF gifs,3
+        const newGif2 = await driver.findElement(By.id('gifs,3'));
+        const newGifSrc2 = await newGif2.getAttribute('src');
+        await newGif2.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        const overlaySecond = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlaySecond}).click().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the item has the new GIF
+        const itemImg2 = await driver.findElement(By.id('0,1,i,img'));
+        const itemImgSrc2 = await itemImg2.getAttribute('src');
+        assert.strictEqual(itemImgSrc2, newGifSrc2, 'Item 0,1,i should have new gif');
+        //open Open-tabs dialog
+        await driver.actions().move({origin: background}).contextClick().perform();
+        //click on shTabs
+        const shTabsSecond = await driver.findElement(By.id('shTabs'));
+        await shTabsSecond.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //drag and drop the fourth tab from the open-tabs dialog to the item
+        const secondElement = await driver.findElement(By.css('[title="Electronics, Cars, Fashion, Collectibles & More | eBay"]'));
+        //drag and drop the fourth tab from the open-tabs dialog to the item
+        const itemElementSecond = await driver.findElement(By.id('0,1,i'));
+        await driver.actions().dragAndDrop(secondElement, itemElementSecond).perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //open bookmarks dialog
+        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shBkm
+        const shBkmSecond = await driver.findElement(By.id('shBkm'));
+        await shBkmSecond.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        const firstElement = await driver.findElement(By.css('[title="Amazon"]'));
+        //drag and drop the fifth bookmark from the bookmarks dialog to the item
+        await driver.actions().dragAndDrop(firstElement, itemElementSecond).perform();
+        await driver.sleep(DEFAULT_SLEEP);
+
+        //add a first station to the background x:1003; y: 510
+        await driver.actions().move({x: -10, y: 110, origin: background}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //create station
+        const adStationBtn = await driver.findElement(By.id('adStBtn'));
+        const adStationInp = await driver.findElement(By.id('adStInp'));
+        await adStationInp.clear();
+        await adStationInp.sendKeys('Apartment');
+        await adStationBtn.click();
+        const stationElement = await driver.findElement(By.id('0,0,s,title'));
+        const stationTitle = await stationElement.getAttribute('innerHTML');
+        assert.strictEqual(stationTitle, 'Apartment', 'Station title should be Apartment');
+        //check that the item is placed at the correct position
+        const stationLocation = await stationElement.getRect();
+        assert.strictEqual(stationLocation.x, 1003, 'Item should be placed at 406px left');
+        assert.strictEqual(stationLocation.y, 510, 'Item should be placed at 1221px top');
+        //open the context menu on the item
+        await driver.actions().move({origin: stationElement}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on chgObjIc
+        const chgObjIc3 = await driver.findElement(By.id('chgObjIc'));
+        await chgObjIc3.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //Get new-link-inp
+        const new_link_inp3 = await driver.findElement(By.id('new-link-inp'));
+        await new_link_inp3.sendKeys('https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif');
+        //click on add-new-link-btn
+        const add_new_link_btn3 = await driver.findElement(By.id('add-new-link-btn'));
+        await add_new_link_btn3.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the new GIF gifs,4
+        const newGif3 = await driver.findElement(By.css('#gifs\\,popup-content img:nth-child(4)'));
+        await newGif3.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        const overlayThird = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlayThird}).click().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+
+
+
+
+
+
+
+
+        //open history dialog
         await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
         await driver.sleep(DEFAULT_SLEEP);
         //click on shHist

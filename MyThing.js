@@ -647,12 +647,12 @@ function handleBckGrCtMe(root, event) {
     contextMenuUl.appendChild(createTitleInputMenuItemWithInput("adDumBtn","adDumInp","Dummy",root.id,addDumClickListener));
     contextMenuUl.appendChild(createMenuItem("chgBck", `Change Background`, changBackgroundClickListener));
     contextMenuUl.appendChild(createMenuItem("shTab", `Open Tabs`, showTabsClickListener));
-    contextMenuUl.appendChild(createMenuItem("shTrash", `Trash`, showTrashClickListener));
     contextMenuUl.appendChild(createMenuItem("shHist", `History`, showHistClickListener));
     contextMenuUl.appendChild(createMenuItem("shGifs", `Gifs`, showGifsClickListener));
     contextMenuUl.appendChild(createMenuItem("shBckg", `Backgrounds`, showBackgroundsClickListener));
     contextMenuUl.appendChild(createMenuItem("shBok", `Bookmarks`, showBookmarksClickListener));
     contextMenuUl.appendChild(createMenuItem("shRdngLst", `Reading List`, showReadingListClickListener));
+    contextMenuUl.appendChild(createMenuItem("shTrash", `Trash`, showTrashClickListener));
     contextMenuDiv.appendChild(contextMenuUl);
     buildCtxMenuDiv(contextMenuDiv, event);
     imageToChange = "background";
@@ -1077,12 +1077,12 @@ async function populateBackgroundsDialogBox(backgroundLinks, result, popup_conte
                     drawCanvasImage(ctxBg, img);
                 };
 
-                //hide background_popup
-                const background_popup = document.getElementById('background-popup');
+                //hide backgrounds_popup
+                const backgrounds_dialog = document.getElementById('backgrounds-popup');
                 const overlay = document.getElementById('overlay');
                 overlay.style.display = 'none';
-                if (background_popup) {
-                    document.body.removeChild(background_popup);
+                if (backgrounds_dialog) {
+                    document.body.removeChild(backgrounds_dialog);
                 }
                 //update storage
                 await updateItemIconStorage(viewId, event);
@@ -1123,7 +1123,7 @@ async function showBackgroundsClickListener(event,viewId) {
     hideCtxMenu()
     document.removeEventListener('keyup', keyUpListener);
     const result = await chrome.storage.local.get("backgrounds");
-    //create popup with Backgrounds urls
+    //create a dialog with Backgrounds urls
     const backgroundLinks = result["backgrounds"].links;
     await createBackgroundsDialogBox(event, result, backgroundLinks,viewId);
 }
