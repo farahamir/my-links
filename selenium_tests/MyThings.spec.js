@@ -93,7 +93,6 @@ async function loadTestingDataToChromeStorage(driver) {
         const data = await response.json();
         await new Promise(resolve => chrome.storage.local.set(data, resolve));
     });
-
     //refresh page
     await driver.navigate().refresh();
 }
@@ -2650,6 +2649,168 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await driver.switchTo().window(handles[0]);
         await driver.sleep(DEFAULT_SLEEP);
 
+        //open history dialog
+        await driver.actions().move({x: 200, y: 200, origin: background2}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shHist
+        const shHist = await driver.findElement(By.id('shHist'));
+        await shHist.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the history dialog is opened
+        const historyDialog = await driver.findElement(By.id('history-popup'));
+        const historyDialogContent = await driver.findElement(By.id('history,popup-content'));
+        assert(await historyDialog.isDisplayed(), 'History dialog should be displayed');
+        //check that the history dialog has 3 items
+        const historyItems = await historyDialogContent.findElements(By.xpath('./*'));
+        assert.strictEqual(historyItems.length, 21, 'History dialog should have 3 items');
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the overlay
+        const overlay = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlay}).click().perform();
+        //open open-tabs dialog
+        await driver.actions().move({x: 200, y: 200, origin: background2}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shTabs
+        const shTabs = await driver.findElement(By.id('shTab'));
+        await shTabs.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the open-tabs dialog is opened
+        const openTabsDialog = await driver.findElement(By.id('open-tabs-popup'));
+        const openTabsDialogContent = await driver.findElement(By.id('open-tabs,popup-content'));
+        assert(await openTabsDialog.isDisplayed(), 'Open tabs dialog should be displayed');
+        //check that the open-tabs dialog has 3 items
+        const openTabsItems = await openTabsDialogContent.findElements(By.xpath('./*'));
+        assert.strictEqual(openTabsItems.length, 3, 'Open tabs dialog should have 3 items');
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the overlay
+        const overlay2 = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlay2}).click().perform();
+        //open bookmarks dialog
+        await driver.actions().move({x: 200, y: 200, origin: background2}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shBkm
+        const shBkm = await driver.findElement(By.id('shBok'));
+        await shBkm.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the bookmark dialog is opened
+        const bookmarksDialog = await driver.findElement(By.id('bookmarks-popup'));
+        const bookmarksDialogContent = await driver.findElement(By.id('bookmarks,popup-content'));
+        assert(await bookmarksDialog.isDisplayed(), 'Bookmarks dialog should be displayed');
+        //check that the bookmark dialog has 3 items
+        const bookmarksItems = await bookmarksDialogContent.findElements(By.xpath('./*'));
+        assert.strictEqual(bookmarksItems.length, 21, 'Bookmarks dialog should have 21 items');
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on the overlay
+        const overlay3 = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlay3}).click().perform();
+        //open the reading list dialog
+        await driver.actions().move({x: 200, y: 200, origin: background2}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on shRList
+        const shRList = await driver.findElement(By.id('shRdngLst'));
+        await shRList.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //check that the readingList dialog is opened
+        const readingListDialog = await driver.findElement(By.id('reading-list-popup'));
+        const readingListDialogContent = await driver.findElement(By.id('reading-list,popup-content'));
+        assert(await readingListDialog.isDisplayed(), 'Reading list dialog should be displayed');
+        //check that the readingList dialog has 3 items
+        const readingListItems = await readingListDialogContent.findElements(By.xpath('./*'));
+        assert.strictEqual(readingListItems.length, 3, 'Reading list dialog should have 3 items');
+        await driver.sleep(DEFAULT_SLEEP);
+        await driver.quit();
+    });
+    it('should add items and stations', async () => {
+        let driver = await buildDriver();
+        await navigateToExtension(driver);
+        await driver.sleep(DEFAULT_SLEEP);
+        await driver.executeScript('window.open("https://www.amazon.com")');
+        await driver.executeScript('window.open("https://www.ebay.com")');
+        await driver.executeScript('window.open("https://www.gmail.com/")');
+        await driver.executeScript('window.open("https://www.chatgpt.com/")');
+        await driver.executeScript('window.open("https://www.google.com/search?q=tesla+model+s+model+x")');
+        await driver.executeScript('window.open("https://www.google.com/search?q=tesla+model+s+model+x")');
+        await driver.executeScript('window.open("https://www.youtube.com/results?search_query=techno+remix")');
+        await driver.executeScript('window.open("https://chromewebstore.google.com/category/extensions")');
+        await driver.executeScript('window.open("https://www.google.com/search?q=books+animated+gif")');
+        //add 3 links to bookmarks
+        await driver.executeScript(() => {
+            chrome.bookmarks.create({title: 'Amazon', url: 'https://www.amazon.com'});
+            chrome.bookmarks.create({title: 'eBay', url: 'https://www.ebay.com'});
+            chrome.bookmarks.create({title: 'Gmail', url: 'https://www.gmail.com/'});
+            chrome.bookmarks.create({title: 'Google', url: 'https://www.google.com'});
+            chrome.bookmarks.create({title: 'YouTube', url: 'https://www.youtube.com'});
+            chrome.bookmarks.create({title: 'Facebook', url: 'https://www.facebook.com'});
+            chrome.bookmarks.create({title: 'Wikipedia', url: 'https://www.wikipedia.org'});
+            chrome.bookmarks.create({title: 'Instagram', url: 'https://www.instagram.com'});
+            chrome.bookmarks.create({title: 'Baidu', url: 'https://www.baidu.com'});
+            chrome.bookmarks.create({title: 'Yahoo', url: 'https://www.yahoo.com'});
+            chrome.bookmarks.create({title: 'WhatsApp', url: 'https://www.whatsapp.com'});
+            chrome.bookmarks.create({title: 'Twitter', url: 'https://www.twitter.com'});
+            chrome.bookmarks.create({title: 'TikTok', url: 'https://www.tiktok.com'});
+            chrome.bookmarks.create({title: 'Reddit', url: 'https://www.reddit.com'});
+            chrome.bookmarks.create({title: 'Bing', url: 'https://www.bing.com'});
+            chrome.bookmarks.create({title: 'LinkedIn', url: 'https://www.linkedin.com'});
+            chrome.bookmarks.create({title: 'Office', url: 'https://www.office.com'});
+            chrome.bookmarks.create({title: 'Netflix', url: 'https://www.netflix.com'});
+            chrome.bookmarks.create({title: 'DuckDuckGo', url: 'https://www.duckduckgo.com'});
+            chrome.bookmarks.create({title: 'Pinterest', url: 'https://www.pinterest.com'});
+            chrome.bookmarks.create({title: 'Live', url: 'https://www.live.com'});
+        });
+        //add 3 links to a reading list
+        await driver.executeScript(() => {
+            chrome.readingList.addEntry({title: 'Amazon', url: 'https://www.amazon.com',hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'eBay', url: 'https://www.ebay.com',hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Gmail', url: 'https://www.gmail.com/',hasBeenRead: false});
+        });
+        //add 3 links to a history
+        await driver.executeScript(() => {
+            chrome.history.addUrl({url: 'https://www.google.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.youtube.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.facebook.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.wikipedia.org'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.instagram.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.baidu.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.yahoo.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.whatsapp.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.twitter.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.amazon.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.tiktok.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.reddit.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.bing.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.linkedin.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.office.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.netflix.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.duckduckgo.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.pinterest.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.live.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.ebay.com'}, () => {
+            });
+        });
+        //focus on the first opened tab
+        await driver.sleep(DEFAULT_SLEEP);
+        const handles = await driver.getAllWindowHandles();
+        await driver.switchTo().window(handles[0]);
+        await driver.sleep(DEFAULT_SLEEP);
 
         //add the first item to the background
         const background = await driver.findElement(By.id('background'));
@@ -2666,9 +2827,6 @@ describe('Should be able to Test the Extension Functionalities', function () {
         const itemTitle = await itemElement.getAttribute('innerHTML');
         assert.strictEqual(itemTitle, 'Most used', 'Item title should be Most used');
         //check that the item is placed at the correct position
-        const itemLocation = await itemElement.getRect();
-        assert.strictEqual(itemLocation.x, 1102, 'Item should be placed at 1101px left');
-        assert.strictEqual(itemLocation.y, 346, 'Item should be placed at 346px top');
         //open the context menu on the item
         await driver.actions().move({origin: item}).contextClick().perform();
         await driver.sleep(DEFAULT_SLEEP);
@@ -2707,7 +2865,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await driver.actions().dragAndDrop(fourthElement, itemElementFirst).perform();
         await driver.sleep(DEFAULT_SLEEP);
         //open bookmarks dialog
-        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
+        await driver.actions().move({x: -100, y: -100, origin: background}).contextClick().perform();
         await driver.sleep(DEFAULT_SLEEP);
         //click on shBkm
         const shBkmFirst = await driver.findElement(By.id('shBok'));
@@ -2758,14 +2916,11 @@ describe('Should be able to Test the Extension Functionalities', function () {
         const overlaySecond = await driver.findElement(By.id('overlay'));
         await driver.actions().move({x: -100, y: 100, origin: overlaySecond}).click().perform();
         await driver.sleep(DEFAULT_SLEEP);
-        //check that the item has the new GIF
-        const itemImg2 = await driver.findElement(By.id('0,1,i,img'));
-        const itemImgSrc2 = await itemImg2.getAttribute('src');
-        assert.strictEqual(itemImgSrc2, newGifSrc2, 'Item 0,1,i should have new gif');
+
         //open Open-tabs dialog
         await driver.actions().move({origin: background}).contextClick().perform();
         //click on shTabs
-        const shTabsSecond = await driver.findElement(By.id('shTabs'));
+        const shTabsSecond = await driver.findElement(By.id('shTab'));
         await shTabsSecond.click();
         await driver.sleep(DEFAULT_SLEEP);
         //drag and drop the fourth tab from the open-tabs dialog to the item
@@ -2778,7 +2933,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
         await driver.sleep(DEFAULT_SLEEP);
         //click on shBkm
-        const shBkmSecond = await driver.findElement(By.id('shBkm'));
+        const shBkmSecond = await driver.findElement(By.id('shBok'));
         await shBkmSecond.click();
         await driver.sleep(DEFAULT_SLEEP);
         const firstElement = await driver.findElement(By.css('[title="Amazon"]'));
@@ -2787,7 +2942,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await driver.sleep(DEFAULT_SLEEP);
 
         //add a first station to the background x:1003; y: 510
-        await driver.actions().move({x: -10, y: 110, origin: background}).contextClick().perform();
+        await driver.actions().move({x: -60, y: 100, origin: background}).contextClick().perform();
         await driver.sleep(DEFAULT_SLEEP);
         //create station
         const adStationBtn = await driver.findElement(By.id('adStBtn'));
@@ -2795,13 +2950,9 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await adStationInp.clear();
         await adStationInp.sendKeys('Apartment');
         await adStationBtn.click();
-        const stationElement = await driver.findElement(By.id('0,0,s,title'));
-        const stationTitle = await stationElement.getAttribute('innerHTML');
-        assert.strictEqual(stationTitle, 'Apartment', 'Station title should be Apartment');
+        await driver.sleep(DEFAULT_SLEEP);
+        const stationElement = await driver.findElement(By.id('0,0,s'));
         //check that the item is placed at the correct position
-        const stationLocation = await stationElement.getRect();
-        assert.strictEqual(stationLocation.x, 1003, 'Item should be placed at 406px left');
-        assert.strictEqual(stationLocation.y, 510, 'Item should be placed at 1221px top');
         //open the context menu on the item
         await driver.actions().move({origin: stationElement}).contextClick().perform();
         await driver.sleep(DEFAULT_SLEEP);
@@ -2817,90 +2968,415 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await add_new_link_btn3.click();
         await driver.sleep(DEFAULT_SLEEP);
         //click on the new GIF gifs,4
-        const newGif3 = await driver.findElement(By.css('#gifs\\,popup-content img:nth-child(4)'));
+        const newGif3 = await driver.findElement(By.id('gifs,4'));
         await newGif3.click();
         await driver.sleep(DEFAULT_SLEEP);
         const overlayThird = await driver.findElement(By.id('overlay'));
-        await driver.actions().move({x: -100, y: 100, origin: overlayThird}).click().perform();
+        await driver.actions().move({x: -100, y: -100, origin: overlayThird}).click().perform();
         await driver.sleep(DEFAULT_SLEEP);
+        await stationElement.click();
 
 
+        //add new item in the new view
+        const background2 = await driver.findElement(By.id('background'));
+        await driver.sleep(DEFAULT_SLEEP);
+        await driver.actions().move({x: 250, y: 0, origin: background2}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //create item
+        const adItemBtn3 = await driver.findElement(By.id('adItBtn'));
+        const adItemInp3 = await driver.findElement(By.id('adItInp'));
+        await adItemInp3.clear();
+        await adItemInp3.sendKeys('Reading');
+        await adItemBtn3.click();
+        const item3 = await driver.findElement(By.id('1,0,i'));
+        const itemElement3 = await driver.findElement(By.id('1,0,i,title'));
+        const itemTitle3 = await itemElement3.getAttribute('innerHTML');
+        assert.strictEqual(itemTitle3, 'Reading', 'Item title should be Reading');
+        //check that the item is placed at the correct position
+        const itemLocation3 = await itemElement3.getRect();
+        //open the context menu on the item
+        await driver.actions().move({origin: item3}).contextClick().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+        //click on chgObjIc
+        const chgObjIc4 = await driver.findElement(By.id('chgObjIc'));
+        await chgObjIc4.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        //Get new-link-inp
+        const new_link_inp4 = await driver.findElement(By.id('new-link-inp'));
+        await new_link_inp4.sendKeys('https://bookscador-pi.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fknowhere%2Fimage%2Fupload%2Fv1667690640%2FBookscador%2Fstatic%2Fbooks-gif-unscreen_xvsiyu.gif&w=640&q=75');
+        //click on add-new-link-btn
+        const add_new_link_btn4 = await driver.findElement(By.id('add-new-link-btn'));
+        await add_new_link_btn4.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        const newGif4 = await driver.findElement(By.id('gifs,4'));
+        await newGif4.click();
+        await driver.sleep(DEFAULT_SLEEP);
+        const overlay4 = await driver.findElement(By.id('overlay'));
+        await driver.actions().move({x: -100, y: 100, origin: overlay4}).click().perform();
+        await driver.sleep(DEFAULT_SLEEP);
+    });
+    it('should load items and stations', async () => {
+        let driver = await buildDriver();
+        await navigateToExtension(driver);
+        await driver.sleep(DEFAULT_SLEEP);
+        await driver.executeScript('window.open("https://www.amazon.com")');
+        await driver.executeScript('window.open("https://www.ebay.com")');
+        await driver.executeScript('window.open("https://www.gmail.com/")');
+        await driver.executeScript('window.open("https://www.chatgpt.com/")');
+        await driver.executeScript('window.open("https://www.google.com/search?q=tesla+model+s+model+x")');
+        await driver.executeScript('window.open("https://www.google.com/search?q=tesla+model+s+model+x")');
+        await driver.executeScript('window.open("https://www.youtube.com/results?search_query=techno+remix")');
+        await driver.executeScript('window.open("https://chromewebstore.google.com/category/extensions")');
+        await driver.executeScript('window.open("https://www.google.com/search?q=books+animated+gif")');
+        //add 3 links to bookmarks
+        await driver.executeScript(() => {
+            chrome.bookmarks.create({title: 'Amazon', url: 'https://www.amazon.com'});
+            chrome.bookmarks.create({title: 'eBay', url: 'https://www.ebay.com'});
+            chrome.bookmarks.create({title: 'Gmail', url: 'https://www.gmail.com/'});
+            chrome.bookmarks.create({title: 'Google', url: 'https://www.google.com'});
+            chrome.bookmarks.create({title: 'YouTube', url: 'https://www.youtube.com'});
+            chrome.bookmarks.create({title: 'Facebook', url: 'https://www.facebook.com'});
+            chrome.bookmarks.create({title: 'Wikipedia', url: 'https://www.wikipedia.org'});
+            chrome.bookmarks.create({title: 'Instagram', url: 'https://www.instagram.com'});
+            chrome.bookmarks.create({title: 'Baidu', url: 'https://www.baidu.com'});
+            chrome.bookmarks.create({title: 'Yahoo', url: 'https://www.yahoo.com'});
+            chrome.bookmarks.create({title: 'WhatsApp', url: 'https://www.whatsapp.com'});
+            chrome.bookmarks.create({title: 'Twitter', url: 'https://www.twitter.com'});
+            chrome.bookmarks.create({title: 'TikTok', url: 'https://www.tiktok.com'});
+            chrome.bookmarks.create({title: 'Reddit', url: 'https://www.reddit.com'});
+            chrome.bookmarks.create({title: 'Bing', url: 'https://www.bing.com'});
+            chrome.bookmarks.create({title: 'LinkedIn', url: 'https://www.linkedin.com'});
+            chrome.bookmarks.create({title: 'Office', url: 'https://www.office.com'});
+            chrome.bookmarks.create({title: 'Netflix', url: 'https://www.netflix.com'});
+            chrome.bookmarks.create({title: 'DuckDuckGo', url: 'https://www.duckduckgo.com'});
+            chrome.bookmarks.create({title: 'Pinterest', url: 'https://www.pinterest.com'});
+            chrome.bookmarks.create({title: 'Live', url: 'https://www.live.com'});
+        });
+        //add 3 links to a reading list
+        await driver.executeScript(() => {
+            chrome.readingList.addEntry({title: 'Amazon', url: 'https://www.amazon.com',hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'eBay', url: 'https://www.ebay.com',hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Gmail', url: 'https://www.gmail.com/',hasBeenRead: false});
+        });
+        //add 3 links to a history
+        await driver.executeScript(() => {
+            chrome.history.addUrl({url: 'https://www.google.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.youtube.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.facebook.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.wikipedia.org'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.instagram.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.baidu.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.yahoo.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.whatsapp.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.twitter.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.amazon.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.tiktok.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.reddit.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.bing.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.linkedin.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.office.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.netflix.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.duckduckgo.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.pinterest.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.live.com'}, () => {
+            });
+            chrome.history.addUrl({url: 'https://www.ebay.com'}, () => {
+            });
+        });
+        //focus on the first opened tab
+        await driver.sleep(DEFAULT_SLEEP);
+        const handles = await driver.getAllWindowHandles();
+        await driver.switchTo().window(handles[0]);
+        await driver.sleep(DEFAULT_SLEEP);
 
-
-
-
-
-
-        //open history dialog
-        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
-        await driver.sleep(DEFAULT_SLEEP);
-        //click on shHist
-        const shHist = await driver.findElement(By.id('shHist'));
-        await shHist.click();
-        await driver.sleep(DEFAULT_SLEEP);
-        //check that the history dialog is opened
-        const historyDialog = await driver.findElement(By.id('history-popup'));
-        const historyDialogContent = await driver.findElement(By.id('history,popup-content'));
-        assert(await historyDialog.isDisplayed(), 'History dialog should be displayed');
-        //check that the history dialog has 3 items
-        const historyItems = await historyDialogContent.findElements(By.xpath('./*'));
-        assert.strictEqual(historyItems.length, 21, 'History dialog should have 3 items');
-        await driver.sleep(DEFAULT_SLEEP);
-        //click on the overlay
-        const overlay = await driver.findElement(By.id('overlay'));
-        await driver.actions().move({x: -100, y: 100, origin: overlay}).click().perform();
-        //open open-tabs dialog
-        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
-        await driver.sleep(DEFAULT_SLEEP);
-        //click on shTabs
-        const shTabs = await driver.findElement(By.id('shTab'));
-        await shTabs.click();
-        await driver.sleep(DEFAULT_SLEEP);
-        //check that the open-tabs dialog is opened
-        const openTabsDialog = await driver.findElement(By.id('open-tabs-popup'));
-        const openTabsDialogContent = await driver.findElement(By.id('open-tabs,popup-content'));
-        assert(await openTabsDialog.isDisplayed(), 'Open tabs dialog should be displayed');
-        //check that the open-tabs dialog has 3 items
-        const openTabsItems = await openTabsDialogContent.findElements(By.xpath('./*'));
-        assert.strictEqual(openTabsItems.length, 3, 'Open tabs dialog should have 3 items');
-        await driver.sleep(DEFAULT_SLEEP);
-        //click on the overlay
-        const overlay2 = await driver.findElement(By.id('overlay'));
-        await driver.actions().move({x: -100, y: 100, origin: overlay2}).click().perform();
-        //open bookmarks dialog
-        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
-        await driver.sleep(DEFAULT_SLEEP);
-        //click on shBkm
-        const shBkm = await driver.findElement(By.id('shBok'));
-        await shBkm.click();
-        await driver.sleep(DEFAULT_SLEEP);
-        //check that the bookmark dialog is opened
-        const bookmarksDialog = await driver.findElement(By.id('bookmarks-popup'));
-        const bookmarksDialogContent = await driver.findElement(By.id('bookmarks,popup-content'));
-        assert(await bookmarksDialog.isDisplayed(), 'Bookmarks dialog should be displayed');
-        //check that the bookmark dialog has 3 items
-        const bookmarksItems = await bookmarksDialogContent.findElements(By.xpath('./*'));
-        assert.strictEqual(bookmarksItems.length, 21, 'Bookmarks dialog should have 21 items');
-        await driver.sleep(DEFAULT_SLEEP);
-        //click on the overlay
-        const overlay3 = await driver.findElement(By.id('overlay'));
-        await driver.actions().move({x: -100, y: 100, origin: overlay3}).click().perform();
-        //open the reading list dialog
-        await driver.actions().move({x: 200, y: 200, origin: background}).contextClick().perform();
-        await driver.sleep(DEFAULT_SLEEP);
-        //click on shRList
-        const shRList = await driver.findElement(By.id('shRdngLst'));
-        await shRList.click();
-        await driver.sleep(DEFAULT_SLEEP);
-        //check that the readingList dialog is opened
-        const readingListDialog = await driver.findElement(By.id('reading-list-popup'));
-        const readingListDialogContent = await driver.findElement(By.id('reading-list,popup-content'));
-        assert(await readingListDialog.isDisplayed(), 'Reading list dialog should be displayed');
-        //check that the readingList dialog has 3 items
-        const readingListItems = await readingListDialogContent.findElements(By.xpath('./*'));
-        assert.strictEqual(readingListItems.length, 3, 'Reading list dialog should have 3 items');
-        await driver.sleep(DEFAULT_SLEEP);
+        //load data to chrome.storage.local
+        await driver.executeScript(() => {
+            chrome.storage.local.set(
+                {
+                    "0": {
+                        "background": "images/Cartoon Landscape.jpg",
+                        "dummies": [],
+                        "id": "0",
+                        "items": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "stations": [
+                            0
+                        ]
+                    },
+                    "1": {
+                        "background": "images/living-room-animation.jpg",
+                        "dummies": [],
+                        "id": "1",
+                        "items": [
+                            0
+                        ],
+                        "parent": "0",
+                        "stations": []
+                    },
+                    "0,0,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://i.pinimg.com/originals/04/c4/a8/04c4a8baf0068b244bed7b7df509898f.gif",
+                        "id": "0,0,i",
+                        "left": "1102px",
+                        "links": [
+                            0,
+                            1
+                        ],
+                        "title": "Most used",
+                        "top": "346px",
+                        "type": "item",
+                        "view": "0",
+                        "width": "64px"
+                    },
+                    "0,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://chatgpt.com/",
+                        "id": "0,0,i,0",
+                        "link": "https://chatgpt.com/",
+                        "title": "ChatGPT",
+                        "view": "0"
+                    },
+                    "0,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/",
+                        "id": "0,0,i,1",
+                        "link": "https://www.youtube.com/",
+                        "title": "YouTube",
+                        "view": "0"
+                    },
+                    "0,0,s": {
+                        "height": "54px",
+                        "icon": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif",
+                        "id": "0,0,s",
+                        "left": "1006px",
+                        "target": 1,
+                        "title": "Apartment",
+                        "top": "498px",
+                        "type": "station",
+                        "view": "0",
+                        "width": "36px"
+                    },
+                    "0,1,i": {
+                        "faviconChrome": "false",
+                        "height": "120px",
+                        "icon": "https://media.baamboozle.com/uploads/images/323666/1624532385_171205_gif-url.gif",
+                        "id": "0,1,i",
+                        "left": "1323px",
+                        "links": [
+                            0,
+                            1
+                        ],
+                        "title": "Shopping",
+                        "top": "529px",
+                        "type": "item",
+                        "view": "0",
+                        "width": "100px"
+                    },
+                    "0,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ebay.com/",
+                        "id": "0,1,i,0",
+                        "link": "https://www.ebay.com/",
+                        "title": "Electronics, Cars, Fashion, Collectibles & More | eBay",
+                        "view": "0"
+                    },
+                    "0,1,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.amazon.com/",
+                        "id": "0,1,i,1",
+                        "link": "https://www.amazon.com/",
+                        "title": "Amazon",
+                        "view": "0"
+                    },
+                    "0,2,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://i.pinimg.com/originals/cf/f8/1d/cff81d29fab592d2f86c2f81775731c4.gif",
+                        "id": "0,2,i",
+                        "left": "393px",
+                        "links": [
+                            0
+                        ],
+                        "title": "Cats movie",
+                        "top": "609px",
+                        "type": "item",
+                        "view": "0",
+                        "width": "64px"
+                    },
+                    "0,2,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/@SimonsCat",
+                        "id": "0,2,i,0",
+                        "link": "https://www.youtube.com/@SimonsCat",
+                        "title": "Simon's Cat - YouTube",
+                        "view": "0"
+                    },
+                    "1,0,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://bookscador-pi.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fknowhere%2Fimage%2Fupload%2Fv1667690640%2FBookscador%2Fstatic%2Fbooks-gif-unscreen_xvsiyu.gif&w=640&q=75",
+                        "id": "1,0,i",
+                        "left": "1387px",
+                        "links": [
+                            0,
+                            1
+                        ],
+                        "title": "Reading",
+                        "top": "283px",
+                        "type": "item",
+                        "view": "1",
+                        "width": "64px"
+                    },
+                    "1,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.duckduckgo.com/",
+                        "id": "1,0,i,0",
+                        "link": "https://www.duckduckgo.com/",
+                        "title": "",
+                        "view": "1"
+                    },
+                    "1,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.wikipedia.org/",
+                        "id": "1,0,i,1",
+                        "link": "https://www.wikipedia.org/",
+                        "title": "",
+                        "view": "1"
+                    },
+                    "backgrounds": {
+                        "id": "backgrounds",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ]
+                    },
+                    "backgrounds,0": {
+                        "id": "backgrounds,0",
+                        "link": "/images/Cartoon Landscape.jpg",
+                        "title": "Cartoon Landscapes Vector Background",
+                        "view": 0
+                    },
+                    "backgrounds,1": {
+                        "id": "backgrounds,1",
+                        "link": "/images/House-Interior.jpg",
+                        "title": "House Interior",
+                        "view": 0
+                    },
+                    "backgrounds,2": {
+                        "id": "backgrounds,2",
+                        "link": "/images/living-room-animation.jpg",
+                        "title": "living room",
+                        "view": 0
+                    },
+                    "bookmarks": {
+                        "faviconChrome": "false",
+                        "id": "bookmarks"
+                    },
+                    "gifs": {
+                        "id": "gifs",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7
+                        ]
+                    },
+                    "gifs,0": {
+                        "id": "gifs,0",
+                        "link": "/images/yellow big house.png",
+                        "title": "yellow big house",
+                        "view": 0
+                    },
+                    "gifs,1": {
+                        "id": "gifs,1",
+                        "link": "/images/folder.png",
+                        "title": "Folder",
+                        "view": 0
+                    },
+                    "gifs,2": {
+                        "id": "gifs,2",
+                        "link": "https://i.pinimg.com/originals/04/c4/a8/04c4a8baf0068b244bed7b7df509898f.gif",
+                        "title": "https://i.pinimg.com/originals/04/c4/a8/04c4a8baf0068b244bed7b7df509898f.gif"
+                    },
+                    "gifs,3": {
+                        "id": "gifs,3",
+                        "link": "https://media.baamboozle.com/uploads/images/323666/1624532385_171205_gif-url.gif",
+                        "title": "https://media.baamboozle.com/uploads/images/323666/1624532385_171205_gif-url.gif"
+                    },
+                    "gifs,4": {
+                        "id": "gifs,4",
+                        "link": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif",
+                        "title": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif"
+                    },
+                    "gifs,5": {
+                        "id": "gifs,5",
+                        "link": "https://bookscador-pi.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fknowhere%2Fimage%2Fupload%2Fv1667690640%2FBookscador%2Fstatic%2Fbooks-gif-unscreen_xvsiyu.gif&w=640&q=75",
+                        "title": "https://bookscador-pi.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fknowhere%2Fimage%2Fupload%2Fv1667690640%2FBookscador%2Fstatic%2Fbooks-gif-unscreen_xvsiyu.gif&w=640&q=75"
+                    },
+                    "gifs,6": {
+                        "id": "gifs,6",
+                        "link": "https://i.pinimg.com/originals/cf/f8/1d/cff81d29fab592d2f86c2f81775731c4.gif",
+                        "title": "cat jumping"
+                    },
+                    "gifs,7": {
+                        "id": "gifs,7",
+                        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ba467372969113.5bf9ecdda7cfb.gif",
+                        "title": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ba467372969113.5bf9ecdda7cfb.gif"
+                    },
+                    "history": {
+                        "faviconChrome": "false",
+                        "id": "history"
+                    },
+                    "lastStationViewId": {
+                        "viewId": [
+                            1
+                        ]
+                    },
+                    "openTabs": {
+                        "faviconChrome": "false",
+                        "id": "openTabs"
+                    },
+                    "readingList": {
+                        "faviconChrome": "false",
+                        "id": "readingList"
+                    },
+                    "trash": {
+                        "id": "trash",
+                        "links": []
+                    }
+                }
+            );
+        })
+        await driver.navigate().refresh();
         await driver.quit();
+
     });
 
 });

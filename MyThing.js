@@ -1077,15 +1077,19 @@ async function populateBackgroundsDialogBox(backgroundLinks, result, popup_conte
                     drawCanvasImage(ctxBg, img);
                 };
 
-                //hide backgrounds_popup
+                //remove backgrounds_popup
                 const backgrounds_dialog = document.getElementById('backgrounds-popup');
+                const gifsTooltip = document.getElementById('gifsTooltip');
                 const overlay = document.getElementById('overlay');
                 overlay.style.display = 'none';
                 if (backgrounds_dialog) {
                     document.body.removeChild(backgrounds_dialog);
                 }
+                if (gifsTooltip) {
+                    document.body.removeChild(gifsTooltip);
+                }
                 //update storage
-                await updateItemIconStorage(viewId, event);
+                await updateViewBackgroundStorage(viewId, event);
             });
         }
         popup_content.appendChild(newLink);
@@ -1114,7 +1118,7 @@ async function createBackgroundsDialogBox(event, result, backgroundLinks,viewId)
         dialog.appendChild(newUrlTitleInput);
         newUrlInput.focus();
         addNewLinkBtn.addEventListener("click", function () {
-            addNewGifListener(newUrlTitleInput, dialog_content);
+            addNewBackgroundListener(newUrlTitleInput, dialog_content,viewId);
         }, false);
     });
 }
@@ -1240,23 +1244,6 @@ async function addDumClickListener(rootId, event, itemAddDummyTitleInput) {
 
 async function changBackgroundClickListener(event) {
     hideCtxMenu()
-    //create popup with input for the background and change button
-    /* const saveBtn = recreateChBgDialog(event.currentTarget.id);
-     saveBtn.addEventListener("click", async function () {
-         const new_bck_inp = document.getElementById("new-bck-inp");
-         if (new_bck_inp.value !== "" && backgroundId) {
-             img.src = new_bck_inp.value;
-             img.onload = () => {
-                 drawCanvasImage(ctxBg, img);
-             };
-             new_bck_inp.value = "";
-             //update a background link for the view in local storage
-             root.background = img.src;
-             await chrome.storage.local.set({[root.id]: root});
-             console.log("updated background of view id " + root.id);
-             //save to backgrounds TODO
-         }
-     })*/
     await showBackgroundsClickListener(event,currentView);
 }
 
@@ -1460,6 +1447,16 @@ async function addNewGifListener(newUrlTitleInput, popup_content,linkId) {
         const urlTitle = newUrlTitleInput.value || newLinkInp.value;
         const result = await chrome.storage.local.get("gifs");
         await addLinkToGifsItem(result["gifs"], url, urlTitle, popup_content,linkId);
+        newLinkInp.value = "";
+    }
+}
+async function addNewBackgroundListener(newUrlTitleInput, popup_content,linkId) {
+    const newLinkInp = document.getElementById("new-link-inp");
+    if (newLinkInp.value !== "") {
+        const url = newLinkInp.value;
+        const urlTitle = newUrlTitleInput.value || newLinkInp.value;
+        const result = await chrome.storage.local.get("backgrounds");
+        await addLinkToGifsItem(result["backgrounds"], url, urlTitle, popup_content,linkId);
         newLinkInp.value = "";
     }
 }
@@ -1761,7 +1758,14 @@ async function updateItemIconStorage(itemId, event) {
     const item = result[itemId];
     item.icon = event.target.src;
     await chrome.storage.local.set({[itemId]: item});
-    console.log(itemId + " updated with new image " + item.src);
+    console.log(itemId + " updated with new image " + item.icon);
+}
+async function updateViewBackgroundStorage(itemId, event) {
+    const result = await chrome.storage.local.get(itemId);
+    const item = result[itemId];
+    item.background = event.target.src;
+    await chrome.storage.local.set({[itemId]: item});
+    console.log(itemId + " updated with new image " + item.background);
 }
 
 async function addLinkInGifsPopup(linkIndex, popup_content, itemId, clickableItemId) {
@@ -1786,20 +1790,42 @@ async function addLinkInGifsPopup(linkIndex, popup_content, itemId, clickableIte
     newLink.id = linkId;
     newLink.appendChild(newImg);
     if (clickableItemId) {
-        newLink.addEventListener("click", async function (event) {
-            event.preventDefault();
-            const itemDom = document.getElementById(clickableItemId + ",img");
-            //update dom element with the new image
-            itemDom.src = event.target.src;
-            itemDom.height = 32;
-            itemDom.width = 32;
-            //update storage
-            const result = await chrome.storage.local.get(clickableItemId);
-            const item = result[clickableItemId];
-            item.icon = event.target.src;
-            await chrome.storage.local.set({[clickableItemId]: item});
-            console.log(clickableItemId + " updated with new image " + item.icon);
-        }, false);
+        //check if clickableItemId is a number that is view
+        if (!isNaN(clickableItemId)) {//View
+            newLink.addEventListener("click", async function (event) {
+                event.preventDefault();
+                background = document.getElementById("background");
+                background.width = window.innerWidth;
+                background.height = window.innerHeight;
+                let ctxBg = background.getContext('2d');
+                const img = new Image;
+                img.src = event.target.src;
+                img.onload = () => {
+                    drawCanvasImage(ctxBg, img);
+                };
+                //update storage
+                const result = await chrome.storage.local.get(clickableItemId);
+                const item = result[clickableItemId];
+                item.background = event.target.src;
+                await chrome.storage.local.set({[clickableItemId]: item});
+                console.log(clickableItemId + " updated with new background " + item.background);
+            }, false);
+        }else {
+            newLink.addEventListener("click", async function (event) {
+                event.preventDefault();
+                const itemDom = document.getElementById(clickableItemId + ",img");
+                //update dom element with the new image
+                itemDom.src = event.target.src;
+                itemDom.height = 32;
+                itemDom.width = 32;
+                //update storage
+                const result = await chrome.storage.local.get(clickableItemId);
+                const item = result[clickableItemId];
+                item.icon = event.target.src;
+                await chrome.storage.local.set({[clickableItemId]: item});
+                console.log(clickableItemId + " updated with new image " + item.icon);
+            }, false);
+        }
     }
 
     newLink.addEventListener("contextmenu", function (event) {
