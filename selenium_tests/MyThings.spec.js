@@ -3121,13 +3121,47 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             2
                         ],
                         "stations": [
-                            0
+                            0,
+                            1,
+                            2
                         ]
                     },
                     "1": {
                         "background": "images/living-room-animation.jpg",
                         "dummies": [],
                         "id": "1",
+                        "items": [
+                            0
+                        ],
+                        "parent": "0",
+                        "stations": []
+                    },
+                    "2": {
+                        "background": "https://weadesign.com/wp-content/uploads/2024/02/apartment-interior-design.webp",
+                        "dummies": [],
+                        "id": "2",
+                        "items": [
+                            0
+                        ],
+                        "parent": "0",
+                        "stations": [
+                            0
+                        ]
+                    },
+                    "3": {
+                        "background": "https://media.designcafe.com/wp-content/uploads/2022/03/04164440/pink-girl-bedroom-design-ideas.jpg",
+                        "dummies": [],
+                        "id": "3",
+                        "items": [
+                            0
+                        ],
+                        "parent": "2",
+                        "stations": []
+                    },
+                    "4": {
+                        "background": "https://image.cdn2.seaart.me/2023-05-31/29331243397189/5da67a4a7c11a9aa0c5539acf26e3ffd80b93cce_high.webp",
+                        "dummies": [],
+                        "id": "4",
                         "items": [
                             0
                         ],
@@ -3148,7 +3182,8 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "top": "346px",
                         "type": "item",
                         "view": "0",
-                        "width": "64px"
+                        "width": "64px",
+                        "zIndex": "0"
                     },
                     "0,0,i,0": {
                         "faviconChrome": "false",
@@ -3210,6 +3245,18 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "title": "Amazon",
                         "view": "0"
                     },
+                    "0,1,s": {
+                        "height": "376px",
+                        "icon": "https://mir-s3-cdn-cf.behance.net/project_modules/source/ba467372969113.5bf9ecdda7cfb.gif",
+                        "id": "0,1,s",
+                        "left": "22px",
+                        "target": 2,
+                        "title": "new apartment",
+                        "top": "181px",
+                        "type": "station",
+                        "view": "0",
+                        "width": "369px"
+                    },
                     "0,2,i": {
                         "faviconChrome": "false",
                         "height": "64px",
@@ -3232,6 +3279,18 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "link": "https://www.youtube.com/@SimonsCat",
                         "title": "Simon's Cat - YouTube",
                         "view": "0"
+                    },
+                    "0,2,s": {
+                        "height": "64px",
+                        "icon": "https://moein.video/wp-content/uploads/2022/10/arrow-Free-Animated-Icon-GIF-1080p-after-effects.gif",
+                        "id": "0,2,s",
+                        "left": "1844px",
+                        "target": 4,
+                        "title": "Another View",
+                        "top": "11px",
+                        "type": "station",
+                        "view": "0",
+                        "width": "64px"
                     },
                     "1,0,i": {
                         "faviconChrome": "false",
@@ -3265,12 +3324,114 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "title": "",
                         "view": "1"
                     },
+                    "2,0,i": {
+                        "faviconChrome": "false",
+                        "height": "86px",
+                        "icon": "https://s3.eu-west-2.amazonaws.com/farming-foodsteps/images/MENU/lesson4.gif",
+                        "id": "2,0,i",
+                        "left": "80px",
+                        "links": [
+                            0
+                        ],
+                        "title": "Healthy food",
+                        "top": "326px",
+                        "type": "item",
+                        "view": "2",
+                        "width": "101px"
+                    },
+                    "2,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.bbcgoodfood.com/recipes/collection/quick-and-healthy-recipes",
+                        "id": "2,0,i,0",
+                        "link": "https://www.bbcgoodfood.com/recipes/collection/quick-and-healthy-recipes",
+                        "title": "116 Quick & Healthy Recipes | Good Food",
+                        "view": "2"
+                    },
+                    "2,0,s": {
+                        "height": "193px",
+                        "icon": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyeGVyZ29wazA2ajlpYnpnejl0ZnRuNnVlemZnOGZmcHdtN2U1NmN0NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/OWEm5woQM5IskcNCwa/source.gif",
+                        "id": "2,0,s",
+                        "left": "939px",
+                        "target": 3,
+                        "title": "Hannah",
+                        "top": "678px",
+                        "type": "station",
+                        "view": "2",
+                        "width": "166px"
+                    },
+                    "3,0,i": {
+                        "faviconChrome": "false",
+                        "height": "73px",
+                        "icon": "https://cdnfiles.j2bloggy.com/9846_b/wp-content/uploads/sites/342/2021/09/homework-gif.gif",
+                        "id": "3,0,i",
+                        "left": "542px",
+                        "links": [
+                            0
+                        ],
+                        "title": "Homework",
+                        "top": "461px",
+                        "type": "item",
+                        "view": "3",
+                        "width": "81px"
+                    },
+                    "3,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://chatgpt.com/",
+                        "id": "3,0,i,0",
+                        "link": "https://chatgpt.com/",
+                        "title": "ChatGPT",
+                        "view": "3"
+                    },
+                    "4,0,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://i.pinimg.com/originals/cf/f8/1d/cff81d29fab592d2f86c2f81775731c4.gif",
+                        "id": "4,0,i",
+                        "left": "281px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Another Item",
+                        "top": "332px",
+                        "type": "item",
+                        "view": "4",
+                        "width": "64px"
+                    },
+                    "4,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/",
+                        "id": "4,0,i,0",
+                        "link": "https://www.youtube.com/",
+                        "title": "YouTube",
+                        "view": "4"
+                    },
+                    "4,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ebay.com/",
+                        "id": "4,0,i,1",
+                        "link": "https://www.ebay.com/",
+                        "title": "eBay",
+                        "view": "4"
+                    },
+                    "4,0,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.bbcgoodfood.com/recipes/collection/quick-and-healthy-recipes",
+                        "id": "4,0,i,2",
+                        "link": "https://www.bbcgoodfood.com/recipes/collection/quick-and-healthy-recipes",
+                        "title": "116 Quick & Healthy Recipes | Good Food",
+                        "view": "4"
+                    },
                     "backgrounds": {
                         "id": "backgrounds",
                         "links": [
                             0,
                             1,
-                            2
+                            2,
+                            3,
+                            4,
+                            5
                         ]
                     },
                     "backgrounds,0": {
@@ -3291,6 +3452,21 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "title": "living room",
                         "view": 0
                     },
+                    "backgrounds,3": {
+                        "id": "backgrounds,3",
+                        "link": "https://weadesign.com/wp-content/uploads/2024/02/apartment-interior-design.webp",
+                        "title": "https://weadesign.com/wp-content/uploads/2024/02/apartment-interior-design.webp"
+                    },
+                    "backgrounds,4": {
+                        "id": "backgrounds,4",
+                        "link": "https://media.designcafe.com/wp-content/uploads/2022/03/04164440/pink-girl-bedroom-design-ideas.jpg",
+                        "title": "https://media.designcafe.com/wp-content/uploads/2022/03/04164440/pink-girl-bedroom-design-ideas.jpg"
+                    },
+                    "backgrounds,5": {
+                        "id": "backgrounds,5",
+                        "link": "https://image.cdn2.seaart.me/2023-05-31/29331243397189/5da67a4a7c11a9aa0c5539acf26e3ffd80b93cce_high.webp",
+                        "title": "https://image.cdn2.seaart.me/2023-05-31/29331243397189/5da67a4a7c11a9aa0c5539acf26e3ffd80b93cce_high.webp"
+                    },
                     "bookmarks": {
                         "faviconChrome": "false",
                         "id": "bookmarks"
@@ -3305,7 +3481,12 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             4,
                             5,
                             6,
-                            7
+                            7,
+                            8,
+                            9,
+                            10,
+                            11,
+                            12
                         ]
                     },
                     "gifs,0": {
@@ -3319,6 +3500,21 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "link": "/images/folder.png",
                         "title": "Folder",
                         "view": 0
+                    },
+                    "gifs,10": {
+                        "id": "gifs,10",
+                        "link": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyeGVyZ29wazA2ajlpYnpnejl0ZnRuNnVlemZnOGZmcHdtN2U1NmN0NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/OWEm5woQM5IskcNCwa/source.gif",
+                        "title": "Happy"
+                    },
+                    "gifs,11": {
+                        "id": "gifs,11",
+                        "link": "https://cdnfiles.j2bloggy.com/9846_b/wp-content/uploads/sites/342/2021/09/homework-gif.gif",
+                        "title": "https://cdnfiles.j2bloggy.com/9846_b/wp-content/uploads/sites/342/2021/09/homework-gif.gif"
+                    },
+                    "gifs,12": {
+                        "id": "gifs,12",
+                        "link": "https://moein.video/wp-content/uploads/2022/10/arrow-Free-Animated-Icon-GIF-1080p-after-effects.gif",
+                        "title": "https://moein.video/wp-content/uploads/2022/10/arrow-Free-Animated-Icon-GIF-1080p-after-effects.gif"
                     },
                     "gifs,2": {
                         "id": "gifs,2",
@@ -3345,10 +3541,15 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "link": "https://i.pinimg.com/originals/cf/f8/1d/cff81d29fab592d2f86c2f81775731c4.gif",
                         "title": "cat jumping"
                     },
-                    "gifs,7": {
-                        "id": "gifs,7",
-                        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ba467372969113.5bf9ecdda7cfb.gif",
-                        "title": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ba467372969113.5bf9ecdda7cfb.gif"
+                    "gifs,8": {
+                        "id": "gifs,8",
+                        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/source/ba467372969113.5bf9ecdda7cfb.gif",
+                        "title": "https://mir-s3-cdn-cf.behance.net/project_modules/source/ba467372969113.5bf9ecdda7cfb.gif"
+                    },
+                    "gifs,9": {
+                        "id": "gifs,9",
+                        "link": "https://s3.eu-west-2.amazonaws.com/farming-foodsteps/images/MENU/lesson4.gif",
+                        "title": "https://s3.eu-west-2.amazonaws.com/farming-foodsteps/images/MENU/lesson4.gif"
                     },
                     "history": {
                         "faviconChrome": "false",
@@ -3356,7 +3557,10 @@ describe('Should be able to Test the Extension Functionalities', function () {
                     },
                     "lastStationViewId": {
                         "viewId": [
-                            1
+                            1,
+                            2,
+                            3,
+                            4
                         ]
                     },
                     "openTabs": {
