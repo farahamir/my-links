@@ -16,20 +16,6 @@ chrome.runtime.onInstalled.addListener(()=> {
   focusOrCreateTab("index.html");
 });
 
-// The onClicked callback function.
-function onClickHandler() {
-  const manager_url = chrome.extension.getURL("index.html");
-  focusOrCreateTab(manager_url);
-}
-
-chrome.contextMenus.onClicked.addListener(onClickHandler);
-
-// Set up the context menu tree at installation time.
-chrome.runtime.onInstalled.addListener(function() {
-  // Create one item
-  chrome.contextMenus.create({"title": "My Things", "contexts": ["page"], "id": "MyThings"});
-
-});
 chrome.action.onClicked.addListener(function() {
   focusOrCreateTab('index.html');
 });

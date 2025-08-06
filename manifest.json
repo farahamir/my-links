@@ -1,15 +1,12 @@
 {
   "name": "VisuaLinks",
   "version": "0.1",
-  "description": "Keep your links tidy by grouping them under customizable, easy-to-remember images sourced from the internet.",
+  "description": "Visually organize links with icons,GIFs and backgrounds to boost clarity, usability and make your collection fun and easy to explore",
   "permissions": [
     "storage",
-    "contextMenus",
-    "cookies",
     "bookmarks",
     "readingList",
     "tabs",
-    "topSites",
     "favicon",
     "history"
   ],
