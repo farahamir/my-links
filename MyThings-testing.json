@@ -164,9 +164,9 @@
     "faviconChrome": "false"
   },
   "0,0,i,1": {
-    "icon": "https://keep.google.com/#NOTE/13O8_b5Kgf_fJRxyNWLqs9ZQumTg1V4GSa5ERWeKJNuhwINcuRc-5UZTDBqnPH670bNE-",
+    "icon": "https://keep.google.com/",
     "id": "0,0,i,1",
-    "link": "https://keep.google.com/#NOTE/13O8_b5Kgf_fJRxyNWLqs9ZQumTg1V4GSa5ERWeKJNuhwINcuRc-5UZTDBqnPH670bNE-",
+    "link": "https://keep.google.com/",
     "title": "Google Keep",
     "view": 0,
     "faviconChrome": "false"
@@ -273,7 +273,7 @@
   "0,1,i,4": {
     "icon": "https://cdn0.iconfinder.com/data/icons/3-colors-outline/500/Keep-512.png",
     "id": "0,1,i,4",
-    "link": "https://keep.google.com/#NOTE/13O8_b5Kgf_fJRxyNWLqs9ZQumTg1V4GSa5ERWeKJNuhwINcuRc-5UZTDBqnPH670bNE-",
+    "link": "https://keep.google.com/",
     "title": "Google Keep",
     "view": 0,
     "faviconChrome": "false"
@@ -303,9 +303,9 @@
     "faviconChrome": "false"
   },
   "0,1,i,8": {
-    "icon": "https://news.google.com/foryou?hl=de&gl=DE&ceid=DE%3Ade",
+    "icon": "https://news.google.com/",
     "id": "0,1,i,8",
-    "link": "https://news.google.com/foryou?hl=de&gl=DE&ceid=DE%3Ade",
+    "link": "https://news.google.com/",
     "title": "Google News - Für mich",
     "view": 0,
     "faviconChrome": "false"
@@ -380,18 +380,18 @@
     "faviconChrome": "false"
   },
   "0,11,i,1": {
-    "icon": "https://banking.c24.de/login",
+    "icon": "https://www.deutsche-bank.de/",
     "id": "0,11,i,1",
-    "link": "https://banking.c24.de/login",
-    "title": "C24 Bank | Online Banking",
+    "link": "https://www.deutsche-bank.de/",
+    "title": "Bank",
     "view": "0",
     "faviconChrome": "false"
   },
   "0,11,i,2": {
-    "icon": "https://www.stellantis-direktbank.de/services_auth/auth-frontend/?v=50bc4aa2a1c64fb0e2c0f08ea3f5b2d0&client_id=fkp&redirect_uri=https:%2F%2Fwww.stellantis-direktbank.de%2Fservices_cloud%2Fportal%2Fportal-oauth%2Flogin",
+    "icon": "https://www.deutsche-bank.de/",
     "id": "0,11,i,2",
-    "link": "https://www.stellantis-direktbank.de/services_auth/auth-frontend/?v=50bc4aa2a1c64fb0e2c0f08ea3f5b2d0&client_id=fkp&redirect_uri=https:%2F%2Fwww.stellantis-direktbank.de%2Fservices_cloud%2Fportal%2Fportal-oauth%2Flogin",
-    "title": "Anmelden - Stellantis Bank SA Niederlassung Deutschland",
+    "link": "https://www.deutsche-bank.de/",
+    "title": "https://www.deutsche-bank.de/",
     "view": "0",
     "faviconChrome": "false"
   },
@@ -411,9 +411,9 @@
     "faviconChrome": "false"
   },
   "0,12,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1Up6h5SGPB85bZdMIfwDcSxGuMU5uxoVM",
+    "icon": "https://drive.google.com/drive/",
     "id": "0,12,i,0",
-    "link": "https://drive.google.com/drive/folders/1Up6h5SGPB85bZdMIfwDcSxGuMU5uxoVM",
+    "link": "https://drive.google.com/drive/",
     "title": "Return tax - Google Drive",
     "view": "0",
     "faviconChrome": "false"
@@ -437,9 +437,9 @@
     "faviconChrome": "false"
   },
   "0,13,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1wmKEzJVAIbv9Ca99YHaW7HJMJnjrF5Gz",
+    "icon": "https://drive.google.com/drive/",
     "id": "0,13,i,0",
-    "link": "https://drive.google.com/drive/folders/1wmKEzJVAIbv9Ca99YHaW7HJMJnjrF5Gz",
+    "link": "https://drive.google.com/drive/",
     "title": "TK - Google Drive",
     "view": "0",
     "faviconChrome": "false"
@@ -475,17 +475,17 @@
     "faviconChrome": "false"
   },
   "0,14,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1WPm4b0rFWCe_G12__u9N5QOOvwxrqyi-",
+    "icon": "https://drive.google.com/drive/",
     "id": "0,14,i,0",
-    "link": "https://drive.google.com/drive/folders/1WPm4b0rFWCe_G12__u9N5QOOvwxrqyi-",
+    "link": "https://drive.google.com/drive/",
     "title": "Amir - Google Drive",
     "view": "0",
     "faviconChrome": "false"
   },
   "0,14,i,1": {
-    "icon": "https://drive.google.com/drive/folders/1Z1fAdMolT9XjV-0qI7E0EfYrdsBeO9JI",
+    "icon": "https://drive.google.com/drive/",
     "id": "0,14,i,1",
-    "link": "https://drive.google.com/drive/folders/1Z1fAdMolT9XjV-0qI7E0EfYrdsBeO9JI",
+    "link": "https://drive.google.com/drive/",
     "title": "Tax - Google Drive",
     "view": "0",
     "faviconChrome": "false"
@@ -529,10 +529,10 @@
     "faviconChrome": "false"
   },
   "0,2,i,1": {
-    "icon": "https://de.aliexpress.com/?gatewayAdapt=glo2deu",
+    "icon": "https://de.aliexpress.com/",
     "id": "0,2,i,1",
-    "link": "https://de.aliexpress.com/?gatewayAdapt=glo2deu",
-    "title": "DE.AliExpress | aliexpress german - Kaufen Sie günstig qualitativ hochwertige Produkte aus China. - AliExpress",
+    "link": "https://de.aliexpress.com/",
+    "title": "AliExpress ",
     "view": "0",
     "faviconChrome": "false"
   },
@@ -550,9 +550,9 @@
     "faviconChrome": "false"
   },
   "0,3,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1tJQIdvosqzMSTYYKUd_ZkD1gZOH5rGa_",
+    "icon": "https://drive.google.com/drive/",
     "id": "0,3,i,0",
-    "link": "https://drive.google.com/drive/folders/1tJQIdvosqzMSTYYKUd_ZkD1gZOH5rGa_",
+    "link": "https://drive.google.com/drive/",
     "title": "Agentur für Arbeit - Google Drive",
     "view": "0",
     "faviconChrome": "false"
@@ -601,9 +601,9 @@
     "faviconChrome": "false"
   },
   "0,6,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1tJQIdvosqzMSTYYKUd_ZkD1gZOH5rGa_",
+    "icon": "https://drive.google.com/drive/",
     "id": "0,6,i,0",
-    "link": "https://drive.google.com/drive/folders/1tJQIdvosqzMSTYYKUd_ZkD1gZOH5rGa_",
+    "link": "https://drive.google.com/drive/",
     "title": "Agentur für Arbeit - Google Drive",
     "view": "0",
     "faviconChrome": "false"
@@ -633,9 +633,9 @@
     "faviconChrome": "false"
   },
   "0,7,i,0": {
-    "icon": "https://www.allango.net/dau/NP10060726400?page=274",
+    "icon": "https://www.allango.net/",
     "id": "0,7,i,0",
-    "link": "https://www.allango.net/dau/NP10060726400?page=274",
+    "link": "https://www.allango.net/",
     "title": "Linie 1 Beruf B2 · Digital Edition · allango",
     "view": "0",
     "faviconChrome": "false"
@@ -749,17 +749,17 @@
     "faviconChrome": "false"
   },
   "0,8,i,4": {
-    "icon": "https://www.google.com/search?q=chrome+extention+react&sca_esv=131e31cfccb5a654&rlz=1C1CHBF_deDE1104DE1104&sxsrf=ADLYWIIzJ93-AQX2j6IEE-LNqTlXlfh2-g%3A1733147947438&ei=K71NZ72mGsuWxc8PhI6y4QU&ved=0ahUKEwj95_-dn4mKAxVLS_EDHQSHLFwQ4dUDCA8&uact=5&oq=chrome+extention+react&gs_lp=Egxnd3Mtd2l6LXNlcnAiFmNocm9tZSBleHRlbnRpb24gcmVhY3QyBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBhAAGA0YHkjRcFD7O1iRbnADeAGQAQCYAYQBoAHGE6oBBDAuMjK4AQPIAQD4AQGYAhmgAqMUwgIKEAAYsAMY1gQYR8ICBBAjGCfCAgsQABiABBiRAhiKBcICERAuGIAEGJECGNEDGMcBGIoFwgIKEAAYgAQYQxiKBcICCxAuGIAEGNEDGMcBwgIFEAAYgATCAhEQLhiABBiRAhjHARiKBRivAcICDhAuGIAEGMcBGI4FGK8BwgIKEC4YgAQYQxiKBcICChAjGIAEGCcYigXCAggQABiABBjLAcICBxAjGLECGCfCAgcQABiABBgKmAMAiAYBkAYIkgcEMy4yMqAHlOYB&sclient=gws-wiz-serp",
+    "icon": "https://www.google.com/",
     "id": "0,8,i,4",
-    "link": "https://www.google.com/search?q=chrome+extention+react&sca_esv=131e31cfccb5a654&rlz=1C1CHBF_deDE1104DE1104&sxsrf=ADLYWIIzJ93-AQX2j6IEE-LNqTlXlfh2-g%3A1733147947438&ei=K71NZ72mGsuWxc8PhI6y4QU&ved=0ahUKEwj95_-dn4mKAxVLS_EDHQSHLFwQ4dUDCA8&uact=5&oq=chrome+extention+react&gs_lp=Egxnd3Mtd2l6LXNlcnAiFmNocm9tZSBleHRlbnRpb24gcmVhY3QyBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBxAAGIAEGA0yBhAAGA0YHkjRcFD7O1iRbnADeAGQAQCYAYQBoAHGE6oBBDAuMjK4AQPIAQD4AQGYAhmgAqMUwgIKEAAYsAMY1gQYR8ICBBAjGCfCAgsQABiABBiRAhiKBcICERAuGIAEGJECGNEDGMcBGIoFwgIKEAAYgAQYQxiKBcICCxAuGIAEGNEDGMcBwgIFEAAYgATCAhEQLhiABBiRAhjHARiKBRivAcICDhAuGIAEGMcBGI4FGK8BwgIKEC4YgAQYQxiKBcICChAjGIAEGCcYigXCAggQABiABBjLAcICBxAjGLECGCfCAgcQABiABBgKmAMAiAYBkAYIkgcEMy4yMqAHlOYB&sclient=gws-wiz-serp",
+    "link": "https://www.google.com/",
     "title": "chrome extention react - Google Search",
     "view": "0",
     "faviconChrome": "false"
   },
   "0,8,i,5": {
-    "icon": "https://www.google.com/search?sca_esv=6b8c054c18cccfdb&rlz=1C1CHBF_deDE1104DE1104&sxsrf=ADLYWIJJB13hqdyRSi0b97G6ocS9zFFRDQ:1727944749414&q=isometric+village+top+down+view&udm=2&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3J_86uWOeqwdnV0yaSF-x2jopn8p7xL4A1Dm_DA2mNSwQf3Ts-oLed-fok38HK-L3touqFtv6wIt8FVCSDg7FOXl9BZhwvwkKnTuEN51hFYXnnYqV40IDAPbrBOsskslGNy0Z6pM&sa=X&ved=2ahUKEwjxvOvn5_GIAxX9VvEDHR2gCagQtKgLegQIDxAB&biw=1745&bih=866&dpr=1.1",
+    "icon": "https://www.google.com/",
     "id": "0,8,i,5",
-    "link": "https://www.google.com/search?sca_esv=6b8c054c18cccfdb&rlz=1C1CHBF_deDE1104DE1104&sxsrf=ADLYWIJJB13hqdyRSi0b97G6ocS9zFFRDQ:1727944749414&q=isometric+village+top+down+view&udm=2&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3J_86uWOeqwdnV0yaSF-x2jopn8p7xL4A1Dm_DA2mNSwQf3Ts-oLed-fok38HK-L3touqFtv6wIt8FVCSDg7FOXl9BZhwvwkKnTuEN51hFYXnnYqV40IDAPbrBOsskslGNy0Z6pM&sa=X&ved=2ahUKEwjxvOvn5_GIAxX9VvEDHR2gCagQtKgLegQIDxAB&biw=1745&bih=866&dpr=1.1",
+    "link": "https://www.google.com/",
     "title": "isometric village top down view - Google Search",
     "view": "0",
     "faviconChrome": "false"
@@ -812,9 +812,9 @@
     "faviconChrome": "false"
   },
   "0,9,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1l673npLI_3ZYxl5E5ltQ8pSXsxWLhSpC",
+    "icon": "https://drive.google.com/drive/",
     "id": "0,9,i,0",
-    "link": "https://drive.google.com/drive/folders/1l673npLI_3ZYxl5E5ltQ8pSXsxWLhSpC",
+    "link": "https://drive.google.com/drive/",
     "title": "Renting - Google Drive",
     "view": "0",
     "faviconChrome": "false"
@@ -837,7 +837,7 @@
   "1,2,i,1": {
     "icon": "https://img1.picmix.com/output/stamp/normal/7/5/7/3/2453757_a3b79.gif",
     "id": "1,2,i,1",
-    "link": "https://drive.google.com/drive/folders/1oXTW73MzIPEFsR4HGcRPkReISUPp5No6",
+    "link": "https://drive.google.com/drive/",
     "title": "kitchen - Google Drive",
     "view": "1",
     "faviconChrome": "false"
@@ -870,9 +870,9 @@
     "faviconChrome": "false"
   },
   "2,0,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1oXTW73MzIPEFsR4HGcRPkReISUPp5No6",
+    "icon": "https://drive.google.com/drive/",
     "id": "2,0,i,0",
-    "link": "https://drive.google.com/drive/folders/1oXTW73MzIPEFsR4HGcRPkReISUPp5No6",
+    "link": "https://drive.google.com/drive/",
     "title": "kitchen - Google Drive",
     "view": "2",
     "faviconChrome": "false"
@@ -908,7 +908,7 @@
   "2,1,i,0": {
     "icon": "https://www.freeiconspng.com/thumbs/google-drive-icon/google-drive-icon-0.png",
     "id": "2,1,i,0",
-    "link": "https://drive.google.com/drive/folders/1P0bYxR4xnfAZyi785w6ughfupZuaInEr",
+    "link": "https://drive.google.com/drive/",
     "title": "Buy - Google Drive",
     "view": "2",
     "faviconChrome": "false"
@@ -955,9 +955,9 @@
     "faviconChrome": "false"
   },
   "3,0,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1UZNrmvtNsMR-qds0wKu6In74sv10KkGY",
+    "icon": "https://drive.google.com/drive/",
     "id": "3,0,i,0",
-    "link": "https://drive.google.com/drive/folders/1UZNrmvtNsMR-qds0wKu6In74sv10KkGY",
+    "link": "https://drive.google.com/drive/",
     "title": "Couch closet bed - Google Drive",
     "view": "3",
     "faviconChrome": "false"
@@ -1057,17 +1057,17 @@
     "faviconChrome": "false"
   },
   "5,0,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1HosBrWeoccoa4h14Pl7dKeSEdrQuUZjy",
+    "icon": "https://drive.google.com/drive/",
     "id": "5,0,i,0",
-    "link": "https://drive.google.com/drive/folders/1HosBrWeoccoa4h14Pl7dKeSEdrQuUZjy",
+    "link": "https://drive.google.com/drive/",
     "title": "Mary - Google Drive",
     "view": "5",
     "faviconChrome": "false"
   },
   "5,0,i,1": {
-    "icon": "https://drive.google.com/drive/folders/19JCBGx6-FbUiv5eEr55kpLnOIahqUsOW",
+    "icon": "https://drive.google.com/drive/",
     "id": "5,0,i,1",
-    "link": "https://drive.google.com/drive/folders/19JCBGx6-FbUiv5eEr55kpLnOIahqUsOW",
+    "link": "https://drive.google.com/drive/",
     "title": "Mary - Google Drive",
     "view": "5"
   },
@@ -1087,9 +1087,9 @@
     "faviconChrome": "false"
   },
   "5,1,i,0": {
-    "icon": "https://schulessen1.40seconds-kids.de/default?Kinder=&monat=2025-03",
+    "icon": "https://schulessen1.40seconds-kids.de/",
     "id": "5,1,i,0",
-    "link": "https://schulessen1.40seconds-kids.de/default?Kinder=&monat=2025-03",
+    "link": "https://schulessen1.40seconds-kids.de/",
     "title": "[40 SECONDS Kids] Elternportal",
     "view": "5"
   },
@@ -1142,9 +1142,9 @@
     "faviconChrome": "false"
   },
   "5,2,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1pKsJWFhRs3-7Yn_s8wF0Su65KRS70PYC",
+    "icon": "https://drive.google.com/drive/",
     "id": "5,2,i,0",
-    "link": "https://drive.google.com/drive/folders/1pKsJWFhRs3-7Yn_s8wF0Su65KRS70PYC",
+    "link": "https://drive.google.com/drive/",
     "title": "B2 - Google Drive",
     "view": "5",
     "faviconChrome": "false"
@@ -1335,9 +1335,9 @@
     "view": "5"
   },
   "5,2,i,33": {
-    "icon": "https://docs.google.com/document/d/1v1cVIIZ-IlByZoac0RhtOXHO1gdO0vUTPr3BXQAIyWE/edit?tab=t.0",
+    "icon": "https://docs.google.com/",
     "id": "5,2,i,33",
-    "link": "https://docs.google.com/document/d/1v1cVIIZ-IlByZoac0RhtOXHO1gdO0vUTPr3BXQAIyWE/edit?tab=t.0",
+    "link": "https://docs.google.com/",
     "title": "Test - Google Docs",
     "view": "5"
   },
@@ -1359,7 +1359,7 @@
   "5,2,i,5": {
     "icon": "https://static.vecteezy.com/system/resources/thumbnails/024/090/509/small_2x/folder-file-documents-free-png.png",
     "id": "5,2,i,5",
-    "link": "https://docs.google.com/document/d/1VViBWSzEHRZJ80Ck-wauu2m6FsenACNfcfOGLOkfD98/edit?tab=t.0",
+    "link": "https://docs.google.com/",
     "title": "B2 Notes - Google Docs",
     "view": "5",
     "faviconChrome": "false"
@@ -1400,9 +1400,9 @@
     "width": "64px"
   },
   "5,3,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1KPxsDTd3l7-Y6MsCzOWrsQ57OLnEzr2X",
+    "icon": "https://drive.google.com/drive/",
     "id": "5,3,i,0",
-    "link": "https://drive.google.com/drive/folders/1KPxsDTd3l7-Y6MsCzOWrsQ57OLnEzr2X",
+    "link": "https://drive.google.com/drive/",
     "title": "Hani - Google Drive",
     "view": "5"
   },
@@ -1426,9 +1426,9 @@
     "width": "45px"
   },
   "5,4,i,0": {
-    "icon": "https://drive.google.com/drive/folders/0B-N5Xvbl7vogaFpqMjJ0YlFKOUE?resourcekey=0-7jaO1S3noPszkwytbBionA",
+    "icon": "https://drive.google.com/drive/",
     "id": "5,4,i,0",
-    "link": "https://drive.google.com/drive/folders/0B-N5Xvbl7vogaFpqMjJ0YlFKOUE?resourcekey=0-7jaO1S3noPszkwytbBionA",
+    "link": "https://drive.google.com/drive/",
     "title": "Interviews - Google Drive",
     "view": "5"
   },
@@ -1482,9 +1482,9 @@
     "width": "64px"
   },
   "5,5,i,0": {
-    "icon": "https://drive.google.com/drive/folders/1-UX7rgOUxpCCU23wo8wsJ_aaYqdm-zxy",
+    "icon": "https://drive.google.com/drive/",
     "id": "5,5,i,0",
-    "link": "https://drive.google.com/drive/folders/1-UX7rgOUxpCCU23wo8wsJ_aaYqdm-zxy",
+    "link": "https://drive.google.com/drive/",
     "title": "Apartment rent - Google Drive",
     "view": "5"
   },
@@ -1525,17 +1525,17 @@
     "width": "8px"
   },
   "8,1,i,0": {
-    "icon": "https://www.google.com/maps/search/schule/@52.4266462,13.268607,14.25z/data=!4m7!2m6!3m5!1sschule!2s52.4195,+13.2843!4m2!1d13.2842603!2d52.4194842?entry=ttu&g_ep=EgoyMDI1MDQwNy4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D",
+    "icon": "https://www.google.com/",
     "id": "8,1,i,0",
-    "link": "https://www.google.com/maps/search/schule/@52.4266462,13.268607,14.25z/data=!4m7!2m6!3m5!1sschule!2s52.4195,+13.2843!4m2!1d13.2842603!2d52.4194842?entry=ttu&g_ep=EgoyMDI1MDQwNy4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D",
+    "link": "https://www.google.com/",
     "title": "schule - Google Maps",
     "view": "8"
   },
   "8,1,i,1": {
-    "icon": "https://service.berlin.de/dienstleistung/329781/",
+    "icon": "https://service.berlin.de/",
     "id": "8,1,i,1",
-    "link": "https://service.berlin.de/dienstleistung/329781/",
-    "title": "Enrollment at another public elementary school or community school - Services - Service Berlin - Berlin.de",
+    "link": "https://service.berlin.de/",
+    "title": "https://service.berlin.de",
     "view": "8"
   },
   "backgrounds": {
@@ -1982,7 +1982,6 @@
       17,
       18,
       19,
-      20,
       21,
       22,
       23,
@@ -2012,7 +2011,6 @@
       47,
       48,
       49,
-      50,
       51,
       52,
       53,
@@ -2043,7 +2041,7 @@
   },
   "trash,12": {
     "id": "trash,12",
-    "link": "https://drive.google.com/drive/folders/1P0bYxR4xnfAZyi785w6ughfupZuaInEr",
+    "link": "https://drive.google.com/drive/",
     "title": "Buy - Google Drive"
   },
   "trash,13": {
@@ -2053,12 +2051,12 @@
   },
   "trash,14": {
     "id": "trash,14",
-    "link": "https://drive.google.com/drive/folders/0B-N5Xvbl7vogSXlQV2lKQkE4djg?resourcekey=0-KOOier4uBuae5mWHM3ijzw",
+    "link": "https://drive.google.com/drive/",
     "title": "Moving To Germany - Google Drive"
   },
   "trash,15": {
     "id": "trash,15",
-    "link": "https://drive.google.com/drive/folders/1pKsJWFhRs3-7Yn_s8wF0Su65KRS70PYC",
+    "link": "https://drive.google.com/drive/",
     "title": "B2 - Google Drive"
   },
   "trash,16": {
@@ -2087,15 +2085,10 @@
     "title": "https://i.pinimg.com/originals/80/5d/92/805d9290bf80860153c6804cc0ed2d3a.gif",
     "view": 0
   },
-  "trash,20": {
-    "id": "trash,20",
-    "link": "https://www.commerzbank.de/service/wie-aendere-ich-mein-ueberweisungslimit/?itm_source=bankingapp",
-    "title": "Wie ändere ich mein Überweisungslimit? - Commerzbank Kundenservice"
-  },
   "trash,21": {
     "id": "trash,21",
-    "link": "https://www.commerzbank.de/",
-    "title": "Die Bank für Privat- und Unternehmerkunden - Commerzbank"
+    "link": "https://www.deutsche-bank.de/",
+    "title": "https://www.deutsche-bank.de/"
   },
   "trash,22": {
     "id": "trash,22",
@@ -2104,7 +2097,7 @@
   },
   "trash,23": {
     "id": "trash,23",
-    "link": "https://photos.google.com/photo/AF1QipPlcRI8xQdubzHXYdIbgR4vcZOyqs_3e62PpH-i",
+    "link": "https://photos.google.com/",
     "title": "Photo - Google Photos"
   },
   "trash,24": {
@@ -2239,11 +2232,6 @@
     "id": "trash,5",
     "link": "https://www.simons.cat/assets/images/cat-kite.gif",
     "title": "cat kite"
-  },
-  "trash,50": {
-    "id": "trash,50",
-    "link": "javascript:(function(){let domain=window.location.hostname;window.open(`https://www.faviconextractor.com/api/favicon/${domain}`,'_blank');})();",
-    "title": "GitHub - seadfeng/favicon-downloader"
   },
   "trash,51": {
     "id": "trash,51",
