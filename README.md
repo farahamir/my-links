@@ -22,7 +22,7 @@ It transforms your bookmarks and links into an interactive, visually appealing c
 ### For Development
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/visualinks.git
+   git clone https://github.com/farahamir/visualinks.git
    ```
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode" in the top right corner
