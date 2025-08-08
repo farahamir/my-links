@@ -1,10 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const ZipPlugin = require("zip-webpack-plugin");
 
 module.exports = {
     entry: {
-        index: "./MyThings.js",
+        index: "./MyThing.js",
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -33,11 +34,40 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./MyThings.html",
-            filename: "MyThings.html",
+            template: "./index.html",
+            filename: "index.html",
         }),
         new CopyPlugin({
-            patterns: [{ from: "./images" },{ from: "./img" }],
+            patterns: [
+                { from: "./images", to: "images" },
+                { from: "./img", to: "img" },
+                { from: "./background.js" },
+                { from: "./jquery.min.js" },
+                { from: "./manifest.json" },
+                { from: "./MyThing.css" },
+                { from: "./MyThings.json" },
+                { from: "./options.css" },
+                { from: "./options.html" },
+                { from: "./options.js" }
+            ],
+        }),
+        new ZipPlugin({
+            filename: 'visualinks.zip',
+            path: path.resolve(__dirname),
+            include: [
+                'images',
+                'img',
+                'background.js',
+                'index.html',
+                'jquery.min.js',
+                'manifest.json',
+                'MyThing.css',
+                'MyThing.js',
+                'MyThings.json',
+                'options.css',
+                'options.html',
+                'options.js'
+            ]
         }),
     ],
 };
