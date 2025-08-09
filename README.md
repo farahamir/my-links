@@ -1,7 +1,8 @@
 # VisuaLinks
 
 ## Overview
-VisuaLinks is a Chrome extension that helps you visually organize your links with custom backgrounds, icons, and GIFs.
+VisuaLinks is a Chrome extension https://chromewebstore.google.com/detail/visualinks/hkoaejiklnmjhjeodoadnfjmbijffaol
+that helps you visually organize your links with custom backgrounds, icons, and GIFs.
 It transforms your bookmarks and links into an interactive, visually appealing collection that's both fun and easy to navigate.
 
 ## Features
@@ -22,7 +23,7 @@ It transforms your bookmarks and links into an interactive, visually appealing c
 ### For Development
 1. Clone the repository:
    ```sh
-   git clone https://github.com/farahamir/visualinks.git
+   git clone https://github.com/farahamir/my-links.git
    ```
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode" in the top right corner
