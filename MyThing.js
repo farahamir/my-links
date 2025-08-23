@@ -642,9 +642,9 @@ function handleBckGrCtMe(root, event) {
     document.removeEventListener('keyup', keyUpListener);
     const contextMenuDiv = document.createElement("div");
     const contextMenuUl = document.createElement("ul");
-    contextMenuUl.appendChild(createTitleInputMenuItemWithInput("adStBtn","adStInp","Station",root.id,addStClickListener));
-    contextMenuUl.appendChild(createTitleInputMenuItemWithInput("adItBtn","adItInp","Item",root.id,addItClickListener));
-    contextMenuUl.appendChild(createTitleInputMenuItemWithInput("adDumBtn","adDumInp","Dummy",root.id,addDumClickListener));
+    contextMenuUl.appendChild(createTitleInputMenuItemWithInput("adStBtn","adStInp","Room","Add new room which acts as portals to new view items and other rooms",root.id,addStClickListener));
+    contextMenuUl.appendChild(createTitleInputMenuItemWithInput("adItBtn","adItInp","Item","Add new item which hold your individual links",root.id,addItClickListener));
+    contextMenuUl.appendChild(createTitleInputMenuItemWithInput("adDumBtn","adDumInp","Dummy","Add new dummy as a decorative image holders to personalize your space",root.id,addDumClickListener));
     contextMenuUl.appendChild(createMenuItem("chgBck", `Change Background`, changBackgroundClickListener));
     contextMenuUl.appendChild(createMenuItem("shTab", `Open Tabs`, showTabsClickListener));
     contextMenuUl.appendChild(createMenuItem("shHist", `History`, showHistClickListener));
@@ -2079,10 +2079,11 @@ function createTitleInputMenuItem(object) {
     return menuItem;
 }
 
-function createTitleInputMenuItemWithInput(btnId,inputId,text,rootId,fun) {
+function createTitleInputMenuItemWithInput(btnId,inputId,text,title,rootId,fun) {
     const menuItem = document.createElement("li");
     const itemTitleInput = document.createElement("input");
     const itemChangeIconBtn = document.createElement("button");
+    itemChangeIconBtn.title = title;
     itemChangeIconBtn.innerHTML = "Add";
     itemChangeIconBtn.id = btnId;
     itemTitleInput.style.width = "80px";
@@ -2183,7 +2184,7 @@ async function removeStClickListener(station) {
     }
 }
 //TODO dup
-async function addLinkToItem(item, url, urlTitle, popup_content) {
+async function addLinkToItem(item, url, urlTitle, popup_content,dialog_popup_content) {
     const linkIndex = item.links ? item.links.length : 0;
     const id = linkIndex > 0 ? item.links[item.links.length - 1] + 1 : 0;
     item.links[linkIndex] = linkIndex > 0 ? id : 0;
@@ -2201,6 +2202,9 @@ async function addLinkToItem(item, url, urlTitle, popup_content) {
     await chrome.storage.local.set({[linkId]: newLinkData});
     console.log(linkId + " has been added");
     await addLinkInDialog(id, popup_content, item.id);
+    if (dialog_popup_content) {
+        await addLinkInDialog(id, dialog_popup_content, item.id);
+    }
 }
 //TODO dup
 async function addLinkToGifsItem(item, url, urlTitle, popup_content, clickableItemId) {
@@ -2296,7 +2300,7 @@ function createDialogBox(event, title, contentId, additionalCallback) {
 }
 //TODO refactor to use createDialogBox function and remove popup creation logic from index.html
 async function createItemDialogBox(object,faviconChrome) {
-    createDialogBox(event, object.id, object.id, async (dialog, dialog_content) => {
+    createDialogBox(event, object.title, object.id+",dialog", async (dialog, dialog_content) => {
         populatingLinksInDialog(object, dialog_content, faviconChrome);
         document.removeEventListener('keyup', keyUpListener);
         const addNewLinkBtn = document.createElement("button");
@@ -2341,9 +2345,10 @@ async function createItemDialogBox(object,faviconChrome) {
             if (newLinkInp.value !== "") {
                 const url = newLinkInp.value;
                 const urlTitle = newUrlTitleInput.value || url;
-                const popup_content = document.getElementById("popup-content");
+                const popup_content = document.getElementById(object.id + ",popup-content");
+                const dialog_popup_content = document.getElementById(object.id + ",dialog,popup-content");
                 //add the link to item local storage
-                await addLinkToItem(object, url, urlTitle, popup_content);
+                await addLinkToItem(object, url, urlTitle, popup_content,dialog_popup_content);
                 newLinkInp.value = "";
             }
         }, false);

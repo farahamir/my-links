@@ -4,6 +4,7 @@
 VisuaLinks is a Chrome extension https://chromewebstore.google.com/detail/visualinks/hkoaejiklnmjhjeodoadnfjmbijffaol
 that helps you visually organize your links with custom backgrounds, icons, and GIFs.
 It transforms your bookmarks and links into an interactive, visually appealing collection that's both fun and easy to navigate.
+https://www.youtube.com/watch?v=xhpfW1ZE2bM&t
 
 ## Features
 - **Visual Organization**: Arrange your links in a customizable visual space with beautiful backgrounds
