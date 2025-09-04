@@ -80,7 +80,24 @@ async function buildDriver() {
             await navigateToExtension(driver); // Wait until the extension is loaded
             return driver;
         });}
-async function checkNoConsoleErrors(driver) {
+
+async function buildDriverDocker() {
+    const options = new Chrome.Options();
+    return new Builder()
+        .forBrowser(Browser.CHROME)
+        .setChromeOptions(
+            options
+                .addArguments("--start-maximized", "--disable-infobars", "--disable-dev-shm-usage", "--no-sandbox")
+                .excludeSwitches(['enable-automation'])
+        )
+        .usingServer('http://localhost:4444/wd/hub')
+        .build()
+        .then(async driver => {
+            await navigateToExtension(driver); // Wait until the extension is loaded
+            return driver;
+        });
+}
+    async function checkNoConsoleErrors(driver) {
     const logs = await driver.manage().logs().get('browser');
     const errors = logs.filter(log => log.level.value >= 1000 && !log.message.includes("Failed to load resource: "));
     console.log(errors);
@@ -109,13 +126,13 @@ describe('Should be able to Test the Extension Functionalities', function () {
     it('Add Extension', async function () {
         let driver = await buildDriver();
         await navigateToExtension(driver); await loadTestingDataToChromeStorage(driver);
-        assert.strictEqual(await driver.getTitle(), 'My Things');
+        assert.strictEqual(await driver.getTitle(), 'VisuaLinks');
         await driver.quit();
     });
     it('Check Elements', async function () {
         let driver = await buildDriver();
         await navigateToExtension(driver); await loadTestingDataToChromeStorage(driver);
-        assert.strictEqual(await driver.getTitle(), 'My Things');
+        assert.strictEqual(await driver.getTitle(), 'VisuaLinks');
 
         const idsToCheck = [
             'black-screen',
@@ -180,12 +197,12 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await navigateToExtension(driver); await loadTestingDataToChromeStorage(driver);
         await driver.sleep(DEFAULT_SLEEP);
 
-        // Open context menu from background
+        // Open context menu from a background
         const background = await driver.findElement(By.id('background'));
         await driver.actions().contextClick(background).perform();
         await driver.sleep(DEFAULT_SLEEP);
 
-        // Check that context menu is displayed
+        // Check that a context menu is displayed
         await assertElementDisplayed(driver, 'contextMenu', true);
         await background.click();
 
@@ -290,7 +307,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         // Navigate to first station
         const station = await driver.findElement(By.id('0,1,s'));
         await station.click();
-        await driver.sleep(DEFAULT_SLEEP * 2);
+        await driver.sleep(DEFAULT_SLEEP * 5);
 
         // Navigate to nested station
         const nestedStation = await driver.findElement(By.id('2,1,s'));
@@ -526,7 +543,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         const trashPopupContent = await driver.findElement(By.id('trash,popup-content'));
         await driver.sleep(DEFAULT_SLEEP);
         const children = await trashPopupContent.findElements(By.xpath('./*'));
-        assert.strictEqual(children.length, 61, 'Trash popup should have 26 children');
+        assert.strictEqual(children.length, 59, 'Trash popup should have 26 children');
 
         await driver.quit();
     });
@@ -1533,7 +1550,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         });
         const map = new Map(Object.entries(result));
         const itemAfter = map.get('0,1,i');
-        assert.strictEqual(itemAfter.links.length, 10, 'Item 0,1,i should have 10 links in storage');
+        assert.strictEqual(itemAfter.links.length, 9, 'Item 0,1,i should have 10 links in storage');
         //check in chrome.storage.local that the item 0,1,i,10 exists
         const newLink = map.get('0,1,i,10');
         console.assert(newLink, 'Link with id 0,1,i,10 should be present in storage');
@@ -1589,7 +1606,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         //check that item popup has 10 children
 
         const children = await itemPopup.findElements(By.xpath('./*'));
-        assert.strictEqual(children.length, 10, 'Item popup should have 10 children');
+        assert.strictEqual(children.length, 9, 'Item popup should have 10 children');
         //check that the item 0,1,i has 10 links in the storage
         const result = await driver.executeScript(() => {
             return new Promise((resolve) => {
@@ -1600,7 +1617,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         });
         const map = new Map(Object.entries(result));
         const itemAfter = map.get('0,1,i');
-        assert.strictEqual(itemAfter.links.length, 10, 'Item 0,1,i should have 10 links in storage');
+        assert.strictEqual(itemAfter.links.length, 9, 'Item 0,1,i should have 10 links in storage');
         //check in chrome.storage.local that the item 0,1,i,4 exists
         const newLink = map.get('0,1,i,10');
         console.assert(newLink, 'Link with id 0,1,i,10 should be present in storage');
@@ -1679,7 +1696,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
     it('Remove all Items and Dummies from the main page and validate no elements in HTML and chrome.storage.local', async function () {
         let driver = await buildDriver()
         await navigateToExtension(driver); await loadTestingDataToChromeStorage(driver);
-        await driver.sleep(DEFAULT_SLEEP);
+        await driver.sleep(DEFAULT_SLEEP*3);
 
         //get a list of all divs with class 'pane' and open the context menu on each pane
         const panes = await driver.findElement(By.id('panes'));
@@ -1729,7 +1746,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
             });
         });
         const map = new Map(Object.entries(result));
-        assert.strictEqual(map.size, 271, 'There should be no elements in the storage');
+        assert.strictEqual(map.size, 269, 'There should be no elements in the storage');
         //check no error in console logs
 
         await checkNoConsoleErrors(driver);

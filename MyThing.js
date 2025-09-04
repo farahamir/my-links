@@ -1311,7 +1311,7 @@ function populateReadingListDialogBox(items, popup_content,faviconChrome) {
 
 async function showReadingListClickListener(event) {
     hideCtxMenu()
-    const items = await chrome.readingList.query({});
+    const items = (await chrome.readingList.query({})).sort((a, b) => b.lastUpdateTime - a.lastUpdateTime);
     //create popup with bookmarks urls
     const result = await chrome.storage.local.get("readingList");
     const faviconChrome = /^true$/i.test(result["readingList"].faviconChrome);

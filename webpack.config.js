@@ -45,6 +45,7 @@ module.exports = {
                 { from: "./jquery.min.js" },
                 { from: "./manifest.json" },
                 { from: "./MyThing.css" },
+                { from: "./MyThing.js" },
                 { from: "./MyThings.json" },
                 { from: "./options.css" },
                 { from: "./options.html" },
