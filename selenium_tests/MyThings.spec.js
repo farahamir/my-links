@@ -32,9 +32,9 @@ async function assertElementExists(driver, id) {
     return element;
 }
 
-async function openContextMenu(driver, elementId) {
+async function openContextMenu(driver, elementId, x = 0, y = 0) {
     const element = await driver.findElement(By.id(elementId));
-    await driver.actions().contextClick(element).perform();
+    await driver.actions().move({x: x, y: y, origin: element}).contextClick().perform();
     await driver.sleep(DEFAULT_SLEEP);
     return element;
 }
@@ -499,6 +499,90 @@ describe('Should be able to Test the Extension Functionalities', function () {
 
         await driver.quit();
     });
+    it('Add new Dummy from context menu delete and add again new one then validate the change in html and chrome.storage.local', async function () {
+        let driver = await buildDriver();
+        await navigateToExtension(driver);
+        await loadTestingDataToChromeStorage(driver);
+
+        // Open context menu and add new dummyToDelete
+        await openContextMenu(driver, 'background');
+        await clickElement(driver, 'adDumBtn');
+
+        // Check for console errors
+        await checkNoConsoleErrors(driver);
+
+        // Get storage data
+        let result = await getStorageData(driver);
+        let map = new Map(Object.entries(result));
+
+        // Validate storage data
+        assert(map.has('0,5,d'), 'Dummy with id 0,5,d should be present in storage');
+        let item = map.get('0');
+        assert(item.dummies.includes(5), 'Item with id 0 should have dummyToDelete 5 in dummies array');
+
+        // Validate HTML element exists
+        await assertElementExists(driver, '0,5,d');
+
+        // Open context menu and add new dummyToDelete
+        await openContextMenu(driver, 'background',200,200);
+        await clickElement(driver, 'adDumBtn');
+
+        // Check for console errors
+        await checkNoConsoleErrors(driver);
+
+        // Get storage data
+        result = await getStorageData(driver);
+        map = new Map(Object.entries(result));
+
+        // Validate storage data
+        assert(map.has('0,6,d'), 'Dummy with id 0,6,d should be present in storage');
+        item = map.get('0');
+        assert(item.dummies.includes(6), 'Item with id 0 should have dummyToDelete 6 in dummies array');
+
+        // Validate HTML element exists
+        await assertElementExists(driver, '0,6,d');
+
+        await driver.sleep(DEFAULT_SLEEP*2);
+
+        //delete dummyToDelete
+        const dummyToDelete = await driver.findElement(By.id('0,5,d'));
+
+        await driver.actions().move({origin: dummyToDelete}).perform();
+
+        // Trigger the contextmenu event
+        await driver.actions().contextClick(dummyToDelete).perform();
+
+        // Wait for the context menu to appear and verify its presence
+        const remDummyMenu = await driver.findElement(By.id('remDummy'));
+
+        assert(await remDummyMenu.isDisplayed(), 'Remove Dummy menu should be displayed');
+
+        await remDummyMenu.click();
+        //confirm the deletion prompt by clicking on The Alert confirm button
+        await driver.switchTo().alert().accept();
+
+        //check that dummyToDelete with id 0,5,d is not present in the html
+        let dummyElement;
+        try {
+            dummyElement = await driver.findElement(By.id('0,5,d'));
+        } catch (e) {
+            dummyElement = null;
+        }
+        assert(!dummyElement, 'Dummy with id 0,5,d should be not present in html');
+        await checkNoConsoleErrors(driver);
+        result = await driver.executeScript(() => {
+            return new Promise((resolve) => {
+                chrome.storage.local.get(null, (items) => {
+                    resolve(items);
+                });
+            });
+        });
+        //check that id 0,5,d exists in the storage
+        map = new Map(Object.entries(result));
+        assert(!map.has('0,5,d'), 'Dummy with id 0,5,d should not be present in storage');
+        assert(!map.get('0').dummies.includes(5), 'Item with id 0 should not have dummyToDelete 5 in dummies array');
+        await driver.quit();
+    });
     it('Delete Link inside item popup and validate changes', async function () {
         let driver = await buildDriver();
         await navigateToExtension(driver); await loadTestingDataToChromeStorage(driver);
@@ -543,7 +627,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         const trashPopupContent = await driver.findElement(By.id('trash,popup-content'));
         await driver.sleep(DEFAULT_SLEEP);
         const children = await trashPopupContent.findElements(By.xpath('./*'));
-        assert.strictEqual(children.length, 59, 'Trash popup should have 26 children');
+        assert.strictEqual(children.length, 59, 'Trash popup should have 1 children');
 
         await driver.quit();
     });
@@ -3130,7 +3214,9 @@ describe('Should be able to Test the Extension Functionalities', function () {
                 {
                     "0": {
                         "background": "images/Cartoon Landscape.jpg",
-                        "dummies": [],
+                        "dummies": [
+                            2
+                        ],
                         "id": "0",
                         "items": [
                             0,
@@ -3140,7 +3226,8 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "stations": [
                             0,
                             1,
-                            2
+                            2,
+                            3
                         ]
                     },
                     "1": {
@@ -3158,11 +3245,14 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "dummies": [],
                         "id": "2",
                         "items": [
-                            0
+                            0,
+                            1
                         ],
                         "parent": "0",
                         "stations": [
-                            0
+                            0,
+                            1,
+                            2
                         ]
                     },
                     "3": {
@@ -3183,6 +3273,30 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             0
                         ],
                         "parent": "0",
+                        "stations": []
+                    },
+                    "5": {
+                        "background": "https://pbs.twimg.com/media/FSunEp_WUAMKYhB.jpg:large",
+                        "dummies": [],
+                        "id": "5",
+                        "items": [],
+                        "parent": "0",
+                        "stations": []
+                    },
+                    "6": {
+                        "background": "https://en.idei.club/uploads/posts/2023-03/1679029533_en-idei-club-p-programmer-home-office-interer-1.jpg",
+                        "dummies": [],
+                        "id": "6",
+                        "items": [],
+                        "parent": "2",
+                        "stations": []
+                    },
+                    "7": {
+                        "background": "images/living-room-animation.jpg",
+                        "dummies": [],
+                        "id": "7",
+                        "items": [],
+                        "parent": "2",
                         "stations": []
                     },
                     "0,0,i": {
@@ -3235,13 +3349,13 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "height": "120px",
                         "icon": "https://media.baamboozle.com/uploads/images/323666/1624532385_171205_gif-url.gif",
                         "id": "0,1,i",
-                        "left": "1323px",
+                        "left": "1180px",
                         "links": [
                             0,
                             1
                         ],
                         "title": "Shopping",
-                        "top": "529px",
+                        "top": "498px",
                         "type": "item",
                         "view": "0",
                         "width": "100px"
@@ -3274,17 +3388,28 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "view": "0",
                         "width": "369px"
                     },
+                    "0,2,d": {
+                        "height": "160px",
+                        "icon": "https://static.vecteezy.com/system/resources/previews/060/424/047/non_2x/modern-detached-garage-with-white-siding-and-two-roll-up-doors-offering-spacious-vehicle-storage-and-a-clean-exterior-design-free-png.png",
+                        "id": "0,2,d",
+                        "left": "1398px",
+                        "title": "Garage",
+                        "top": "399px",
+                        "type": "dummy",
+                        "view": "0",
+                        "width": "182px"
+                    },
                     "0,2,i": {
                         "faviconChrome": "false",
                         "height": "64px",
                         "icon": "https://i.pinimg.com/originals/cf/f8/1d/cff81d29fab592d2f86c2f81775731c4.gif",
                         "id": "0,2,i",
-                        "left": "393px",
+                        "left": "206px",
                         "links": [
                             0
                         ],
                         "title": "Cats movie",
-                        "top": "609px",
+                        "top": "614px",
                         "type": "item",
                         "view": "0",
                         "width": "64px"
@@ -3308,6 +3433,19 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "type": "station",
                         "view": "0",
                         "width": "64px"
+                    },
+                    "0,3,s": {
+                        "height": "230px",
+                        "icon": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyZWU4N2E1Y29vN3ZnYmhsZzVmeDU0aTRqa2MwMmZibzhrdXY0N2tsbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/2YEFsPpBx9bdqftKpk/source.gif",
+                        "id": "0,3,s",
+                        "left": "1565px",
+                        "target": 5,
+                        "title": "Transform",
+                        "top": "346px",
+                        "type": "station",
+                        "view": "0",
+                        "width": "191px",
+                        "zIndex": "1"
                     },
                     "1,0,i": {
                         "faviconChrome": "false",
@@ -3375,6 +3513,43 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "type": "station",
                         "view": "2",
                         "width": "166px"
+                    },
+                    "2,1,i": {
+                        "faviconChrome": "false",
+                        "height": "139px",
+                        "icon": "https://i.pinimg.com/originals/82/28/2c/82282cde0b4d73445967aea7f761bda9.gif",
+                        "id": "2,1,i",
+                        "left": "688px",
+                        "links": [],
+                        "title": "Cooking",
+                        "top": "448px",
+                        "type": "item",
+                        "view": "2",
+                        "width": "153px"
+                    },
+                    "2,1,s": {
+                        "height": "160px",
+                        "icon": "https://media.tenor.com/rvDQSe2TtvwAAAAj/community-office.gif",
+                        "id": "2,1,s",
+                        "left": "1459px",
+                        "target": 6,
+                        "title": "Office",
+                        "top": "537px",
+                        "type": "station",
+                        "view": "2",
+                        "width": "161px"
+                    },
+                    "2,2,s": {
+                        "height": "140px",
+                        "icon": "https://ugokawaii.com/wp-content/uploads/2023/07/baby.gif",
+                        "id": "2,2,s",
+                        "left": "386px",
+                        "target": 7,
+                        "title": "Baby",
+                        "top": "758px",
+                        "type": "station",
+                        "view": "2",
+                        "width": "134px"
                     },
                     "3,0,i": {
                         "faviconChrome": "false",
@@ -3448,7 +3623,14 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             2,
                             3,
                             4,
-                            5
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10,
+                            11,
+                            12
                         ]
                     },
                     "backgrounds,0": {
@@ -3462,6 +3644,21 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "link": "/images/House-Interior.jpg",
                         "title": "House Interior",
                         "view": 0
+                    },
+                    "backgrounds,10": {
+                        "id": "backgrounds,10",
+                        "link": "https://en.idei.club/uploads/posts/2023-03/1679029533_en-idei-club-p-programmer-home-office-interer-1.jpg",
+                        "title": "https://en.idei.club/uploads/posts/2023-03/1679029533_en-idei-club-p-programmer-home-office-interer-1.jpg"
+                    },
+                    "backgrounds,11": {
+                        "id": "backgrounds,11",
+                        "link": "https://images.unsplash.com/photo-1588854337127-a7cdcabfd7ac?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmFieSUyMHJvb218ZW58MHx8MHx8fDA%3D",
+                        "title": "https://images.unsplash.com/photo-1588854337127-a7cdcabfd7ac?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmFieSUyMHJvb218ZW58MHx8MHx8fDA%3D"
+                    },
+                    "backgrounds,12": {
+                        "id": "backgrounds,12",
+                        "link": "https://pbs.twimg.com/media/FSunEp_WUAMKYhB.jpg:large",
+                        "title": "https://pbs.twimg.com/media/FSunEp_WUAMKYhB.jpg:large"
                     },
                     "backgrounds,2": {
                         "id": "backgrounds,2",
@@ -3484,6 +3681,26 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "link": "https://image.cdn2.seaart.me/2023-05-31/29331243397189/5da67a4a7c11a9aa0c5539acf26e3ffd80b93cce_high.webp",
                         "title": "https://image.cdn2.seaart.me/2023-05-31/29331243397189/5da67a4a7c11a9aa0c5539acf26e3ffd80b93cce_high.webp"
                     },
+                    "backgrounds,6": {
+                        "id": "backgrounds,6",
+                        "link": "https://www.decorilla.com/online-decorating/wp-content/uploads/2020/12/Moody-home-office-background-with-builtin-shelves-scaled.jpeg",
+                        "title": "https://www.decorilla.com/online-decorating/wp-content/uploads/2020/12/Moody-home-office-background-with-builtin-shelves-scaled.jpeg"
+                    },
+                    "backgrounds,7": {
+                        "id": "backgrounds,7",
+                        "link": "https://m.media-amazon.com/images/I/71j4Dgtx0sL.jpg",
+                        "title": "https://m.media-amazon.com/images/I/71j4Dgtx0sL.jpg"
+                    },
+                    "backgrounds,8": {
+                        "id": "backgrounds,8",
+                        "link": "https://media.istockphoto.com/id/1191899737/vector/a-freelancer-programmer-coding-a-program-at-home.jpg?s=612x612&w=0&k=20&c=kYq35K0pW0d788ftElIDwQ8dZ7GL-7EXNyGWZlec6fg=",
+                        "title": "https://media.istockphoto.com/id/1191899737/vector/a-freelancer-programmer-coding-a-program-at-home.jpg?s=612x612&w=0&k=20&c=kYq35K0pW0d788ftElIDwQ8dZ7GL-7EXNyGWZlec6fg="
+                    },
+                    "backgrounds,9": {
+                        "id": "backgrounds,9",
+                        "link": "https://img.freepik.com/free-vector/office-background-video-conference_23-2148657195.jpg?semt=ais_incoming&w=740&q=80",
+                        "title": "https://img.freepik.com/free-vector/office-background-video-conference_23-2148657195.jpg?semt=ais_incoming&w=740&q=80"
+                    },
                     "bookmarks": {
                         "faviconChrome": "false",
                         "id": "bookmarks"
@@ -3503,7 +3720,29 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             9,
                             10,
                             11,
-                            12
+                            12,
+                            13,
+                            14,
+                            15,
+                            16,
+                            17,
+                            18,
+                            19,
+                            20,
+                            21,
+                            22,
+                            23,
+                            24,
+                            25,
+                            26,
+                            27,
+                            28,
+                            29,
+                            30,
+                            31,
+                            32,
+                            33,
+                            34
                         ]
                     },
                     "gifs,0": {
@@ -3533,15 +3772,125 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "link": "https://moein.video/wp-content/uploads/2022/10/arrow-Free-Animated-Icon-GIF-1080p-after-effects.gif",
                         "title": "https://moein.video/wp-content/uploads/2022/10/arrow-Free-Animated-Icon-GIF-1080p-after-effects.gif"
                     },
+                    "gifs,13": {
+                        "id": "gifs,13",
+                        "link": "https://giffiles.alphacoders.com/129/12900.gif",
+                        "title": "https://giffiles.alphacoders.com/129/12900.gif"
+                    },
+                    "gifs,14": {
+                        "id": "gifs,14",
+                        "link": "https://gifgifs.com/animations/anime/dragon-ball-z/Goku/goku_70.gif",
+                        "title": "https://gifgifs.com/animations/anime/dragon-ball-z/Goku/goku_70.gif"
+                    },
+                    "gifs,15": {
+                        "id": "gifs,15",
+                        "link": "https://i.pinimg.com/originals/f7/63/bf/f763bf4800723a0bd029953a5a2f9c96.gif",
+                        "title": "https://i.pinimg.com/originals/f7/63/bf/f763bf4800723a0bd029953a5a2f9c96.gif"
+                    },
+                    "gifs,16": {
+                        "id": "gifs,16",
+                        "link": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyZWU4N2E1Y29vN3ZnYmhsZzVmeDU0aTRqa2MwMmZibzhrdXY0N2tsbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/2YEFsPpBx9bdqftKpk/source.gif",
+                        "title": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyZWU4N2E1Y29vN3ZnYmhsZzVmeDU0aTRqa2MwMmZibzhrdXY0N2tsbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/2YEFsPpBx9bdqftKpk/source.gif"
+                    },
+                    "gifs,17": {
+                        "id": "gifs,17",
+                        "link": "https://www.yanncrozet.com/wp-content/uploads/2018/12/Football_Team_Anim_FT_3mo.gif",
+                        "title": "https://www.yanncrozet.com/wp-content/uploads/2018/12/Football_Team_Anim_FT_3mo.gif"
+                    },
+                    "gifs,18": {
+                        "id": "gifs,18",
+                        "link": "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyaXIzZjRyaWtydTJ3Z2pvYzA4MzBsMmlsbXZhbGI4bDBjMG1mazQ3biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/z0hUv6bpBWUUOtShDf/giphy.gif",
+                        "title": "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyaXIzZjRyaWtydTJ3Z2pvYzA4MzBsMmlsbXZhbGI4bDBjMG1mazQ3biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/z0hUv6bpBWUUOtShDf/giphy.gif"
+                    },
+                    "gifs,19": {
+                        "id": "gifs,19",
+                        "link": "https://24.media.tumblr.com/8d80361ed854052b921d7949e6c50eb8/tumblr_mkucb0d34z1r67h3uo1_500.gif",
+                        "title": "https://24.media.tumblr.com/8d80361ed854052b921d7949e6c50eb8/tumblr_mkucb0d34z1r67h3uo1_500.gif"
+                    },
                     "gifs,2": {
                         "id": "gifs,2",
                         "link": "https://i.pinimg.com/originals/04/c4/a8/04c4a8baf0068b244bed7b7df509898f.gif",
                         "title": "https://i.pinimg.com/originals/04/c4/a8/04c4a8baf0068b244bed7b7df509898f.gif"
                     },
+                    "gifs,20": {
+                        "id": "gifs,20",
+                        "link": "https://media2.giphy.com/media/bJ3KaxQPF8UNbGFG1R/giphy.gif",
+                        "title": "https://media2.giphy.com/media/bJ3KaxQPF8UNbGFG1R/giphy.gif"
+                    },
+                    "gifs,21": {
+                        "id": "gifs,21",
+                        "link": "https://www.teacherfoundation.org/wp-content/uploads/2025/08/GPLG4C.gif",
+                        "title": "https://www.teacherfoundation.org/wp-content/uploads/2025/08/GPLG4C.gif"
+                    },
+                    "gifs,22": {
+                        "id": "gifs,22",
+                        "link": "https://epe.brightspotcdn.com/dims4/default/ad332a6/2147483647/strip/true/crop/3537x2400+32+0/resize/840x570!/quality/90/?url=https%3A%2F%2Fepe-brightspot.s3.us-east-1.amazonaws.com%2Ff1%2F6c%2F17d7d1bf4dc790e6b978b8a51f98%2Fai-age-appropriate-animated.gif",
+                        "title": "https://epe.brightspotcdn.com/dims4/default/ad332a6/2147483647/strip/true/crop/3537x2400+32+0/resize/840x570!/quality/90/?url=https%3A%2F%2Fepe-brightspot.s3.us-east-1.amazonaws.com%2Ff1%2F6c%2F17d7d1bf4dc790e6b978b8a51f98%2Fai-age-appropriate-animated.gif"
+                    },
+                    "gifs,23": {
+                        "id": "gifs,23",
+                        "link": "https://i.pinimg.com/originals/82/28/2c/82282cde0b4d73445967aea7f761bda9.gif",
+                        "title": "https://i.pinimg.com/originals/82/28/2c/82282cde0b4d73445967aea7f761bda9.gif"
+                    },
+                    "gifs,24": {
+                        "id": "gifs,24",
+                        "link": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyNXJkZDBwZHVqd2U2Zzh5ZXk4MDkzamw5c2ttM2t3ZGVsODg3MXluOCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/6IfdksCcmX1l5yCqBy/giphy.gif",
+                        "title": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyNXJkZDBwZHVqd2U2Zzh5ZXk4MDkzamw5c2ttM2t3ZGVsODg3MXluOCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/6IfdksCcmX1l5yCqBy/giphy.gif"
+                    },
+                    "gifs,25": {
+                        "id": "gifs,25",
+                        "link": "https://classroomclipart.com/images/gallery/Animations/Education_School/animated-clipart-student-sliding-down-stack-books-05c.gif",
+                        "title": "https://classroomclipart.com/images/gallery/Animations/Education_School/animated-clipart-student-sliding-down-stack-books-05c.gif"
+                    },
+                    "gifs,26": {
+                        "id": "gifs,26",
+                        "link": "https://cdnl.iconscout.com/lottie/premium/thumb/going-to-school-animated-sticker-gif-download-8426879.gif",
+                        "title": "https://cdnl.iconscout.com/lottie/premium/thumb/going-to-school-animated-sticker-gif-download-8426879.gif"
+                    },
+                    "gifs,27": {
+                        "id": "gifs,27",
+                        "link": "https://data.textstudio.com/output/sample/animated/1/3/5/5/office-5-5531.gif",
+                        "title": "https://data.textstudio.com/output/sample/animated/1/3/5/5/office-5-5531.gif"
+                    },
+                    "gifs,28": {
+                        "id": "gifs,28",
+                        "link": "https://ugokawaii.com/wp-content/uploads/2023/07/baby.gif",
+                        "title": "https://ugokawaii.com/wp-content/uploads/2023/07/baby.gif"
+                    },
+                    "gifs,29": {
+                        "id": "gifs,29",
+                        "link": "https://media.tenor.com/9t1h1z2NNzUAAAAj/hello-business.gif",
+                        "title": "https://media.tenor.com/9t1h1z2NNzUAAAAj/hello-business.gif"
+                    },
                     "gifs,3": {
                         "id": "gifs,3",
                         "link": "https://media.baamboozle.com/uploads/images/323666/1624532385_171205_gif-url.gif",
                         "title": "https://media.baamboozle.com/uploads/images/323666/1624532385_171205_gif-url.gif"
+                    },
+                    "gifs,30": {
+                        "id": "gifs,30",
+                        "link": "https://media.tenor.com/rvDQSe2TtvwAAAAj/community-office.gif",
+                        "title": "https://media.tenor.com/rvDQSe2TtvwAAAAj/community-office.gif"
+                    },
+                    "gifs,31": {
+                        "id": "gifs,31",
+                        "link": "https://e7.pngegg.com/pngimages/486/578/png-clipart-window-garage-doors-garage-door-openers-window-glass-angle.png",
+                        "title": "https://e7.pngegg.com/pngimages/486/578/png-clipart-window-garage-doors-garage-door-openers-window-glass-angle.png"
+                    },
+                    "gifs,32": {
+                        "id": "gifs,32",
+                        "link": "https://w7.pngwing.com/pngs/811/954/png-transparent-garage-graphics.png",
+                        "title": "https://w7.pngwing.com/pngs/811/954/png-transparent-garage-graphics.png"
+                    },
+                    "gifs,33": {
+                        "id": "gifs,33",
+                        "link": "https://w7.pngwing.com/pngs/427/242/png-transparent-garage-car-park-door-shed-a-brick-garage-angle-furniture-van.png",
+                        "title": "https://w7.pngwing.com/pngs/427/242/png-transparent-garage-car-park-door-shed-a-brick-garage-angle-furniture-van.png"
+                    },
+                    "gifs,34": {
+                        "id": "gifs,34",
+                        "link": "https://static.vecteezy.com/system/resources/previews/060/424/047/non_2x/modern-detached-garage-with-white-siding-and-two-roll-up-doors-offering-spacious-vehicle-storage-and-a-clean-exterior-design-free-png.png",
+                        "title": "https://static.vecteezy.com/system/resources/previews/060/424/047/non_2x/modern-detached-garage-with-white-siding-and-two-roll-up-doors-offering-spacious-vehicle-storage-and-a-clean-exterior-design-free-png.png"
                     },
                     "gifs,4": {
                         "id": "gifs,4",
@@ -3577,7 +3926,10 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             1,
                             2,
                             3,
-                            4
+                            4,
+                            5,
+                            6,
+                            7
                         ]
                     },
                     "openTabs": {

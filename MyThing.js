@@ -2147,10 +2147,11 @@ async function removeDuClickListener(dummy) {
     //get parent id
     const rootId = dummy.id.split(",")[0];
     const root = await chrome.storage.local.get("" + rootId).then(result => result["" + rootId]);
-    const index = root.items.indexOf(parseInt(dummy.id.split(",")[1]));
+    const index = root.dummies.indexOf(parseInt(dummy.id.split(",")[1]));
     //remove from parent
     root.dummies.splice(index, 1);
     await chrome.storage.local.set({[rootId]: root});
+    console.log(index + " Dummy index was removed from view "+rootId);
     //remove dummy from local storage
     await chrome.storage.local.remove("" + dummy.id);
     console.log(dummy.id + " Dummy was removed from storage");
