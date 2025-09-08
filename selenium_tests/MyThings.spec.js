@@ -3129,7 +3129,7 @@ describe('Should be able to Test the Extension Functionalities', function () {
         await driver.executeScript('window.open("https://www.youtube.com/results?search_query=techno+remix")');
         await driver.executeScript('window.open("https://chromewebstore.google.com/category/extensions")');
         await driver.executeScript('window.open("https://www.google.com/search?q=books+animated+gif")');
-        //add 3 links to bookmarks
+        //add 100+ links to bookmarks
         await driver.executeScript(() => {
             chrome.bookmarks.create({title: 'Amazon', url: 'https://www.amazon.com'});
             chrome.bookmarks.create({title: 'eBay', url: 'https://www.ebay.com'});
@@ -3152,55 +3152,373 @@ describe('Should be able to Test the Extension Functionalities', function () {
             chrome.bookmarks.create({title: 'DuckDuckGo', url: 'https://www.duckduckgo.com'});
             chrome.bookmarks.create({title: 'Pinterest', url: 'https://www.pinterest.com'});
             chrome.bookmarks.create({title: 'Live', url: 'https://www.live.com'});
+            chrome.bookmarks.create({title: 'Stack Overflow', url: 'https://stackoverflow.com'});
+            chrome.bookmarks.create({title: 'GitHub', url: 'https://github.com'});
+            chrome.bookmarks.create({title: 'Quora', url: 'https://www.quora.com'});
+            chrome.bookmarks.create({title: 'Medium', url: 'https://medium.com'});
+            chrome.bookmarks.create({title: 'CNN', url: 'https://www.cnn.com'});
+            chrome.bookmarks.create({title: 'BBC', url: 'https://www.bbc.com'});
+            chrome.bookmarks.create({title: 'The Verge', url: 'https://www.theverge.com'});
+            chrome.bookmarks.create({title: 'NY Times', url: 'https://www.nytimes.com'});
+            chrome.bookmarks.create({title: 'Hacker News', url: 'https://news.ycombinator.com'});
+            chrome.bookmarks.create({title: 'Product Hunt', url: 'https://www.producthunt.com'});
+            chrome.bookmarks.create({title: 'Dribbble', url: 'https://dribbble.com'});
+            chrome.bookmarks.create({title: 'Behance', url: 'https://www.behance.net'});
+            chrome.bookmarks.create({title: 'Figma', url: 'https://www.figma.com'});
+            chrome.bookmarks.create({title: 'Canva', url: 'https://www.canva.com'});
+            chrome.bookmarks.create({title: 'Trello', url: 'https://trello.com'});
+            chrome.bookmarks.create({title: 'Slack', url: 'https://slack.com'});
+            chrome.bookmarks.create({title: 'Discord', url: 'https://discord.com'});
+            chrome.bookmarks.create({title: 'Notion', url: 'https://www.notion.so'});
+            chrome.bookmarks.create({title: 'Asana', url: 'https://asana.com'});
+            chrome.bookmarks.create({title: 'Zoom', url: 'https://zoom.us'});
+            chrome.bookmarks.create({title: 'Dropbox', url: 'https://www.dropbox.com'});
+            chrome.bookmarks.create({title: 'OneDrive', url: 'https://onedrive.live.com'});
+            chrome.bookmarks.create({title: 'Google Drive', url: 'https://drive.google.com'});
+            chrome.bookmarks.create({title: 'Evernote', url: 'https://evernote.com'});
+            chrome.bookmarks.create({title: 'Coursera', url: 'https://www.coursera.org'});
+            chrome.bookmarks.create({title: 'edX', url: 'https://www.edx.org'});
+            chrome.bookmarks.create({title: 'Udemy', url: 'https://www.udemy.com'});
+            chrome.bookmarks.create({title: 'Khan Academy', url: 'https://www.khanacademy.org'});
+            chrome.bookmarks.create({title: 'Codecademy', url: 'https://www.codecademy.com'});
+            chrome.bookmarks.create({title: 'LeetCode', url: 'https://leetcode.com'});
+            chrome.bookmarks.create({title: 'HackerRank', url: 'https://www.hackerrank.com'});
+            chrome.bookmarks.create({title: 'Codewars', url: 'https://www.codewars.com'});
+            chrome.bookmarks.create({title: 'FreeCodeCamp', url: 'https://www.freecodecamp.org'});
+            chrome.bookmarks.create({title: 'W3Schools', url: 'https://www.w3schools.com'});
+            chrome.bookmarks.create({title: 'MDN Web Docs', url: 'https://developer.mozilla.org'});
+            chrome.bookmarks.create({title: 'Stack Exchange', url: 'https://stackexchange.com'});
+            chrome.bookmarks.create({title: 'Gmail', url: 'https://mail.google.com'});
+            chrome.bookmarks.create({title: 'Yahoo Mail', url: 'https://mail.yahoo.com'});
+            chrome.bookmarks.create({title: 'Outlook', url: 'https://outlook.live.com'});
+            chrome.bookmarks.create({title: 'ProtonMail', url: 'https://proton.me'});
+            chrome.bookmarks.create({title: 'Zoho Mail', url: 'https://www.zoho.com/mail/'});
+            chrome.bookmarks.create({title: 'Yandex', url: 'https://yandex.com'});
+            chrome.bookmarks.create({title: 'Booking', url: 'https://www.booking.com'});
+            chrome.bookmarks.create({title: 'Airbnb', url: 'https://www.airbnb.com'});
+            chrome.bookmarks.create({title: 'Expedia', url: 'https://www.expedia.com'});
+            chrome.bookmarks.create({title: 'TripAdvisor', url: 'https://www.tripadvisor.com'});
+            chrome.bookmarks.create({title: 'Hotels', url: 'https://www.hotels.com'});
+            chrome.bookmarks.create({title: 'Agoda', url: 'https://www.agoda.com'});
+            chrome.bookmarks.create({title: 'Trivago', url: 'https://www.trivago.com'});
+            chrome.bookmarks.create({title: 'Kayak', url: 'https://www.kayak.com'});
+            chrome.bookmarks.create({title: 'Skyscanner', url: 'https://www.skyscanner.com'});
+            chrome.bookmarks.create({title: 'Uber', url: 'https://www.uber.com'});
+            chrome.bookmarks.create({title: 'Lyft', url: 'https://www.lyft.com'});
+            chrome.bookmarks.create({title: 'Grab', url: 'https://www.grab.com'});
+            chrome.bookmarks.create({title: 'DoorDash', url: 'https://www.doordash.com'});
+            chrome.bookmarks.create({title: 'Uber Eats', url: 'https://www.ubereats.com'});
+            chrome.bookmarks.create({title: 'Grubhub', url: 'https://www.grubhub.com'});
+            chrome.bookmarks.create({title: 'Postmates', url: 'https://www.postmates.com'});
+            chrome.bookmarks.create({title: 'Just Eat', url: 'https://www.just-eat.com'});
+            chrome.bookmarks.create({title: 'Deliveroo', url: 'https://deliveroo.co.uk'});
+            chrome.bookmarks.create({title: 'Zomato', url: 'https://www.zomato.com'});
+            chrome.bookmarks.create({title: 'OpenTable', url: 'https://www.opentable.com'});
+            chrome.bookmarks.create({title: 'Yelp', url: 'https://www.yelp.com'});
+            chrome.bookmarks.create({title: 'IMDB', url: 'https://www.imdb.com'});
+            chrome.bookmarks.create({title: 'Rotten Tomatoes', url: 'https://www.rottentomatoes.com'});
+            chrome.bookmarks.create({title: 'Metacritic', url: 'https://www.metacritic.com'});
+            chrome.bookmarks.create({title: 'Goodreads', url: 'https://www.goodreads.com'});
+            chrome.bookmarks.create({title: 'SoundCloud', url: 'https://soundcloud.com'});
+            chrome.bookmarks.create({title: 'Spotify', url: 'https://www.spotify.com'});
+            chrome.bookmarks.create({title: 'Apple Music', url: 'https://music.apple.com'});
+            chrome.bookmarks.create({title: 'Deezer', url: 'https://www.deezer.com'});
+            chrome.bookmarks.create({title: 'Pandora', url: 'https://www.pandora.com'});
+            chrome.bookmarks.create({title: 'Shazam', url: 'https://www.shazam.com'});
+            chrome.bookmarks.create({title: 'Bandcamp', url: 'https://bandcamp.com'});
+            chrome.bookmarks.create({title: 'Vimeo', url: 'https://vimeo.com'});
+            chrome.bookmarks.create({title: 'Dailymotion', url: 'https://www.dailymotion.com'});
+            chrome.bookmarks.create({title: 'Twitch', url: 'https://www.twitch.tv'});
+            chrome.bookmarks.create({title: 'Kick', url: 'https://kick.com'});
+            chrome.bookmarks.create({title: 'Coursera', url: 'https://www.coursera.org'});
+            chrome.bookmarks.create({title: 'Udacity', url: 'https://www.udacity.com'});
+            chrome.bookmarks.create({title: 'Pluralsight', url: 'https://www.pluralsight.com'});
+            chrome.bookmarks.create({title: 'TED', url: 'https://www.ted.com'});
+            chrome.bookmarks.create({title: 'National Geographic', url: 'https://www.nationalgeographic.com'});
+            chrome.bookmarks.create({title: 'NASA', url: 'https://www.nasa.gov'});
+            chrome.bookmarks.create({title: 'Unsplash', url: 'https://unsplash.com'});
+            chrome.bookmarks.create({title: 'Pexels', url: 'https://www.pexels.com'});
+            chrome.bookmarks.create({title: 'Pixabay', url: 'https://pixabay.com'});
+            chrome.bookmarks.create({title: 'GIPHY', url: 'https://giphy.com'});
+            chrome.bookmarks.create({title: 'Tenor', url: 'https://tenor.com'});
+            chrome.bookmarks.create({title: 'Weather', url: 'https://weather.com'});
+            chrome.bookmarks.create({title: 'AccuWeather', url: 'https://www.accuweather.com'});
+            chrome.bookmarks.create({title: 'The Weather Channel', url: 'https://weather.com'});
+            chrome.bookmarks.create({title: 'Bloomberg', url: 'https://www.bloomberg.com'});
+            chrome.bookmarks.create({title: 'Reuters', url: 'https://www.reuters.com'});
+            chrome.bookmarks.create({title: 'Forbes', url: 'https://www.forbes.com'});
+            chrome.bookmarks.create({title: 'CNBC', url: 'https://www.cnbc.com'});
+            chrome.bookmarks.create({title: 'MarketWatch', url: 'https://www.marketwatch.com'});
+            chrome.bookmarks.create({title: 'Investopedia', url: 'https://www.investopedia.com'});
+            chrome.bookmarks.create({title: 'CoinMarketCap', url: 'https://coinmarketcap.com'});
+            chrome.bookmarks.create({title: 'CoinGecko', url: 'https://www.coingecko.com'});
+            chrome.bookmarks.create({title: 'TradingView', url: 'https://www.tradingview.com'});
+            chrome.bookmarks.create({title: 'Glassdoor', url: 'https://www.glassdoor.com'});
+            chrome.bookmarks.create({title: 'Indeed', url: 'https://www.indeed.com'});
+            chrome.bookmarks.create({title: 'Monster', url: 'https://www.monster.com'});
+            chrome.bookmarks.create({title: 'ZipRecruiter', url: 'https://www.ziprecruiter.com'});
+            chrome.bookmarks.create({title: 'AngelList', url: 'https://angel.co'});
+            chrome.bookmarks.create({title: 'Crunchbase', url: 'https://www.crunchbase.com'});
         });
-        //add 3 links to a reading list
+        //add 20 links to a reading list
         await driver.executeScript(() => {
             chrome.readingList.addEntry({title: 'Amazon', url: 'https://www.amazon.com',hasBeenRead: false});
             chrome.readingList.addEntry({title: 'eBay', url: 'https://www.ebay.com',hasBeenRead: false});
             chrome.readingList.addEntry({title: 'Gmail', url: 'https://www.gmail.com/',hasBeenRead: false});
         });
-        //add 3 links to a history
         await driver.executeScript(() => {
-            chrome.history.addUrl({url: 'https://www.google.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.youtube.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.facebook.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.wikipedia.org'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.instagram.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.baidu.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.yahoo.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.whatsapp.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.twitter.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.amazon.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.tiktok.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.reddit.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.bing.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.linkedin.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.office.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.netflix.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.duckduckgo.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.pinterest.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.live.com'}, () => {
-            });
-            chrome.history.addUrl({url: 'https://www.ebay.com'}, () => {
-            });
+            chrome.readingList.addEntry({title: 'Amazon', url: 'https://www.amazon.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'eBay', url: 'https://www.ebay.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Gmail', url: 'https://www.gmail.com/', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Google', url: 'https://www.google.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'YouTube', url: 'https://www.youtube.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Facebook', url: 'https://www.facebook.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Wikipedia', url: 'https://www.wikipedia.org', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Instagram', url: 'https://www.instagram.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Baidu', url: 'https://www.baidu.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Yahoo', url: 'https://www.yahoo.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'WhatsApp', url: 'https://www.whatsapp.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Twitter', url: 'https://www.twitter.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'TikTok', url: 'https://www.tiktok.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Reddit', url: 'https://www.reddit.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Bing', url: 'https://www.bing.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'LinkedIn', url: 'https://www.linkedin.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Office', url: 'https://www.office.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Netflix', url: 'https://www.netflix.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'DuckDuckGo', url: 'https://www.duckduckgo.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Pinterest', url: 'https://www.pinterest.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Live', url: 'https://www.live.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Stack Overflow', url: 'https://stackoverflow.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'GitHub', url: 'https://github.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Quora', url: 'https://www.quora.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Medium', url: 'https://medium.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'CNN', url: 'https://www.cnn.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'BBC', url: 'https://www.bbc.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'The Verge', url: 'https://www.theverge.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'NY Times', url: 'https://www.nytimes.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Hacker News', url: 'https://news.ycombinator.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Product Hunt', url: 'https://www.producthunt.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Dribbble', url: 'https://dribbble.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Behance', url: 'https://www.behance.net', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Figma', url: 'https://www.figma.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Canva', url: 'https://www.canva.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Trello', url: 'https://trello.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Slack', url: 'https://slack.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Discord', url: 'https://discord.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Notion', url: 'https://www.notion.so', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Asana', url: 'https://asana.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Zoom', url: 'https://zoom.us', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Dropbox', url: 'https://www.dropbox.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'OneDrive', url: 'https://onedrive.live.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Google Drive', url: 'https://drive.google.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Evernote', url: 'https://evernote.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Coursera', url: 'https://www.coursera.org', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'edX', url: 'https://www.edx.org', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Udemy', url: 'https://www.udemy.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Khan Academy', url: 'https://www.khanacademy.org', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Codecademy', url: 'https://www.codecademy.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'LeetCode', url: 'https://leetcode.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'HackerRank', url: 'https://www.hackerrank.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Codewars', url: 'https://www.codewars.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'FreeCodeCamp', url: 'https://www.freecodecamp.org', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'W3Schools', url: 'https://www.w3schools.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'MDN Web Docs', url: 'https://developer.mozilla.org', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Stack Exchange', url: 'https://stackexchange.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Gmail', url: 'https://mail.google.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Yahoo Mail', url: 'https://mail.yahoo.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Outlook', url: 'https://outlook.live.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'ProtonMail', url: 'https://proton.me', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Zoho Mail', url: 'https://www.zoho.com/mail/', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Yandex', url: 'https://yandex.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Booking', url: 'https://www.booking.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Airbnb', url: 'https://www.airbnb.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Expedia', url: 'https://www.expedia.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'TripAdvisor', url: 'https://www.tripadvisor.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Hotels', url: 'https://www.hotels.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Agoda', url: 'https://www.agoda.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Trivago', url: 'https://www.trivago.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Kayak', url: 'https://www.kayak.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Skyscanner', url: 'https://www.skyscanner.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Uber', url: 'https://www.uber.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Lyft', url: 'https://www.lyft.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Grab', url: 'https://www.grab.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'DoorDash', url: 'https://www.doordash.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Uber Eats', url: 'https://www.ubereats.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Grubhub', url: 'https://www.grubhub.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Postmates', url: 'https://www.postmates.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Just Eat', url: 'https://www.just-eat.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Deliveroo', url: 'https://deliveroo.co.uk', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Zomato', url: 'https://www.zomato.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'OpenTable', url: 'https://www.opentable.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Yelp', url: 'https://www.yelp.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'IMDB', url: 'https://www.imdb.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Rotten Tomatoes', url: 'https://www.rottentomatoes.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Metacritic', url: 'https://www.metacritic.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Goodreads', url: 'https://www.goodreads.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'SoundCloud', url: 'https://soundcloud.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Spotify', url: 'https://www.spotify.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Apple Music', url: 'https://music.apple.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Deezer', url: 'https://www.deezer.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Pandora', url: 'https://www.pandora.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Shazam', url: 'https://www.shazam.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Bandcamp', url: 'https://bandcamp.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Vimeo', url: 'https://vimeo.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Dailymotion', url: 'https://www.dailymotion.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Twitch', url: 'https://www.twitch.tv', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Kick', url: 'https://kick.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'TED', url: 'https://www.ted.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'National Geographic', url: 'https://www.nationalgeographic.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'NASA', url: 'https://www.nasa.gov', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Unsplash', url: 'https://unsplash.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Pexels', url: 'https://www.pexels.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Pixabay', url: 'https://pixabay.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'GIPHY', url: 'https://giphy.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Tenor', url: 'https://tenor.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Weather', url: 'https://weather.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'AccuWeather', url: 'https://www.accuweather.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Bloomberg', url: 'https://www.bloomberg.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Reuters', url: 'https://www.reuters.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Forbes', url: 'https://www.forbes.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'CNBC', url: 'https://www.cnbc.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'MarketWatch', url: 'https://www.marketwatch.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Investopedia', url: 'https://www.investopedia.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'CoinMarketCap', url: 'https://coinmarketcap.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'CoinGecko', url: 'https://www.coingecko.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'TradingView', url: 'https://www.tradingview.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Glassdoor', url: 'https://www.glassdoor.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Indeed', url: 'https://www.indeed.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Monster', url: 'https://www.monster.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'ZipRecruiter', url: 'https://www.ziprecruiter.com', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'AngelList', url: 'https://angel.co', hasBeenRead: false});
+            chrome.readingList.addEntry({title: 'Crunchbase', url: 'https://www.crunchbase.com', hasBeenRead: false});
+        });
+        //add 100+ links to a history
+        await driver.executeScript(() => {
+            chrome.history.addUrl({url: 'https://www.google.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.youtube.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.facebook.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.wikipedia.org'}, () => {});
+            chrome.history.addUrl({url: 'https://www.instagram.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.baidu.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.yahoo.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.whatsapp.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.twitter.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.amazon.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.tiktok.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.reddit.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.bing.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.linkedin.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.office.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.netflix.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.duckduckgo.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.pinterest.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.live.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.ebay.com'}, () => {});
+            chrome.history.addUrl({url: 'https://stackoverflow.com'}, () => {});
+            chrome.history.addUrl({url: 'https://github.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.quora.com'}, () => {});
+            chrome.history.addUrl({url: 'https://medium.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.cnn.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.bbc.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.theverge.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.nytimes.com'}, () => {});
+            chrome.history.addUrl({url: 'https://news.ycombinator.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.producthunt.com'}, () => {});
+            chrome.history.addUrl({url: 'https://dribbble.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.behance.net'}, () => {});
+            chrome.history.addUrl({url: 'https://www.figma.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.canva.com'}, () => {});
+            chrome.history.addUrl({url: 'https://trello.com'}, () => {});
+            chrome.history.addUrl({url: 'https://slack.com'}, () => {});
+            chrome.history.addUrl({url: 'https://discord.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.notion.so'}, () => {});
+            chrome.history.addUrl({url: 'https://asana.com'}, () => {});
+            chrome.history.addUrl({url: 'https://zoom.us'}, () => {});
+            chrome.history.addUrl({url: 'https://www.dropbox.com'}, () => {});
+            chrome.history.addUrl({url: 'https://onedrive.live.com'}, () => {});
+            chrome.history.addUrl({url: 'https://drive.google.com'}, () => {});
+            chrome.history.addUrl({url: 'https://evernote.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.coursera.org'}, () => {});
+            chrome.history.addUrl({url: 'https://www.edx.org'}, () => {});
+            chrome.history.addUrl({url: 'https://www.udemy.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.khanacademy.org'}, () => {});
+            chrome.history.addUrl({url: 'https://www.codecademy.com'}, () => {});
+            chrome.history.addUrl({url: 'https://leetcode.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.hackerrank.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.codewars.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.freecodecamp.org'}, () => {});
+            chrome.history.addUrl({url: 'https://www.w3schools.com'}, () => {});
+            chrome.history.addUrl({url: 'https://developer.mozilla.org'}, () => {});
+            chrome.history.addUrl({url: 'https://stackexchange.com'}, () => {});
+            chrome.history.addUrl({url: 'https://mail.google.com'}, () => {});
+            chrome.history.addUrl({url: 'https://mail.yahoo.com'}, () => {});
+            chrome.history.addUrl({url: 'https://outlook.live.com'}, () => {});
+            chrome.history.addUrl({url: 'https://proton.me'}, () => {});
+            chrome.history.addUrl({url: 'https://www.zoho.com/mail/'}, () => {});
+            chrome.history.addUrl({url: 'https://yandex.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.booking.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.airbnb.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.expedia.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.tripadvisor.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.hotels.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.agoda.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.trivago.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.kayak.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.skyscanner.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.uber.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.lyft.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.grab.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.doordash.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.ubereats.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.grubhub.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.postmates.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.just-eat.com'}, () => {});
+            chrome.history.addUrl({url: 'https://deliveroo.co.uk'}, () => {});
+            chrome.history.addUrl({url: 'https://www.zomato.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.opentable.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.yelp.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.imdb.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.rottentomatoes.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.metacritic.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.goodreads.com'}, () => {});
+            chrome.history.addUrl({url: 'https://soundcloud.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.spotify.com'}, () => {});
+            chrome.history.addUrl({url: 'https://music.apple.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.deezer.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.pandora.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.shazam.com'}, () => {});
+            chrome.history.addUrl({url: 'https://bandcamp.com'}, () => {});
+            chrome.history.addUrl({url: 'https://vimeo.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.dailymotion.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.twitch.tv'}, () => {});
+            chrome.history.addUrl({url: 'https://kick.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.udacity.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.pluralsight.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.ted.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.nationalgeographic.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.nasa.gov'}, () => {});
+            chrome.history.addUrl({url: 'https://unsplash.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.pexels.com'}, () => {});
+            chrome.history.addUrl({url: 'https://pixabay.com'}, () => {});
+            chrome.history.addUrl({url: 'https://giphy.com'}, () => {});
+            chrome.history.addUrl({url: 'https://tenor.com'}, () => {});
+            chrome.history.addUrl({url: 'https://weather.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.accuweather.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.bloomberg.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.reuters.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.forbes.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.cnbc.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.marketwatch.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.investopedia.com'}, () => {});
+            chrome.history.addUrl({url: 'https://coinmarketcap.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.coingecko.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.tradingview.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.glassdoor.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.indeed.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.monster.com'}, () => {});
+            chrome.history.addUrl({url: 'https://www.ziprecruiter.com'}, () => {});
+            chrome.history.addUrl({url: 'https://angel.co'}, () => {});
+            chrome.history.addUrl({url: 'https://www.crunchbase.com'}, () => {});
         });
         //focus on the first opened tab
         await driver.sleep(DEFAULT_SLEEP);
@@ -3215,19 +3533,22 @@ describe('Should be able to Test the Extension Functionalities', function () {
                     "0": {
                         "background": "images/Cartoon Landscape.jpg",
                         "dummies": [
-                            2
+                            0
                         ],
                         "id": "0",
                         "items": [
                             0,
                             1,
-                            2
+                            2,
+                            3
                         ],
                         "stations": [
                             0,
                             1,
                             2,
-                            3
+                            4,
+                            5,
+                            6
                         ]
                     },
                     "1": {
@@ -3235,7 +3556,9 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "dummies": [],
                         "id": "1",
                         "items": [
-                            0
+                            0,
+                            1,
+                            2
                         ],
                         "parent": "0",
                         "stations": []
@@ -3260,7 +3583,8 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "dummies": [],
                         "id": "3",
                         "items": [
-                            0
+                            0,
+                            1
                         ],
                         "parent": "2",
                         "stations": []
@@ -3270,7 +3594,9 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "dummies": [],
                         "id": "4",
                         "items": [
-                            0
+                            0,
+                            1,
+                            2
                         ],
                         "parent": "0",
                         "stations": []
@@ -3284,20 +3610,94 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "stations": []
                     },
                     "6": {
-                        "background": "https://en.idei.club/uploads/posts/2023-03/1679029533_en-idei-club-p-programmer-home-office-interer-1.jpg",
-                        "dummies": [],
+                        "background": "https://wallpapers.com/images/hd/modern-office-background-1920-x-1200-3u7w0j7r25g1rh55.jpg",
+                        "dummies": [
+                            0,
+                            1,
+                            2
+                        ],
                         "id": "6",
-                        "items": [],
+                        "items": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            6,
+                            7,
+                            8
+                        ],
                         "parent": "2",
                         "stations": []
                     },
                     "7": {
-                        "background": "images/living-room-animation.jpg",
+                        "background": "https://static.vecteezy.com/system/resources/previews/016/962/027/non_2x/kids-bedroom-with-bed-table-toys-and-wardrobe-free-vector.jpg",
                         "dummies": [],
                         "id": "7",
-                        "items": [],
+                        "items": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
                         "parent": "2",
                         "stations": []
+                    },
+                    "8": {
+                        "background": "https://pbs.twimg.com/media/FSunEp_WUAMKYhB.jpg:large",
+                        "dummies": [],
+                        "id": "8",
+                        "items": [
+                            0
+                        ],
+                        "parent": "0",
+                        "stations": []
+                    },
+                    "9": {
+                        "background": "https://muralsyourway.vtexassets.com/arquivos/ids/257115/Travel-The-World-Map-Wallpaper-Mural.jpg?v=638164887221970000",
+                        "dummies": [],
+                        "id": "9",
+                        "items": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "parent": "0",
+                        "stations": []
+                    },
+                    "10": {
+                        "background": "https://d7hftxdivxxvm.cloudfront.net/?height=900&quality=80&resize_to=fill&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F2P6t_Yt6dF0TNN76dlp-_Q%252F3417757448_4a6bdf36ce_o.jpg&width=1200",
+                        "dummies": [],
+                        "id": "10",
+                        "items": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "parent": "0",
+                        "stations": [
+                            0
+                        ]
+                    },
+                    "11": {
+                        "background": "images/living-room-animation.jpg",
+                        "dummies": [],
+                        "id": "11",
+                        "items": [],
+                        "parent": "10",
+                        "stations": []
+                    },
+                    "0,0,d": {
+                        "height": "48px",
+                        "icon": "https://i.pinimg.com/originals/e2/bc/82/e2bc8260173e1dbe01ba2b8b8f1a2d31.gif",
+                        "id": "0,0,d",
+                        "left": "1347px",
+                        "title": "Birds",
+                        "top": "199px",
+                        "type": "dummy",
+                        "view": "0",
+                        "width": "61px"
                     },
                     "0,0,i": {
                         "faviconChrome": "false",
@@ -3307,7 +3707,16 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "left": "1102px",
                         "links": [
                             0,
-                            1
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10
                         ],
                         "title": "Most used",
                         "top": "346px",
@@ -3332,33 +3741,112 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "title": "YouTube",
                         "view": "0"
                     },
+                    "0,0,i,10": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.linkedin.com/",
+                        "id": "0,0,i,10",
+                        "link": "https://www.linkedin.com/",
+                        "title": "LinkedIn",
+                        "view": "0"
+                    },
+                    "0,0,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.amazon.com/",
+                        "id": "0,0,i,2",
+                        "link": "https://www.amazon.com/",
+                        "title": "Amazon",
+                        "view": "0"
+                    },
+                    "0,0,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.amazon.com/",
+                        "id": "0,0,i,3",
+                        "link": "https://www.amazon.com/",
+                        "title": "Amazon",
+                        "view": "0"
+                    },
+                    "0,0,i,4": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.instagram.com/",
+                        "id": "0,0,i,4",
+                        "link": "https://www.instagram.com/",
+                        "title": "Instagram",
+                        "view": "0"
+                    },
+                    "0,0,i,5": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.instagram.com/",
+                        "id": "0,0,i,5",
+                        "link": "https://www.instagram.com/",
+                        "title": "Instagram",
+                        "view": "0"
+                    },
+                    "0,0,i,6": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/",
+                        "id": "0,0,i,6",
+                        "link": "https://www.youtube.com/",
+                        "title": "YouTube",
+                        "view": "0"
+                    },
+                    "0,0,i,7": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ebay.com/",
+                        "id": "0,0,i,7",
+                        "link": "https://www.ebay.com/",
+                        "title": "Electronics, Cars, Fashion, Collectibles & More | eBay",
+                        "view": "0"
+                    },
+                    "0,0,i,8": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.pinterest.com/",
+                        "id": "0,0,i,8",
+                        "link": "https://www.pinterest.com/",
+                        "title": "Pinterest",
+                        "view": "0"
+                    },
+                    "0,0,i,9": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.netflix.com/",
+                        "id": "0,0,i,9",
+                        "link": "https://www.netflix.com/",
+                        "title": "Netflix",
+                        "view": "0"
+                    },
                     "0,0,s": {
-                        "height": "54px",
-                        "icon": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif",
+                        "height": "114px",
+                        "icon": "https://i.pinimg.com/originals/1d/fd/00/1dfd007c6a813a29c736f2cb4f8641e5.gif",
                         "id": "0,0,s",
-                        "left": "1006px",
+                        "left": "951px",
                         "target": 1,
                         "title": "Apartment",
-                        "top": "498px",
+                        "top": "480px",
                         "type": "station",
                         "view": "0",
-                        "width": "36px"
+                        "width": "76px"
                     },
                     "0,1,i": {
                         "faviconChrome": "false",
-                        "height": "120px",
+                        "height": "109px",
                         "icon": "https://media.baamboozle.com/uploads/images/323666/1624532385_171205_gif-url.gif",
                         "id": "0,1,i",
-                        "left": "1180px",
+                        "left": "1175px",
                         "links": [
                             0,
-                            1
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
                         ],
                         "title": "Shopping",
-                        "top": "498px",
+                        "top": "510px",
                         "type": "item",
                         "view": "0",
-                        "width": "100px"
+                        "width": "87px"
                     },
                     "0,1,i,0": {
                         "faviconChrome": "false",
@@ -3376,40 +3864,94 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "title": "Amazon",
                         "view": "0"
                     },
+                    "0,1,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.reddit.com/",
+                        "id": "0,1,i,2",
+                        "link": "https://www.reddit.com/",
+                        "title": "Reddit",
+                        "view": "0"
+                    },
+                    "0,1,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.amazon.com/",
+                        "id": "0,1,i,3",
+                        "link": "https://www.amazon.com/",
+                        "title": "Amazon",
+                        "view": "0"
+                    },
+                    "0,1,i,4": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.wikipedia.org/",
+                        "id": "0,1,i,4",
+                        "link": "https://www.wikipedia.org/",
+                        "title": "Wikipedia",
+                        "view": "0"
+                    },
+                    "0,1,i,5": {
+                        "faviconChrome": "false",
+                        "icon": "https://workspace.google.com/intl/en-US/gmail/",
+                        "id": "0,1,i,5",
+                        "link": "https://workspace.google.com/intl/en-US/gmail/",
+                        "title": "Gmail: Private and secure email at no cost | Google Workspace",
+                        "view": "0"
+                    },
+                    "0,1,i,6": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.facebook.com/",
+                        "id": "0,1,i,6",
+                        "link": "https://www.facebook.com/",
+                        "title": "Facebook",
+                        "view": "0"
+                    },
+                    "0,1,i,7": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/",
+                        "id": "0,1,i,7",
+                        "link": "https://www.youtube.com/",
+                        "title": "YouTube",
+                        "view": "0"
+                    },
+                    "0,1,i,8": {
+                        "faviconChrome": "false",
+                        "icon": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "id": "0,1,i,8",
+                        "link": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "title": "Sample PDF",
+                        "view": "0"
+                    },
                     "0,1,s": {
                         "height": "376px",
                         "icon": "https://mir-s3-cdn-cf.behance.net/project_modules/source/ba467372969113.5bf9ecdda7cfb.gif",
                         "id": "0,1,s",
                         "left": "22px",
                         "target": 2,
-                        "title": "new apartment",
+                        "title": "New apartment",
                         "top": "181px",
                         "type": "station",
                         "view": "0",
                         "width": "369px"
-                    },
-                    "0,2,d": {
-                        "height": "160px",
-                        "icon": "https://static.vecteezy.com/system/resources/previews/060/424/047/non_2x/modern-detached-garage-with-white-siding-and-two-roll-up-doors-offering-spacious-vehicle-storage-and-a-clean-exterior-design-free-png.png",
-                        "id": "0,2,d",
-                        "left": "1398px",
-                        "title": "Garage",
-                        "top": "399px",
-                        "type": "dummy",
-                        "view": "0",
-                        "width": "182px"
                     },
                     "0,2,i": {
                         "faviconChrome": "false",
                         "height": "64px",
                         "icon": "https://i.pinimg.com/originals/cf/f8/1d/cff81d29fab592d2f86c2f81775731c4.gif",
                         "id": "0,2,i",
-                        "left": "206px",
+                        "left": "392px",
                         "links": [
-                            0
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9
                         ],
                         "title": "Cats movie",
-                        "top": "614px",
+                        "top": "610px",
                         "type": "item",
                         "view": "0",
                         "width": "64px"
@@ -3422,30 +3964,167 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "title": "Simon's Cat - YouTube",
                         "view": "0"
                     },
+                    "0,2,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.gmail.com/",
+                        "id": "0,2,i,1",
+                        "link": "https://www.gmail.com/",
+                        "title": "Gmail",
+                        "view": "0"
+                    },
+                    "0,2,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ebay.com/",
+                        "id": "0,2,i,2",
+                        "link": "https://www.ebay.com/",
+                        "title": "eBay",
+                        "view": "0"
+                    },
+                    "0,2,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.reddit.com/",
+                        "id": "0,2,i,3",
+                        "link": "https://www.reddit.com/",
+                        "title": "Reddit",
+                        "view": "0"
+                    },
+                    "0,2,i,4": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.baidu.com/",
+                        "id": "0,2,i,4",
+                        "link": "https://www.baidu.com/",
+                        "title": "Baidu",
+                        "view": "0"
+                    },
+                    "0,2,i,5": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.gmail.com/",
+                        "id": "0,2,i,5",
+                        "link": "https://www.gmail.com/",
+                        "title": "Gmail",
+                        "view": "0"
+                    },
+                    "0,2,i,6": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dbooks%2Banimated%2Bgif%26sei%3Dcym8aMIf2azFzw_isobABA&q=EgRfW_FgGPPS8MUGIjC1iV_D79j4eY-RRtrDTv4qlUySsNYSMquIOUF1BgCcSJoGAPcZryldtT07EcKgDZYyAVJaAUM",
+                        "id": "0,2,i,6",
+                        "link": "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dbooks%2Banimated%2Bgif%26sei%3Dcym8aMIf2azFzw_isobABA&q=EgRfW_FgGPPS8MUGIjC1iV_D79j4eY-RRtrDTv4qlUySsNYSMquIOUF1BgCcSJoGAPcZryldtT07EcKgDZYyAVJaAUM",
+                        "title": "https://www.google.com/search?q=books+animated+gif&sei=cym8aMIf2azFzw_isobABA",
+                        "view": "0"
+                    },
+                    "0,2,i,7": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.amazon.com/",
+                        "id": "0,2,i,7",
+                        "link": "https://www.amazon.com/",
+                        "title": "Amazon.com",
+                        "view": "0"
+                    },
+                    "0,2,i,8": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.bing.com/",
+                        "id": "0,2,i,8",
+                        "link": "https://www.bing.com/",
+                        "title": "Bing",
+                        "view": "0"
+                    },
+                    "0,2,i,9": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.reddit.com/",
+                        "id": "0,2,i,9",
+                        "link": "https://www.reddit.com/",
+                        "title": "Reddit",
+                        "view": "0"
+                    },
                     "0,2,s": {
-                        "height": "64px",
-                        "icon": "https://moein.video/wp-content/uploads/2022/10/arrow-Free-Animated-Icon-GIF-1080p-after-effects.gif",
+                        "height": "149px",
+                        "icon": "https://i.redd.it/qzkpthkpayz51.gif",
                         "id": "0,2,s",
-                        "left": "1844px",
+                        "left": "1795px",
                         "target": 4,
                         "title": "Another View",
-                        "top": "11px",
+                        "top": "286px",
                         "type": "station",
+                        "view": "0",
+                        "width": "115px"
+                    },
+                    "0,3,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyN295YTI1cWY5d2Vrc3g1MmdyYjgxOTZmbjA0NDhvNjM2aHlrNDh3NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/yyJtlSsn2cP8WH1Drv/giphy.gif",
+                        "id": "0,3,i",
+                        "left": "41px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Gym",
+                        "top": "486px",
+                        "type": "item",
                         "view": "0",
                         "width": "64px"
                     },
-                    "0,3,s": {
-                        "height": "230px",
-                        "icon": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyZWU4N2E1Y29vN3ZnYmhsZzVmeDU0aTRqa2MwMmZibzhrdXY0N2tsbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/2YEFsPpBx9bdqftKpk/source.gif",
-                        "id": "0,3,s",
-                        "left": "1565px",
-                        "target": 5,
-                        "title": "Transform",
-                        "top": "346px",
+                    "0,3,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.greengymberlin.de/",
+                        "id": "0,3,i,0",
+                        "link": "https://www.greengymberlin.de/",
+                        "title": "https://www.greengymberlin.de/",
+                        "view": "0"
+                    },
+                    "0,3,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/",
+                        "id": "0,3,i,1",
+                        "link": "https://www.youtube.com/",
+                        "title": "YouTube",
+                        "view": "0"
+                    },
+                    "0,3,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://dribbble.com/",
+                        "id": "0,3,i,2",
+                        "link": "https://dribbble.com/",
+                        "title": "Dribbble",
+                        "view": "0"
+                    },
+                    "0,4,s": {
+                        "height": "312px",
+                        "icon": "https://giffiles.alphacoders.com/394/39410.gif",
+                        "id": "0,4,s",
+                        "left": "1492px",
+                        "target": 8,
+                        "title": "Car",
+                        "top": "464px",
                         "type": "station",
                         "view": "0",
-                        "width": "191px",
-                        "zIndex": "1"
+                        "width": "374px",
+                        "zIndex": "2"
+                    },
+                    "0,5,s": {
+                        "height": "93px",
+                        "icon": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyajh1cHJzMmZlZDZtaDN1cm1iYjU1ZWZzcGdpd2t3MWVsbGpoa3hwcyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/qH15RNEtCR9FAyR8iu/giphy.gif",
+                        "id": "0,5,s",
+                        "left": "624px",
+                        "target": 9,
+                        "title": "Travel",
+                        "top": "51px",
+                        "type": "station",
+                        "view": "0",
+                        "width": "98px"
+                    },
+                    "0,6,s": {
+                        "height": "51px",
+                        "icon": "https://moein.video/wp-content/uploads/2022/10/arrow-Free-Animated-Icon-GIF-1080p-after-effects.gif",
+                        "id": "0,6,s",
+                        "left": "1802px",
+                        "target": 10,
+                        "title": "Windows",
+                        "top": "50px",
+                        "type": "station",
+                        "view": "0",
+                        "width": "51px"
                     },
                     "1,0,i": {
                         "faviconChrome": "false",
@@ -3455,7 +4134,8 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "left": "1387px",
                         "links": [
                             0,
-                            1
+                            1,
+                            2
                         ],
                         "title": "Reading",
                         "top": "283px",
@@ -3479,6 +4159,234 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "title": "",
                         "view": "1"
                     },
+                    "1,0,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "id": "1,0,i,2",
+                        "link": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "title": "Sample PDF",
+                        "view": "1"
+                    },
+                    "1,1,i": {
+                        "faviconChrome": "false",
+                        "height": "103px",
+                        "icon": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyeHVnYWk3NmV3NnNlYWI3a2dpcW1iZmttZ3pxajF4N29zMjhzNGR5ZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o6wrEISO16bXgL7B6/giphy.gif",
+                        "id": "1,1,i",
+                        "left": "1319px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Movies",
+                        "top": "532px",
+                        "type": "item",
+                        "view": "1",
+                        "width": "231px"
+                    },
+                    "1,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.netflix.com/",
+                        "id": "1,1,i,0",
+                        "link": "https://www.netflix.com/",
+                        "title": "Netflix",
+                        "view": "1"
+                    },
+                    "1,1,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.amazon.com/",
+                        "id": "1,1,i,1",
+                        "link": "https://www.amazon.com/",
+                        "title": "Amazon",
+                        "view": "1"
+                    },
+                    "1,1,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/",
+                        "id": "1,1,i,2",
+                        "link": "https://www.youtube.com/",
+                        "title": "YouTube",
+                        "view": "1"
+                    },
+                    "1,2,i": {
+                        "faviconChrome": "false",
+                        "height": "149px",
+                        "icon": "https://media1.giphy.com/media/pzvUEkOeAViy7VS7B6/giphy.gif?cid=a267dfa3zrvx7z6zqh6d4srv0tsguno52jry58ol8qn13thl&rid=giphy.gif&ct=s",
+                        "id": "1,2,i",
+                        "left": "135px",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "title": "Todo",
+                        "top": "740px",
+                        "type": "item",
+                        "view": "1",
+                        "width": "176px"
+                    },
+                    "1,2,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.facebook.com/",
+                        "id": "1,2,i,0",
+                        "link": "https://www.facebook.com/",
+                        "title": "Facebook",
+                        "view": "1"
+                    },
+                    "1,2,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://angel.co/",
+                        "id": "1,2,i,1",
+                        "link": "https://angel.co/",
+                        "title": "AngelList",
+                        "view": "1"
+                    },
+                    "1,2,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.glassdoor.com/",
+                        "id": "1,2,i,2",
+                        "link": "https://www.glassdoor.com/",
+                        "title": "Glassdoor",
+                        "view": "1"
+                    },
+                    "1,2,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://music.apple.com/",
+                        "id": "1,2,i,3",
+                        "link": "https://music.apple.com/",
+                        "title": "Apple Music",
+                        "view": "1"
+                    },
+                    "10,0,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://www.iconpacks.net/icons/2/free-folder-icon-1484-thumb.png",
+                        "id": "10,0,i",
+                        "left": "98px",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "title": "Folder",
+                        "top": "265px",
+                        "type": "item",
+                        "view": "10",
+                        "width": "64px"
+                    },
+                    "10,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "id": "10,0,i,0",
+                        "link": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "title": "Sample PDF",
+                        "view": "10"
+                    },
+                    "10,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.wikipedia.org/",
+                        "id": "10,0,i,1",
+                        "link": "https://www.wikipedia.org/",
+                        "title": "Wikipedia",
+                        "view": "10"
+                    },
+                    "10,0,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.twitch.tv/",
+                        "id": "10,0,i,2",
+                        "link": "https://www.twitch.tv/",
+                        "title": "Twitch",
+                        "view": "10"
+                    },
+                    "10,0,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.booking.com/",
+                        "id": "10,0,i,3",
+                        "link": "https://www.booking.com/",
+                        "title": "Booking",
+                        "view": "10"
+                    },
+                    "10,0,s": {
+                        "height": "64px",
+                        "icon": "https://cdn-icons-png.flaticon.com/512/4703/4703650.png",
+                        "id": "10,0,s",
+                        "left": "17px",
+                        "target": 11,
+                        "title": "PC",
+                        "top": "69px",
+                        "type": "station",
+                        "view": "10",
+                        "width": "64px"
+                    },
+                    "10,1,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://www.iconpacks.net/icons/2/free-folder-icon-1484-thumb.png",
+                        "id": "10,1,i",
+                        "left": "91px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Folder2",
+                        "top": "444px",
+                        "type": "item",
+                        "view": "10",
+                        "width": "64px"
+                    },
+                    "10,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "id": "10,1,i,0",
+                        "link": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "title": "Sample PDF",
+                        "view": "10"
+                    },
+                    "10,1,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.expedia.com/",
+                        "id": "10,1,i,1",
+                        "link": "https://www.expedia.com/",
+                        "title": "Expedia",
+                        "view": "10"
+                    },
+                    "10,1,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.crunchbase.com/",
+                        "id": "10,1,i,2",
+                        "link": "https://www.crunchbase.com/",
+                        "title": "Crunchbase",
+                        "view": "10"
+                    },
+                    "10,2,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://www.iconpacks.net/icons/2/free-folder-icon-1484-thumb.png",
+                        "id": "10,2,i",
+                        "left": "23px",
+                        "links": [],
+                        "title": "Folder3",
+                        "top": "587px",
+                        "type": "item",
+                        "view": "10",
+                        "width": "64px"
+                    },
+                    "10,3,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://www.iconpacks.net/icons/2/free-folder-icon-1484-thumb.png",
+                        "id": "10,3,i",
+                        "left": "30px",
+                        "links": [],
+                        "title": "Folder4",
+                        "top": "695px",
+                        "type": "item",
+                        "view": "10",
+                        "width": "64px"
+                    },
                     "2,0,i": {
                         "faviconChrome": "false",
                         "height": "86px",
@@ -3486,7 +4394,10 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "id": "2,0,i",
                         "left": "80px",
                         "links": [
-                            0
+                            0,
+                            1,
+                            2,
+                            3
                         ],
                         "title": "Healthy food",
                         "top": "326px",
@@ -3500,6 +4411,30 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "id": "2,0,i,0",
                         "link": "https://www.bbcgoodfood.com/recipes/collection/quick-and-healthy-recipes",
                         "title": "116 Quick & Healthy Recipes | Good Food",
+                        "view": "2"
+                    },
+                    "2,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.reddit.com/",
+                        "id": "2,0,i,1",
+                        "link": "https://www.reddit.com/",
+                        "title": "Reddit",
+                        "view": "2"
+                    },
+                    "2,0,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.just-eat.com/",
+                        "id": "2,0,i,2",
+                        "link": "https://www.just-eat.com/",
+                        "title": "Just Eat",
+                        "view": "2"
+                    },
+                    "2,0,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://deliveroo.co.uk/",
+                        "id": "2,0,i,3",
+                        "link": "https://deliveroo.co.uk/",
+                        "title": "Deliveroo",
                         "view": "2"
                     },
                     "2,0,s": {
@@ -3520,36 +4455,64 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "icon": "https://i.pinimg.com/originals/82/28/2c/82282cde0b4d73445967aea7f761bda9.gif",
                         "id": "2,1,i",
                         "left": "688px",
-                        "links": [],
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
                         "title": "Cooking",
                         "top": "448px",
                         "type": "item",
                         "view": "2",
                         "width": "153px"
                     },
+                    "2,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.yahoo.com/",
+                        "id": "2,1,i,0",
+                        "link": "https://www.yahoo.com/",
+                        "title": "Yahoo",
+                        "view": "2"
+                    },
+                    "2,1,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.behance.net/",
+                        "id": "2,1,i,1",
+                        "link": "https://www.behance.net/",
+                        "title": "Behance",
+                        "view": "2"
+                    },
+                    "2,1,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.facebook.com/",
+                        "id": "2,1,i,2",
+                        "link": "https://www.facebook.com/",
+                        "title": "Facebook",
+                        "view": "2"
+                    },
                     "2,1,s": {
-                        "height": "160px",
+                        "height": "44px",
                         "icon": "https://media.tenor.com/rvDQSe2TtvwAAAAj/community-office.gif",
                         "id": "2,1,s",
-                        "left": "1459px",
+                        "left": "1201px",
                         "target": 6,
                         "title": "Office",
-                        "top": "537px",
+                        "top": "511px",
+                        "type": "station",
+                        "view": "2",
+                        "width": "46px"
+                    },
+                    "2,2,s": {
+                        "height": "279px",
+                        "icon": "https://i.pinimg.com/originals/77/76/a6/7776a6af7e14e46ae609b5ee03c6037a.gif",
+                        "id": "2,2,s",
+                        "left": "349px",
+                        "target": 7,
+                        "title": "Son",
+                        "top": "601px",
                         "type": "station",
                         "view": "2",
                         "width": "161px"
-                    },
-                    "2,2,s": {
-                        "height": "140px",
-                        "icon": "https://ugokawaii.com/wp-content/uploads/2023/07/baby.gif",
-                        "id": "2,2,s",
-                        "left": "386px",
-                        "target": 7,
-                        "title": "Baby",
-                        "top": "758px",
-                        "type": "station",
-                        "view": "2",
-                        "width": "134px"
                     },
                     "3,0,i": {
                         "faviconChrome": "false",
@@ -3558,7 +4521,8 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "id": "3,0,i",
                         "left": "542px",
                         "links": [
-                            0
+                            0,
+                            1
                         ],
                         "title": "Homework",
                         "top": "461px",
@@ -3572,6 +4536,82 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "id": "3,0,i,0",
                         "link": "https://chatgpt.com/",
                         "title": "ChatGPT",
+                        "view": "3"
+                    },
+                    "3,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "id": "3,0,i,1",
+                        "link": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "title": "Sample PDF",
+                        "view": "3"
+                    },
+                    "3,1,i": {
+                        "faviconChrome": "false",
+                        "height": "57px",
+                        "icon": "https://cdnl.iconscout.com/lottie/premium/thumb/going-to-school-animated-sticker-gif-download-8426879.gif",
+                        "id": "3,1,i",
+                        "left": "359px",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "title": "School",
+                        "top": "222px",
+                        "type": "item",
+                        "view": "3",
+                        "width": "59px"
+                    },
+                    "3,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.skyscanner.com/",
+                        "id": "3,1,i,0",
+                        "link": "https://www.skyscanner.com/",
+                        "title": "",
+                        "view": "3"
+                    },
+                    "3,1,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://drive.google.com/",
+                        "id": "3,1,i,1",
+                        "link": "https://drive.google.com/",
+                        "title": "",
+                        "view": "3"
+                    },
+                    "3,1,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://evernote.com/",
+                        "id": "3,1,i,2",
+                        "link": "https://evernote.com/",
+                        "title": "",
+                        "view": "3"
+                    },
+                    "3,1,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.hotels.com/",
+                        "id": "3,1,i,3",
+                        "link": "https://www.hotels.com/",
+                        "title": "",
+                        "view": "3"
+                    },
+                    "3,1,i,4": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.tripadvisor.com/",
+                        "id": "3,1,i,4",
+                        "link": "https://www.tripadvisor.com/",
+                        "title": "",
+                        "view": "3"
+                    },
+                    "3,1,i,5": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.shazam.com/",
+                        "id": "3,1,i,5",
+                        "link": "https://www.shazam.com/",
+                        "title": "",
                         "view": "3"
                     },
                     "4,0,i": {
@@ -3615,6 +4655,750 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "title": "116 Quick & Healthy Recipes | Good Food",
                         "view": "4"
                     },
+                    "4,1,i": {
+                        "faviconChrome": "false",
+                        "height": "123px",
+                        "icon": "https://gifgifs.com/animations/anime/dragon-ball-z/Goku/goku_70.gif",
+                        "id": "4,1,i",
+                        "left": "1224px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Games",
+                        "top": "512px",
+                        "type": "item",
+                        "view": "4",
+                        "width": "90px"
+                    },
+                    "4,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://discord.com/",
+                        "id": "4,1,i,0",
+                        "link": "https://discord.com/",
+                        "title": "Discord",
+                        "view": "4"
+                    },
+                    "4,1,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.coingecko.com/",
+                        "id": "4,1,i,1",
+                        "link": "https://www.coingecko.com/",
+                        "title": "CoinGecko",
+                        "view": "4"
+                    },
+                    "4,1,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ziprecruiter.com/",
+                        "id": "4,1,i,2",
+                        "link": "https://www.ziprecruiter.com/",
+                        "title": "ZipRecruiter",
+                        "view": "4"
+                    },
+                    "4,2,i": {
+                        "faviconChrome": "false",
+                        "height": "81px",
+                        "icon": "https://pa1.aminoapps.com/5580/61d47e8474e24ac4cb98fc673ab1c589c38aa961_hq.gif",
+                        "id": "4,2,i",
+                        "left": "597px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Games new",
+                        "top": "595px",
+                        "type": "item",
+                        "view": "4",
+                        "width": "279px"
+                    },
+                    "4,2,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://discord.com/",
+                        "id": "4,2,i,0",
+                        "link": "https://discord.com/",
+                        "title": "Discord",
+                        "view": "4"
+                    },
+                    "4,2,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.metacritic.com/",
+                        "id": "4,2,i,1",
+                        "link": "https://www.metacritic.com/",
+                        "title": "Metacritic",
+                        "view": "4"
+                    },
+                    "4,2,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.airbnb.com/",
+                        "id": "4,2,i,2",
+                        "link": "https://www.airbnb.com/",
+                        "title": "Airbnb",
+                        "view": "4"
+                    },
+                    "6,0,d": {
+                        "height": "64px",
+                        "icon": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybWtwM3R2MmQxNTYxYml2bmJ2MXU3ZHd5bDU5eDlvYW83azY2ODQ0MCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/gmSQYMDoRrwq06SSCu/source.gif",
+                        "id": "6,0,d",
+                        "left": "1619px",
+                        "title": "Spider",
+                        "top": "107px",
+                        "type": "dummy",
+                        "view": "6",
+                        "width": "64px"
+                    },
+                    "6,0,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://i.pinimg.com/originals/d0/25/95/d02595bbfd3b1e16b3ad2eac4550d2df.gif",
+                        "id": "6,0,i",
+                        "left": "1025px",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4
+                        ],
+                        "title": "Todo",
+                        "top": "194px",
+                        "type": "item",
+                        "view": "6",
+                        "width": "64px"
+                    },
+                    "6,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.shazam.com/",
+                        "id": "6,0,i,0",
+                        "link": "https://www.shazam.com/",
+                        "title": "",
+                        "view": "6"
+                    },
+                    "6,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://outlook.live.com/",
+                        "id": "6,0,i,1",
+                        "link": "https://outlook.live.com/",
+                        "title": "",
+                        "view": "6"
+                    },
+                    "6,0,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.producthunt.com/",
+                        "id": "6,0,i,2",
+                        "link": "https://www.producthunt.com/",
+                        "title": "",
+                        "view": "6"
+                    },
+                    "6,0,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://dribbble.com/",
+                        "id": "6,0,i,3",
+                        "link": "https://dribbble.com/",
+                        "title": "",
+                        "view": "6"
+                    },
+                    "6,0,i,4": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.google.com/",
+                        "id": "6,0,i,4",
+                        "link": "https://www.google.com/",
+                        "title": "",
+                        "view": "6"
+                    },
+                    "6,1,d": {
+                        "height": "74px",
+                        "icon": "https://i.pinimg.com/originals/11/66/99/1166990dd805b8ec53ff7da8d5fa941c.gif",
+                        "id": "6,1,d",
+                        "left": "633px",
+                        "title": "Plant",
+                        "top": "498px",
+                        "type": "dummy",
+                        "view": "6",
+                        "width": "72px"
+                    },
+                    "6,1,i": {
+                        "faviconChrome": "false",
+                        "height": "107px",
+                        "icon": "https://bookscador-pi.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fknowhere%2Fimage%2Fupload%2Fv1667690640%2FBookscador%2Fstatic%2Fbooks-gif-unscreen_xvsiyu.gif&w=640&q=75",
+                        "id": "6,1,i",
+                        "left": "130px",
+                        "links": [
+                            0
+                        ],
+                        "title": "Project1",
+                        "top": "212px",
+                        "type": "item",
+                        "view": "6",
+                        "width": "107px"
+                    },
+                    "6,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "id": "6,1,i,0",
+                        "link": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "title": "Sample PDF",
+                        "view": "6"
+                    },
+                    "6,2,d": {
+                        "height": "324px",
+                        "icon": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyaDY1c2FrNmx6NXptcnJ2a3kzaTRwdWhqZXd4YXlybzVjczhmc290ZiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/96lyPpSu1MVjLfM0ZB/giphy_s.gif",
+                        "id": "6,2,d",
+                        "left": "1082px",
+                        "title": "Chair",
+                        "top": "397px",
+                        "type": "dummy",
+                        "view": "6",
+                        "width": "275px"
+                    },
+                    "6,2,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "images/folder.png",
+                        "id": "6,2,i",
+                        "left": "292px",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "title": "Project2",
+                        "top": "349px",
+                        "type": "item",
+                        "view": "6",
+                        "width": "64px"
+                    },
+                    "6,2,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.tiktok.com/",
+                        "id": "6,2,i,0",
+                        "link": "https://www.tiktok.com/",
+                        "title": "TikTok",
+                        "view": "6"
+                    },
+                    "6,2,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.pluralsight.com/",
+                        "id": "6,2,i,1",
+                        "link": "https://www.pluralsight.com/",
+                        "title": "Pluralsight",
+                        "view": "6"
+                    },
+                    "6,2,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.indeed.com/",
+                        "id": "6,2,i,2",
+                        "link": "https://www.indeed.com/",
+                        "title": "Indeed",
+                        "view": "6"
+                    },
+                    "6,2,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ziprecruiter.com/",
+                        "id": "6,2,i,3",
+                        "link": "https://www.ziprecruiter.com/",
+                        "title": "ZipRecruiter",
+                        "view": "6"
+                    },
+                    "6,3,i": {
+                        "faviconChrome": "false",
+                        "height": "60px",
+                        "icon": "https://i.pinimg.com/originals/e8/67/23/e867230bda2719d8e267961a9d82d3b5.gif",
+                        "id": "6,3,i",
+                        "left": "1533px",
+                        "links": [
+                            0,
+                            1
+                        ],
+                        "title": "music",
+                        "top": "365px",
+                        "type": "item",
+                        "view": "6",
+                        "width": "66px"
+                    },
+                    "6,3,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/results?search_query=techno+remix",
+                        "id": "6,3,i,0",
+                        "link": "https://www.youtube.com/results?search_query=techno+remix",
+                        "title": "techno remix - YouTube",
+                        "view": "6"
+                    },
+                    "6,3,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.tiktok.com/",
+                        "id": "6,3,i,1",
+                        "link": "https://www.tiktok.com/",
+                        "title": "TikTok",
+                        "view": "6"
+                    },
+                    "6,4,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydWt6ZjlieGExcDBzcm5xYTZ4dTFmaDdtaHk4Z3oybjNwdHJ1MzdqeCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/KxlbRn0HuTW7gZID83/giphy.gif",
+                        "id": "6,4,i",
+                        "left": "1123px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Mail",
+                        "top": "197px",
+                        "type": "item",
+                        "view": "6",
+                        "width": "64px"
+                    },
+                    "6,4,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://mail.yahoo.com/",
+                        "id": "6,4,i,0",
+                        "link": "https://mail.yahoo.com/",
+                        "title": "Yahoo Mail",
+                        "view": "6"
+                    },
+                    "6,4,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://mail.google.com/",
+                        "id": "6,4,i,1",
+                        "link": "https://mail.google.com/",
+                        "title": "Gmail",
+                        "view": "6"
+                    },
+                    "6,4,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://outlook.live.com/",
+                        "id": "6,4,i,2",
+                        "link": "https://outlook.live.com/",
+                        "title": "Outlook",
+                        "view": "6"
+                    },
+                    "6,6,i": {
+                        "faviconChrome": "false",
+                        "height": "107px",
+                        "icon": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyeTgxZjZ5MmpreGJnemlvZDJzMnpjajR6em5jaW15OWVsNmt4cnZ6byZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/mAZf4H4Pi0wwlj3ZAw/giphy.gif",
+                        "id": "6,6,i",
+                        "left": "1364px",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "title": "Laptop",
+                        "top": "451px",
+                        "type": "item",
+                        "view": "6",
+                        "width": "106px"
+                    },
+                    "6,6,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://evernote.com/",
+                        "id": "6,6,i,0",
+                        "link": "https://evernote.com/",
+                        "title": "Evernote",
+                        "view": "6"
+                    },
+                    "6,6,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.dropbox.com/",
+                        "id": "6,6,i,1",
+                        "link": "https://www.dropbox.com/",
+                        "title": "Dropbox",
+                        "view": "6"
+                    },
+                    "6,6,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://asana.com/",
+                        "id": "6,6,i,2",
+                        "link": "https://asana.com/",
+                        "title": "Asana",
+                        "view": "6"
+                    },
+                    "6,6,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.kayak.com/",
+                        "id": "6,6,i,3",
+                        "link": "https://www.kayak.com/",
+                        "title": "Kayak",
+                        "view": "6"
+                    },
+                    "6,7,i": {
+                        "faviconChrome": "false",
+                        "height": "124px",
+                        "icon": "https://www.icegif.com/wp-content/uploads/2022/07/icegif-846.gif",
+                        "id": "6,7,i",
+                        "left": "1032px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "TeamWork",
+                        "top": "311px",
+                        "type": "item",
+                        "view": "6",
+                        "width": "173px"
+                    },
+                    "6,7,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://weather.com/",
+                        "id": "6,7,i,0",
+                        "link": "https://weather.com/",
+                        "title": "Weather",
+                        "view": "6"
+                    },
+                    "6,7,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://giphy.com/",
+                        "id": "6,7,i,1",
+                        "link": "https://giphy.com/",
+                        "title": "GIPHY",
+                        "view": "6"
+                    },
+                    "6,7,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://pixabay.com/",
+                        "id": "6,7,i,2",
+                        "link": "https://pixabay.com/",
+                        "title": "Pixabay",
+                        "view": "6"
+                    },
+                    "6,8,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://i.pinimg.com/originals/bb/a7/ff/bba7ff75d0034045961d842de0ba14fa.gif",
+                        "id": "6,8,i",
+                        "left": "587px",
+                        "links": [
+                            0,
+                            1
+                        ],
+                        "title": "Game",
+                        "top": "406px",
+                        "type": "item",
+                        "view": "6",
+                        "width": "64px"
+                    },
+                    "6,8,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://discord.com/",
+                        "id": "6,8,i,0",
+                        "link": "https://discord.com/",
+                        "title": "Discord",
+                        "view": "6"
+                    },
+                    "6,8,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.netflix.com/",
+                        "id": "6,8,i,1",
+                        "link": "https://www.netflix.com/",
+                        "title": "Netflix",
+                        "view": "6"
+                    },
+                    "7,0,i": {
+                        "faviconChrome": "false",
+                        "height": "480px",
+                        "icon": "https://31.media.tumblr.com/092a9dcd4cf3c5583d51190b7d067355/tumblr_mrk98jRynK1szz4eeo1_400.gif",
+                        "id": "7,0,i",
+                        "left": "1230px",
+                        "links": [
+                            0,
+                            1
+                        ],
+                        "title": "Activities",
+                        "top": "348px",
+                        "type": "item",
+                        "view": "7",
+                        "width": "531px"
+                    },
+                    "7,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.whatsapp.com/",
+                        "id": "7,0,i,0",
+                        "link": "https://www.whatsapp.com/",
+                        "title": "WhatsApp",
+                        "view": "7"
+                    },
+                    "7,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://chatgpt.com/",
+                        "id": "7,0,i,1",
+                        "link": "https://chatgpt.com/",
+                        "title": "ChatGPT",
+                        "view": "7"
+                    },
+                    "7,1,i": {
+                        "faviconChrome": "false",
+                        "height": "88px",
+                        "icon": "https://media3.giphy.com/media/l2QE6znHVshMqR5ba/source.gif",
+                        "id": "7,1,i",
+                        "left": "702px",
+                        "links": [
+                            0
+                        ],
+                        "title": "Homeworks2",
+                        "top": "396px",
+                        "type": "item",
+                        "view": "7",
+                        "width": "161px"
+                    },
+                    "7,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://workspace.google.com/intl/en-US/gmail/",
+                        "id": "7,1,i,0",
+                        "link": "https://workspace.google.com/intl/en-US/gmail/",
+                        "title": "Gmail: Private and secure email at no cost | Google Workspace",
+                        "view": "7"
+                    },
+                    "7,2,i": {
+                        "faviconChrome": "false",
+                        "height": "407px",
+                        "icon": "https://i.pinimg.com/originals/f7/63/bf/f763bf4800723a0bd029953a5a2f9c96.gif",
+                        "id": "7,2,i",
+                        "left": "170px",
+                        "links": [
+                            0
+                        ],
+                        "title": "Friends",
+                        "top": "507px",
+                        "type": "item",
+                        "view": "7",
+                        "width": "517px"
+                    },
+                    "7,2,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.youtube.com/results?search_query=techno+remix",
+                        "id": "7,2,i,0",
+                        "link": "https://www.youtube.com/results?search_query=techno+remix",
+                        "title": "techno remix - YouTube",
+                        "view": "7"
+                    },
+                    "7,3,i": {
+                        "faviconChrome": "false",
+                        "height": "172px",
+                        "icon": "https://cdn.pixabay.com/animation/2023/04/20/16/21/16-21-21-180_512.gif",
+                        "id": "7,3,i",
+                        "left": "306px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Clothing",
+                        "top": "210px",
+                        "type": "item",
+                        "view": "7",
+                        "width": "132px"
+                    },
+                    "7,3,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.amazon.com/",
+                        "id": "7,3,i,0",
+                        "link": "https://www.amazon.com/",
+                        "title": "Amazon",
+                        "view": "7"
+                    },
+                    "7,3,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ebay.com/",
+                        "id": "7,3,i,1",
+                        "link": "https://www.ebay.com/",
+                        "title": "eBay",
+                        "view": "7"
+                    },
+                    "7,3,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://evernote.com/",
+                        "id": "7,3,i,2",
+                        "link": "https://evernote.com/",
+                        "title": "Evernote",
+                        "view": "7"
+                    },
+                    "8,0,i": {
+                        "faviconChrome": "false",
+                        "height": "84px",
+                        "icon": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUydGZmc2g3bnZtb3ptMXczOTgzMXJob2pybzZ4NjBrYWt0bmZxNWRqZyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/5QTCH9HcixzA1STEs9/source.gif",
+                        "id": "8,0,i",
+                        "left": "1041px",
+                        "links": [
+                            0,
+                            1
+                        ],
+                        "title": "Upgrades",
+                        "top": "597px",
+                        "type": "item",
+                        "view": "8",
+                        "width": "87px"
+                    },
+                    "8,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://chatgpt.com/",
+                        "id": "8,0,i,0",
+                        "link": "https://chatgpt.com/",
+                        "title": "ChatGPT",
+                        "view": "8"
+                    },
+                    "8,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ebay.com/",
+                        "id": "8,0,i,1",
+                        "link": "https://www.ebay.com/",
+                        "title": "Electronics, Cars, Fashion, Collectibles & More | eBay",
+                        "view": "8"
+                    },
+                    "9,0,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://media.giphy.com/media/1oF1MaxVOqrgtG4hev/giphy.gif",
+                        "id": "9,0,i",
+                        "left": "243px",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "title": "USA",
+                        "top": "234px",
+                        "type": "item",
+                        "view": "9",
+                        "width": "64px"
+                    },
+                    "9,0,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.crunchbase.com/",
+                        "id": "9,0,i,0",
+                        "link": "https://www.crunchbase.com/",
+                        "title": "Crunchbase",
+                        "view": "9"
+                    },
+                    "9,0,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://angel.co/",
+                        "id": "9,0,i,1",
+                        "link": "https://angel.co/",
+                        "title": "AngelList",
+                        "view": "9"
+                    },
+                    "9,0,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.airbnb.com/",
+                        "id": "9,0,i,2",
+                        "link": "https://www.airbnb.com/",
+                        "title": "Airbnb",
+                        "view": "9"
+                    },
+                    "9,0,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.booking.com/",
+                        "id": "9,0,i,3",
+                        "link": "https://www.booking.com/",
+                        "title": "Booking",
+                        "view": "9"
+                    },
+                    "9,1,i": {
+                        "faviconChrome": "false",
+                        "height": "64px",
+                        "icon": "https://media.giphy.com/media/1oF1MaxVOqrgtG4hev/giphy.gif",
+                        "id": "9,1,i",
+                        "left": "952px",
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4
+                        ],
+                        "title": "Germany",
+                        "top": "244px",
+                        "type": "item",
+                        "view": "9",
+                        "width": "64px"
+                    },
+                    "9,1,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.accuweather.com/",
+                        "id": "9,1,i,0",
+                        "link": "https://www.accuweather.com/",
+                        "title": "AccuWeather",
+                        "view": "9"
+                    },
+                    "9,1,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.coingecko.com/",
+                        "id": "9,1,i,1",
+                        "link": "https://www.coingecko.com/",
+                        "title": "CoinGecko",
+                        "view": "9"
+                    },
+                    "9,1,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.glassdoor.com/",
+                        "id": "9,1,i,2",
+                        "link": "https://www.glassdoor.com/",
+                        "title": "Glassdoor",
+                        "view": "9"
+                    },
+                    "9,1,i,3": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.airbnb.com/",
+                        "id": "9,1,i,3",
+                        "link": "https://www.airbnb.com/",
+                        "title": "Airbnb",
+                        "view": "9"
+                    },
+                    "9,1,i,4": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.booking.com/",
+                        "id": "9,1,i,4",
+                        "link": "https://www.booking.com/",
+                        "title": "Booking",
+                        "view": "9"
+                    },
+                    "9,2,i": {
+                        "faviconChrome": "false",
+                        "height": "102px",
+                        "icon": "https://media.baamboozle.com/uploads/images/1352256/a8eb776a-daf5-4655-af59-69d04a73bea8.gif",
+                        "id": "9,2,i",
+                        "left": "568px",
+                        "links": [
+                            0,
+                            1,
+                            2
+                        ],
+                        "title": "Passports",
+                        "top": "816px",
+                        "type": "item",
+                        "view": "9",
+                        "width": "92px"
+                    },
+                    "9,2,i,0": {
+                        "faviconChrome": "false",
+                        "icon": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "id": "9,2,i,0",
+                        "link": "file:///C:/Users/User/Downloads/sample-local-pdf.pdf",
+                        "title": "Sample PDF",
+                        "view": "9"
+                    },
+                    "9,2,i,1": {
+                        "faviconChrome": "false",
+                        "icon": "https://chatgpt.com/",
+                        "id": "9,2,i,1",
+                        "link": "https://chatgpt.com/",
+                        "title": "ChatGPT",
+                        "view": "9"
+                    },
+                    "9,2,i,2": {
+                        "faviconChrome": "false",
+                        "icon": "https://www.ebay.com/",
+                        "id": "9,2,i,2",
+                        "link": "https://www.ebay.com/",
+                        "title": "Electronics, Cars, Fashion, Collectibles & More | eBay",
+                        "view": "9"
+                    },
                     "backgrounds": {
                         "id": "backgrounds",
                         "links": [
@@ -3626,11 +5410,19 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             5,
                             6,
                             7,
-                            8,
                             9,
                             10,
                             11,
-                            12
+                            12,
+                            13,
+                            14,
+                            15,
+                            16,
+                            17,
+                            18,
+                            19,
+                            20,
+                            21
                         ]
                     },
                     "backgrounds,0": {
@@ -3660,11 +5452,56 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "link": "https://pbs.twimg.com/media/FSunEp_WUAMKYhB.jpg:large",
                         "title": "https://pbs.twimg.com/media/FSunEp_WUAMKYhB.jpg:large"
                     },
+                    "backgrounds,13": {
+                        "id": "backgrounds,13",
+                        "link": "https://marketplace.canva.com/EAGKYZUC4_Q/1/0/1600w/canva-brown-and-cream-manhwa-anime-study-desk-organizer-desktop-wallpaper-5W6BbMBb-2g.jpg",
+                        "title": "https://marketplace.canva.com/EAGKYZUC4_Q/1/0/1600w/canva-brown-and-cream-manhwa-anime-study-desk-organizer-desktop-wallpaper-5W6BbMBb-2g.jpg"
+                    },
+                    "backgrounds,14": {
+                        "id": "backgrounds,14",
+                        "link": "https://d7hftxdivxxvm.cloudfront.net/?height=900&quality=80&resize_to=fill&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F2P6t_Yt6dF0TNN76dlp-_Q%252F3417757448_4a6bdf36ce_o.jpg&width=1200",
+                        "title": "https://d7hftxdivxxvm.cloudfront.net/?height=900&quality=80&resize_to=fill&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F2P6t_Yt6dF0TNN76dlp-_Q%252F3417757448_4a6bdf36ce_o.jpg&width=1200"
+                    },
+                    "backgrounds,15": {
+                        "id": "backgrounds,15",
+                        "link": "https://muralsyourway.vtexassets.com/arquivos/ids/257115/Travel-The-World-Map-Wallpaper-Mural.jpg?v=638164887221970000",
+                        "title": "https://muralsyourway.vtexassets.com/arquivos/ids/257115/Travel-The-World-Map-Wallpaper-Mural.jpg?v=638164887221970000"
+                    },
+                    "backgrounds,16": {
+                        "id": "backgrounds,16",
+                        "link": "https://4kwallpapers.com/images/wallpapers/world-map-design-3840x2160-16644.jpg",
+                        "title": "https://4kwallpapers.com/images/wallpapers/world-map-design-3840x2160-16644.jpg"
+                    },
+                    "backgrounds,17": {
+                        "id": "backgrounds,17",
+                        "link": "https://wallpapers.com/images/hd/modern-office-background-1920-x-1200-3u7w0j7r25g1rh55.jpg",
+                        "title": "https://wallpapers.com/images/hd/modern-office-background-1920-x-1200-3u7w0j7r25g1rh55.jpg"
+                    },
+                    "backgrounds,18": {
+                        "id": "backgrounds,18",
+                        "link": "https://muralsyourway.vtexassets.com/arquivos/ids/257115/Travel-The-World-Map-Wallpaper-Mural.jpg?v=638164887221970000",
+                        "title": "https://muralsyourway.vtexassets.com/arquivos/ids/257115/Travel-The-World-Map-Wallpaper-Mural.jpg?v=638164887221970000"
+                    },
+                    "backgrounds,19": {
+                        "id": "backgrounds,19",
+                        "link": "https://wallpapers.com/images/hd/empty-room-with-office-equipment-2d2pm54znqin9p54.jpg",
+                        "title": "https://wallpapers.com/images/hd/empty-room-with-office-equipment-2d2pm54znqin9p54.jpg"
+                    },
                     "backgrounds,2": {
                         "id": "backgrounds,2",
                         "link": "/images/living-room-animation.jpg",
                         "title": "living room",
                         "view": 0
+                    },
+                    "backgrounds,20": {
+                        "id": "backgrounds,20",
+                        "link": "https://wallpapers.com/images/hd/cute-desktop-folder-organizer-h8kbe0iyfztgdkhr.jpg",
+                        "title": "https://wallpapers.com/images/hd/cute-desktop-folder-organizer-h8kbe0iyfztgdkhr.jpg"
+                    },
+                    "backgrounds,21": {
+                        "id": "backgrounds,21",
+                        "link": "https://static.vecteezy.com/system/resources/previews/016/962/027/non_2x/kids-bedroom-with-bed-table-toys-and-wardrobe-free-vector.jpg",
+                        "title": "https://static.vecteezy.com/system/resources/previews/016/962/027/non_2x/kids-bedroom-with-bed-table-toys-and-wardrobe-free-vector.jpg"
                     },
                     "backgrounds,3": {
                         "id": "backgrounds,3",
@@ -3690,11 +5527,6 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "id": "backgrounds,7",
                         "link": "https://m.media-amazon.com/images/I/71j4Dgtx0sL.jpg",
                         "title": "https://m.media-amazon.com/images/I/71j4Dgtx0sL.jpg"
-                    },
-                    "backgrounds,8": {
-                        "id": "backgrounds,8",
-                        "link": "https://media.istockphoto.com/id/1191899737/vector/a-freelancer-programmer-coding-a-program-at-home.jpg?s=612x612&w=0&k=20&c=kYq35K0pW0d788ftElIDwQ8dZ7GL-7EXNyGWZlec6fg=",
-                        "title": "https://media.istockphoto.com/id/1191899737/vector/a-freelancer-programmer-coding-a-program-at-home.jpg?s=612x612&w=0&k=20&c=kYq35K0pW0d788ftElIDwQ8dZ7GL-7EXNyGWZlec6fg="
                     },
                     "backgrounds,9": {
                         "id": "backgrounds,9",
@@ -3739,10 +5571,43 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             28,
                             29,
                             30,
-                            31,
-                            32,
-                            33,
-                            34
+                            34,
+                            35,
+                            36,
+                            37,
+                            38,
+                            39,
+                            40,
+                            41,
+                            42,
+                            43,
+                            44,
+                            45,
+                            46,
+                            47,
+                            48,
+                            49,
+                            50,
+                            51,
+                            52,
+                            53,
+                            54,
+                            55,
+                            56,
+                            57,
+                            58,
+                            59,
+                            60,
+                            61,
+                            62,
+                            63,
+                            64,
+                            65,
+                            66,
+                            67,
+                            68,
+                            69,
+                            70
                         ]
                     },
                     "gifs,0": {
@@ -3872,40 +5737,205 @@ describe('Should be able to Test the Extension Functionalities', function () {
                         "link": "https://media.tenor.com/rvDQSe2TtvwAAAAj/community-office.gif",
                         "title": "https://media.tenor.com/rvDQSe2TtvwAAAAj/community-office.gif"
                     },
-                    "gifs,31": {
-                        "id": "gifs,31",
-                        "link": "https://e7.pngegg.com/pngimages/486/578/png-clipart-window-garage-doors-garage-door-openers-window-glass-angle.png",
-                        "title": "https://e7.pngegg.com/pngimages/486/578/png-clipart-window-garage-doors-garage-door-openers-window-glass-angle.png"
-                    },
-                    "gifs,32": {
-                        "id": "gifs,32",
-                        "link": "https://w7.pngwing.com/pngs/811/954/png-transparent-garage-graphics.png",
-                        "title": "https://w7.pngwing.com/pngs/811/954/png-transparent-garage-graphics.png"
-                    },
-                    "gifs,33": {
-                        "id": "gifs,33",
-                        "link": "https://w7.pngwing.com/pngs/427/242/png-transparent-garage-car-park-door-shed-a-brick-garage-angle-furniture-van.png",
-                        "title": "https://w7.pngwing.com/pngs/427/242/png-transparent-garage-car-park-door-shed-a-brick-garage-angle-furniture-van.png"
-                    },
                     "gifs,34": {
                         "id": "gifs,34",
                         "link": "https://static.vecteezy.com/system/resources/previews/060/424/047/non_2x/modern-detached-garage-with-white-siding-and-two-roll-up-doors-offering-spacious-vehicle-storage-and-a-clean-exterior-design-free-png.png",
                         "title": "https://static.vecteezy.com/system/resources/previews/060/424/047/non_2x/modern-detached-garage-with-white-siding-and-two-roll-up-doors-offering-spacious-vehicle-storage-and-a-clean-exterior-design-free-png.png"
+                    },
+                    "gifs,35": {
+                        "id": "gifs,35",
+                        "link": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUydGZmc2g3bnZtb3ptMXczOTgzMXJob2pybzZ4NjBrYWt0bmZxNWRqZyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/5QTCH9HcixzA1STEs9/source.gif",
+                        "title": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUydGZmc2g3bnZtb3ptMXczOTgzMXJob2pybzZ4NjBrYWt0bmZxNWRqZyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/5QTCH9HcixzA1STEs9/source.gif"
+                    },
+                    "gifs,36": {
+                        "id": "gifs,36",
+                        "link": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyZGZuZ250NGd0eHY0dmFtZHplYWcyYm1mcXRld3p1bnM3MTBjdGN3NSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/1xnu4sgy1FpbHXZoW6/source.gif",
+                        "title": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyZGZuZ250NGd0eHY0dmFtZHplYWcyYm1mcXRld3p1bnM3MTBjdGN3NSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/1xnu4sgy1FpbHXZoW6/source.gif"
+                    },
+                    "gifs,37": {
+                        "id": "gifs,37",
+                        "link": "https://media.baamboozle.com/uploads/images/409488/1653542839_23060.gif",
+                        "title": "https://media.baamboozle.com/uploads/images/409488/1653542839_23060.gif"
+                    },
+                    "gifs,38": {
+                        "id": "gifs,38",
+                        "link": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyeTgxZjZ5MmpreGJnemlvZDJzMnpjajR6em5jaW15OWVsNmt4cnZ6byZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/mAZf4H4Pi0wwlj3ZAw/giphy.gif",
+                        "title": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyeTgxZjZ5MmpreGJnemlvZDJzMnpjajR6em5jaW15OWVsNmt4cnZ6byZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/mAZf4H4Pi0wwlj3ZAw/giphy.gif"
+                    },
+                    "gifs,39": {
+                        "id": "gifs,39",
+                        "link": "https://i.pinimg.com/originals/d0/25/95/d02595bbfd3b1e16b3ad2eac4550d2df.gif",
+                        "title": "https://i.pinimg.com/originals/d0/25/95/d02595bbfd3b1e16b3ad2eac4550d2df.gif"
                     },
                     "gifs,4": {
                         "id": "gifs,4",
                         "link": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif",
                         "title": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Orange_animated_left_arrow.gif"
                     },
+                    "gifs,40": {
+                        "id": "gifs,40",
+                        "link": "https://i.pinimg.com/originals/39/79/6a/39796ac6bf7fb5abd5814c8f61bf3ab1.gif",
+                        "title": "https://i.pinimg.com/originals/39/79/6a/39796ac6bf7fb5abd5814c8f61bf3ab1.gif"
+                    },
+                    "gifs,41": {
+                        "id": "gifs,41",
+                        "link": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyNjQ5OTF6M3BxN3poMXZ3Nm93ZG5ueHhsaHFhOGQ5aG1jaDJ4cmRxNSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/9rfqu2LxLDdD2/source.gif",
+                        "title": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyNjQ5OTF6M3BxN3poMXZ3Nm93ZG5ueHhsaHFhOGQ5aG1jaDJ4cmRxNSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/9rfqu2LxLDdD2/source.gif"
+                    },
+                    "gifs,42": {
+                        "id": "gifs,42",
+                        "link": "https://giffiles.alphacoders.com/394/39410.gif",
+                        "title": "https://giffiles.alphacoders.com/394/39410.gif"
+                    },
+                    "gifs,43": {
+                        "id": "gifs,43",
+                        "link": "https://media.giphy.com/media/1oF1MaxVOqrgtG4hev/giphy.gif",
+                        "title": "https://media.giphy.com/media/1oF1MaxVOqrgtG4hev/giphy.gif"
+                    },
+                    "gifs,44": {
+                        "id": "gifs,44",
+                        "link": "https://media3.giphy.com/media/l2QE6znHVshMqR5ba/source.gif",
+                        "title": "https://media3.giphy.com/media/l2QE6znHVshMqR5ba/source.gif"
+                    },
+                    "gifs,45": {
+                        "id": "gifs,45",
+                        "link": "https://31.media.tumblr.com/092a9dcd4cf3c5583d51190b7d067355/tumblr_mrk98jRynK1szz4eeo1_400.gif",
+                        "title": "https://31.media.tumblr.com/092a9dcd4cf3c5583d51190b7d067355/tumblr_mrk98jRynK1szz4eeo1_400.gif"
+                    },
+                    "gifs,46": {
+                        "id": "gifs,46",
+                        "link": "https://pa1.aminoapps.com/5580/61d47e8474e24ac4cb98fc673ab1c589c38aa961_hq.gif",
+                        "title": "https://pa1.aminoapps.com/5580/61d47e8474e24ac4cb98fc673ab1c589c38aa961_hq.gif"
+                    },
+                    "gifs,47": {
+                        "id": "gifs,47",
+                        "link": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyd2lzenlwN3g1Z3d0a3FyMnY4d29wdTd3NW1nNjJ6enNoZzE2MnF2ZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/AwJuJzp1pGrcfO51g6/200.gif",
+                        "title": "https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyd2lzenlwN3g1Z3d0a3FyMnY4d29wdTd3NW1nNjJ6enNoZzE2MnF2ZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/AwJuJzp1pGrcfO51g6/200.gif"
+                    },
+                    "gifs,48": {
+                        "id": "gifs,48",
+                        "link": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyajh1cHJzMmZlZDZtaDN1cm1iYjU1ZWZzcGdpd2t3MWVsbGpoa3hwcyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/qH15RNEtCR9FAyR8iu/giphy.gif",
+                        "title": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyajh1cHJzMmZlZDZtaDN1cm1iYjU1ZWZzcGdpd2t3MWVsbGpoa3hwcyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/qH15RNEtCR9FAyR8iu/giphy.gif"
+                    },
+                    "gifs,49": {
+                        "id": "gifs,49",
+                        "link": "https://media.baamboozle.com/uploads/images/1352256/a8eb776a-daf5-4655-af59-69d04a73bea8.gif",
+                        "title": "https://media.baamboozle.com/uploads/images/1352256/a8eb776a-daf5-4655-af59-69d04a73bea8.gif"
+                    },
                     "gifs,5": {
                         "id": "gifs,5",
                         "link": "https://bookscador-pi.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fknowhere%2Fimage%2Fupload%2Fv1667690640%2FBookscador%2Fstatic%2Fbooks-gif-unscreen_xvsiyu.gif&w=640&q=75",
                         "title": "https://bookscador-pi.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fknowhere%2Fimage%2Fupload%2Fv1667690640%2FBookscador%2Fstatic%2Fbooks-gif-unscreen_xvsiyu.gif&w=640&q=75"
                     },
+                    "gifs,50": {
+                        "id": "gifs,50",
+                        "link": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybWtwM3R2MmQxNTYxYml2bmJ2MXU3ZHd5bDU5eDlvYW83azY2ODQ0MCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/gmSQYMDoRrwq06SSCu/source.gif",
+                        "title": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybWtwM3R2MmQxNTYxYml2bmJ2MXU3ZHd5bDU5eDlvYW83azY2ODQ0MCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/gmSQYMDoRrwq06SSCu/source.gif"
+                    },
+                    "gifs,51": {
+                        "id": "gifs,51",
+                        "link": "https://i.pinimg.com/originals/e2/bc/82/e2bc8260173e1dbe01ba2b8b8f1a2d31.gif",
+                        "title": "https://i.pinimg.com/originals/e2/bc/82/e2bc8260173e1dbe01ba2b8b8f1a2d31.gif"
+                    },
+                    "gifs,52": {
+                        "id": "gifs,52",
+                        "link": "https://media0.giphy.com/media/KGfPkVzol6UJaKm8Jx/giphy.gif",
+                        "title": "https://media0.giphy.com/media/KGfPkVzol6UJaKm8Jx/giphy.gif"
+                    },
+                    "gifs,53": {
+                        "id": "gifs,53",
+                        "link": "https://i.pinimg.com/originals/1d/fd/00/1dfd007c6a813a29c736f2cb4f8641e5.gif",
+                        "title": "https://i.pinimg.com/originals/1d/fd/00/1dfd007c6a813a29c736f2cb4f8641e5.gif"
+                    },
+                    "gifs,54": {
+                        "id": "gifs,54",
+                        "link": "https://uat.endemolshinegroup.com/wp-content/uploads/2020/05/Simon-Cat-Alexa.png",
+                        "title": "https://uat.endemolshinegroup.com/wp-content/uploads/2020/05/Simon-Cat-Alexa.png"
+                    },
+                    "gifs,55": {
+                        "id": "gifs,55",
+                        "link": "https://www.mariahthescientist.com/images/nav/music.gif",
+                        "title": "https://www.mariahthescientist.com/images/nav/music.gif"
+                    },
+                    "gifs,56": {
+                        "id": "gifs,56",
+                        "link": "https://i.pinimg.com/originals/e8/67/23/e867230bda2719d8e267961a9d82d3b5.gif",
+                        "title": "https://i.pinimg.com/originals/e8/67/23/e867230bda2719d8e267961a9d82d3b5.gif"
+                    },
+                    "gifs,57": {
+                        "id": "gifs,57",
+                        "link": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyN295YTI1cWY5d2Vrc3g1MmdyYjgxOTZmbjA0NDhvNjM2aHlrNDh3NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/yyJtlSsn2cP8WH1Drv/giphy.gif",
+                        "title": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyN295YTI1cWY5d2Vrc3g1MmdyYjgxOTZmbjA0NDhvNjM2aHlrNDh3NiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/yyJtlSsn2cP8WH1Drv/giphy.gif"
+                    },
+                    "gifs,58": {
+                        "id": "gifs,58",
+                        "link": "https://cdn-icons-png.flaticon.com/512/4703/4703650.png",
+                        "title": "https://cdn-icons-png.flaticon.com/512/4703/4703650.png"
+                    },
+                    "gifs,59": {
+                        "id": "gifs,59",
+                        "link": "https://www.iconpacks.net/icons/2/free-folder-icon-1484-thumb.png",
+                        "title": "https://www.iconpacks.net/icons/2/free-folder-icon-1484-thumb.png"
+                    },
                     "gifs,6": {
                         "id": "gifs,6",
                         "link": "https://i.pinimg.com/originals/cf/f8/1d/cff81d29fab592d2f86c2f81775731c4.gif",
                         "title": "cat jumping"
+                    },
+                    "gifs,60": {
+                        "id": "gifs,60",
+                        "link": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyeHVnYWk3NmV3NnNlYWI3a2dpcW1iZmttZ3pxajF4N29zMjhzNGR5ZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o6wrEISO16bXgL7B6/giphy.gif",
+                        "title": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyeHVnYWk3NmV3NnNlYWI3a2dpcW1iZmttZ3pxajF4N29zMjhzNGR5ZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o6wrEISO16bXgL7B6/giphy.gif"
+                    },
+                    "gifs,61": {
+                        "id": "gifs,61",
+                        "link": "https://media1.giphy.com/media/pzvUEkOeAViy7VS7B6/giphy.gif?cid=a267dfa3zrvx7z6zqh6d4srv0tsguno52jry58ol8qn13thl&rid=giphy.gif&ct=s",
+                        "title": "https://media1.giphy.com/media/pzvUEkOeAViy7VS7B6/giphy.gif?cid=a267dfa3zrvx7z6zqh6d4srv0tsguno52jry58ol8qn13thl&rid=giphy.gif&ct=s"
+                    },
+                    "gifs,62": {
+                        "id": "gifs,62",
+                        "link": "https://cdn.pixabay.com/animation/2023/04/20/16/21/16-21-21-180_512.gif",
+                        "title": "https://cdn.pixabay.com/animation/2023/04/20/16/21/16-21-21-180_512.gif"
+                    },
+                    "gifs,63": {
+                        "id": "gifs,63",
+                        "link": "https://i.pinimg.com/originals/77/76/a6/7776a6af7e14e46ae609b5ee03c6037a.gif",
+                        "title": "https://i.pinimg.com/originals/77/76/a6/7776a6af7e14e46ae609b5ee03c6037a.gif"
+                    },
+                    "gifs,64": {
+                        "id": "gifs,64",
+                        "link": "https://i.redd.it/qzkpthkpayz51.gif",
+                        "title": "https://i.redd.it/qzkpthkpayz51.gif"
+                    },
+                    "gifs,65": {
+                        "id": "gifs,65",
+                        "link": "https://i.pinimg.com/originals/57/e2/09/57e209296e586933febadf06e271a3d3.gif",
+                        "title": "https://i.pinimg.com/originals/57/e2/09/57e209296e586933febadf06e271a3d3.gif"
+                    },
+                    "gifs,66": {
+                        "id": "gifs,66",
+                        "link": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydWt6ZjlieGExcDBzcm5xYTZ4dTFmaDdtaHk4Z3oybjNwdHJ1MzdqeCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/KxlbRn0HuTW7gZID83/giphy.gif",
+                        "title": "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydWt6ZjlieGExcDBzcm5xYTZ4dTFmaDdtaHk4Z3oybjNwdHJ1MzdqeCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/KxlbRn0HuTW7gZID83/giphy.gif"
+                    },
+                    "gifs,67": {
+                        "id": "gifs,67",
+                        "link": "https://www.icegif.com/wp-content/uploads/2022/07/icegif-846.gif",
+                        "title": "https://www.icegif.com/wp-content/uploads/2022/07/icegif-846.gif"
+                    },
+                    "gifs,68": {
+                        "id": "gifs,68",
+                        "link": "https://i.pinimg.com/originals/bb/a7/ff/bba7ff75d0034045961d842de0ba14fa.gif",
+                        "title": "https://i.pinimg.com/originals/bb/a7/ff/bba7ff75d0034045961d842de0ba14fa.gif"
+                    },
+                    "gifs,69": {
+                        "id": "gifs,69",
+                        "link": "https://i.pinimg.com/originals/11/66/99/1166990dd805b8ec53ff7da8d5fa941c.gif",
+                        "title": "https://i.pinimg.com/originals/11/66/99/1166990dd805b8ec53ff7da8d5fa941c.gif"
+                    },
+                    "gifs,70": {
+                        "id": "gifs,70",
+                        "link": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyaDY1c2FrNmx6NXptcnJ2a3kzaTRwdWhqZXd4YXlybzVjczhmc290ZiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/96lyPpSu1MVjLfM0ZB/giphy_s.gif",
+                        "title": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyaDY1c2FrNmx6NXptcnJ2a3kzaTRwdWhqZXd4YXlybzVjczhmc290ZiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/96lyPpSu1MVjLfM0ZB/giphy_s.gif"
                     },
                     "gifs,8": {
                         "id": "gifs,8",
@@ -3929,7 +5959,11 @@ describe('Should be able to Test the Extension Functionalities', function () {
                             4,
                             5,
                             6,
-                            7
+                            7,
+                            8,
+                            9,
+                            10,
+                            11
                         ]
                     },
                     "openTabs": {
@@ -3942,7 +5976,38 @@ describe('Should be able to Test the Extension Functionalities', function () {
                     },
                     "trash": {
                         "id": "trash",
-                        "links": []
+                        "links": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4
+                        ]
+                    },
+                    "trash,0": {
+                        "id": "trash,0",
+                        "link": "https://w7.pngwing.com/pngs/427/242/png-transparent-garage-car-park-door-shed-a-brick-garage-angle-furniture-van.png",
+                        "title": "https://w7.pngwing.com/pngs/427/242/png-transparent-garage-car-park-door-shed-a-brick-garage-angle-furniture-van.png"
+                    },
+                    "trash,1": {
+                        "id": "trash,1",
+                        "link": "https://w7.pngwing.com/pngs/811/954/png-transparent-garage-graphics.png",
+                        "title": "https://w7.pngwing.com/pngs/811/954/png-transparent-garage-graphics.png"
+                    },
+                    "trash,2": {
+                        "id": "trash,2",
+                        "link": "https://e7.pngegg.com/pngimages/486/578/png-clipart-window-garage-doors-garage-door-openers-window-glass-angle.png",
+                        "title": "https://e7.pngegg.com/pngimages/486/578/png-clipart-window-garage-doors-garage-door-openers-window-glass-angle.png"
+                    },
+                    "trash,3": {
+                        "id": "trash,3",
+                        "link": "https://img.freepik.com/free-vector/realistic-cork-board-with-notes_52683-74053.jpg?semt=ais_incoming&w=740&q=80",
+                        "title": "https://img.freepik.com/free-vector/realistic-cork-board-with-notes_52683-74053.jpg?semt=ais_incoming&w=740&q=80"
+                    },
+                    "trash,4": {
+                        "id": "trash,4",
+                        "link": "https://media.istockphoto.com/id/1191899737/vector/a-freelancer-programmer-coding-a-program-at-home.jpg?s=612x612&w=0&k=20&c=kYq35K0pW0d788ftElIDwQ8dZ7GL-7EXNyGWZlec6fg=",
+                        "title": "https://media.istockphoto.com/id/1191899737/vector/a-freelancer-programmer-coding-a-program-at-home.jpg?s=612x612&w=0&k=20&c=kYq35K0pW0d788ftElIDwQ8dZ7GL-7EXNyGWZlec6fg="
                     }
                 }
             );

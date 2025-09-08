@@ -330,6 +330,31 @@ function dragEnd(ev) {
     currentDrag = {};
 }
 
+function removeDialogs() {
+    const open_tabs_popup = document.getElementById('open-tabs-popup');
+    const bookmarks_popup = document.getElementById('bookmarks-popup');
+    const trash_popup = document.getElementById('trash-popup');
+    const history_popup = document.getElementById('history-popup');
+    const reading_list_popup = document.getElementById('reading-list-popup');
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+    if (open_tabs_popup) {
+        document.body.removeChild(open_tabs_popup);
+    }
+    if (bookmarks_popup) {
+        document.body.removeChild(bookmarks_popup);
+    }
+    if (history_popup) {
+        document.body.removeChild(history_popup);
+    }
+    if (trash_popup) {
+        document.body.removeChild(trash_popup);
+    }
+    if (reading_list_popup) {
+        document.body.removeChild(reading_list_popup);
+    }
+}
+
 async function drop(ev) {
     ev.preventDefault();
     const id = ev.dataTransfer.getData("id");
@@ -357,28 +382,7 @@ async function drop(ev) {
         const popup_content = document.getElementById(itemId + ",popup-content");
         const result = await chrome.storage.local.get(itemId.toString());
         await addLinkToItem(result[itemId], url, urlTitle, popup_content);
-        const open_tabs_popup = document.getElementById('open-tabs-popup');
-        const bookmarks_popup = document.getElementById('bookmarks-popup');
-        const trash_popup = document.getElementById('trash-popup');
-        const history_popup = document.getElementById('history-popup');
-        const reading_list_popup = document.getElementById('reading-list-popup');
-        const overlay = document.getElementById('overlay');
-        overlay.style.display = 'none';
-        if (open_tabs_popup) {
-            document.body.removeChild(open_tabs_popup);
-        }
-        if (bookmarks_popup) {
-            document.body.removeChild(bookmarks_popup);
-        }
-        if (history_popup) {
-            document.body.removeChild(history_popup);
-        }
-        if (trash_popup) {
-            document.body.removeChild(trash_popup);
-        }
-        if (reading_list_popup) {
-            document.body.removeChild(reading_list_popup);
-        }
+        showOverlay();
     }
     currentDrag = {};
 }
@@ -1630,44 +1634,46 @@ async function changeIconLinkClickListener(linkId) {
         const gifsLinkId = result["gifs"].id + "," + linkIndex;
         const gifLinkItemResult = await chrome.storage.local.get(gifsLinkId);
         const linkItem = gifLinkItemResult[gifsLinkId];
-        const link = linkItem.link;
-        const newLink = document.createElement("a");
-        const newImg = document.createElement("img");
-        newImg.src = link;
-        newImg.onerror = () => {
-            newImg.src = "images/default-link.webp";
-        };
-        newImg.alt = link;
-        newImg.width = 32;
-        newImg.height = 32;
-        newLink.href = link;
-        newLink.title = linkItem.title ? linkItem.title : link;
-        newLink.target = "_blank";
-        newLink.id = gifsLinkId;
-        newLink.appendChild(newImg);
-        newLink.addEventListener("click", async function (event) {
-            event.preventDefault();
-            const itemDom = document.getElementById(linkId).firstChild;
-            //update dom element with the new image
-            itemDom.src = event.target.src;
-            //update storage
-            const result = await chrome.storage.local.get(linkId);
-            const item = result[linkId];
-            item.icon = event.target.src;
-            await chrome.storage.local.set({[linkId]: item});
-            //hide gifs_popup
-            const gifs_popup = document.getElementById('gifs-dialog');
-            const overlay = document.getElementById('overlay');
-            overlay.style.display = 'none';
-            if (gifs_popup) {
-                document.body.removeChild(gifs_popup);
-            }
-            console.log(linkId + " updated with new image " + item.src);
-        }, false);
-        newLink.addEventListener("contextmenu", function (event) {
-            handlePopupLinkCtMe(gifsLinkId, event);
-        }, false);
-        popup_content.appendChild(newLink);
+        if (linkItem){
+            const link = linkItem.link;
+            const newLink = document.createElement("a");
+            const newImg = document.createElement("img");
+            newImg.src = link;
+            newImg.onerror = () => {
+                newImg.src = "images/default-link.webp";
+            };
+            newImg.alt = link;
+            newImg.width = 32;
+            newImg.height = 32;
+            newLink.href = link;
+            newLink.title = linkItem.title ? linkItem.title : link;
+            newLink.target = "_blank";
+            newLink.id = gifsLinkId;
+            newLink.appendChild(newImg);
+            newLink.addEventListener("click", async function (event) {
+                event.preventDefault();
+                const itemDom = document.getElementById(linkId).firstChild;
+                //update dom element with the new image
+                itemDom.src = event.target.src;
+                //update storage
+                const result = await chrome.storage.local.get(linkId);
+                const item = result[linkId];
+                item.icon = event.target.src;
+                await chrome.storage.local.set({[linkId]: item});
+                //hide gifs_popup
+                const gifs_popup = document.getElementById('gifs-dialog');
+                const overlay = document.getElementById('overlay');
+                overlay.style.display = 'none';
+                if (gifs_popup) {
+                    document.body.removeChild(gifs_popup);
+                }
+                console.log(linkId + " updated with new image " + item.src);
+            }, false);
+            newLink.addEventListener("contextmenu", function (event) {
+                handlePopupLinkCtMe(gifsLinkId, event);
+            }, false);
+            popup_content.appendChild(newLink);
+        }
     }
     document.getElementById('overlay').style.display = 'block';
     newUrlInput.focus();
@@ -1909,8 +1915,10 @@ async function changeObjectClickListener(object, event) {
     newUrlInput.size = 30;
     popup.id = "gifs-popup";
     popup.className = "popup";
+/*
     popup.style.left = (event.pageX - 10) + "px";
     popup.style.top = (event.pageY - 10) + "px";
+*/
     const popup_content = document.createElement("div");
     popup_content.id = "gifs,popup-content";
     popup_content.className = "popup-content";

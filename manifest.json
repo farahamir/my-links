@@ -1,6 +1,6 @@
 {
   "name": "VisuaLinks – Visual Organizer for Chrome Bookmarks, Tabs, History & More",
-  "version": "0.21",
+  "version": "0.22",
   "description": "Visually organize links with icons,GIFs and backgrounds to boost clarity, usability and make your collection fun and easy to explore",
   "permissions": [
     "storage",
